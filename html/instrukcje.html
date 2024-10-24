@@ -49,13 +49,13 @@
 
         <h4>1. Opis</h4>
 
-        <p>OpenWebUI jest oprogramowaniem typu <a href="https://github.com/open-webui/open-webui">open source</a> będącym webowym interfejsem typu CHAT do modeli LLM. Aplikacja pozwala nie tylko na rozmowę z modelami, ale także dzięki wbudowanym mechanizmom RAG (Retrieval-Augmented Generation) użytkownicy mogą wprowadzać treść dokumentów i całych kolekcji dokumentów lub wyniki wyszukiwania web bezpośrednio do rozmowy, co wzbogaca kontekst i odpowiedzi modeli. Interfejs OpenWebUI pozwala na modyfikacje parametrów pracy modelu, zapisywanie treści rozmów w plikach pdf, json, txt. Dane używane podczas rozmowy nie są wysyłane na zewnątrz, chyba że wykorzystywany jest model z zewnętrznego a nie lokalnego serwera. Aplikacja działa na komputerach stacjonarnych, laptopach i urządzeniach mobilnych.</p>
+        <p>OpenWebUI jest oprogramowaniem typu <a href="https://github.com/open-webui/open-webui" target="_blank">open source</a> będącym webowym interfejsem typu CHAT do modeli LLM. Aplikacja pozwala nie tylko na rozmowę z modelami, ale także dzięki wbudowanym mechanizmom RAG (Retrieval-Augmented Generation) użytkownicy mogą wprowadzać treść dokumentów i całych kolekcji dokumentów lub wyniki wyszukiwania web bezpośrednio do rozmowy, co wzbogaca kontekst i odpowiedzi modeli. Interfejs OpenWebUI pozwala na modyfikacje parametrów pracy modelu, zapisywanie treści rozmów w plikach pdf, json, txt. Dane używane podczas rozmowy nie są wysyłane na zewnątrz, chyba że wykorzystywany jest model z zewnętrznego a nie lokalnego serwera. Aplikacja działa na komputerach stacjonarnych, laptopach i urządzeniach mobilnych. Udostępniona na serwerze ai.ihpan.edu.pl instancja OpenWebUI korzysta z lokalnych modeli (obsługiwane przez oprogramowanie Ollama) oraz z modeli dostępnych przez <a href="https://en.wikipedia.org/wiki/Web_API" target="_blank">API</a> na zewnętrznych <a href="https://openai.com/api/" target="_blank">serwerach</a>.</p>
 
 
         <h4>2. Modele LLM dostępne w aplikacji OpenWebUI pochodzą z 3 źródeł:</h4>
 
         <ul>
-            <li> <strong>lokalne</strong>, uruchamiane na serwerze <strong>ai.ihpan.edu.pl</strong> (te działają dość wolno, nie mamy jeszcze sprzętu odpowiedniego do takich zadań, dodatkowo modele lokalne to wersje skwantyzowane do 4 bitów - nieco uproszczone - by mogły działać na samych CPU)</li>
+            <li> <strong>lokalne</strong>, uruchamiane na serwerze <strong>ai.ihpan.edu.pl</strong> (te działają dość wolno, nie mamy jeszcze sprzętu odpowiedniego do takich zadań, dodatkowo modele lokalne to wersje <a href="https://huggingface.co/docs/optimum/concept_guides/quantization" target="_blank">skwantyzowane do 4 bitów</a> - nieco uproszczone - by mogły działać na samych CPU)</li>
 
             <li> <strong>serwer API GroqCloud</strong> - serwer udostępniający modele poprzez api, ta firma nie korzysta kart GPU Nvidii ale z własnych układów LPU, używanych tylko do inferencji (odpytywania modeli), nie nadają się do trenowania czy fine-tuningu. API jest bezpłatne, ale ma dzienne ograniczenia, jest możliwe że w pewnym momencie model  z tego źródła przestanie odpowiadać i trzeba będzie poczekać do następnego dnia.</li>
 
@@ -65,15 +65,15 @@
         <h4>3. Lista dostępnych modeli:</h4>
 
         <ul>
-            <li><strong>llama-3.2-90b-text-preview</strong> (Groq Cloud), model open-source od formy Meta, domyślnym modelem używany w czacie</li>
+            <li><strong>llama-3.2-90b-text-preview</strong> (Groq Cloud), model open-source od formy Meta, jest domyślnym modelem używanym w czacie (wielojęzyczny)</li>
 
-            <li><strong>gemma2-9b-it</strong> (Groq Cloud) lekki, otwarty model od Google, stworzony na podstawie tych samych badań i technologii, które posłużyły do ​​stworzenia modeli Gemini (ale sporo mniejszy)</li>
+            <li><strong>gemma2-9b-it</strong> (Groq Cloud) lekki, otwarty model od Google, stworzony na podstawie tych samych badań i technologii, które posłużyły do ​​stworzenia modeli Gemini, ale sporo mniejszy (głównie j. angielski)</li>
 
-            <li><strong>gpt-4o-mini</strong> (OpenAI), mały model GPT firmy OpenAI (ale i tak lepszy od większości modeli open-source)</li>
+            <li><strong>gpt-4o-mini</strong> (OpenAI), mały model GPT firmy OpenAI, ale i tak lepszy od większości modeli open-source (wielojęzyczny)</li>
 
-            <li><strong>mixtral-8x7b-32768</strong> (Groq Cloud), model open-source francuskiej firmy Mistral aI</li>
+            <li><strong>mixtral-8x7b-32768</strong> (Groq Cloud), model open-source francuskiej firmy Mistral AI (wielojęzyczny)</li>
 
-            <li><strong>bielik-11b-v2.3-instruct</strong> (lokalny) - model open-source wytrenowany na korpusie polskich tekstów przez społeczność zorganizowaną wokół stowarzyszenia SpeakLeash oraz specjalistów z Cyfronet AGH. Model oparty na innym modelu open-source: Mistral-7B.</li>
+            <li><strong>bielik-11b-v2.3-instruct</strong> (lokalny) - model open-source wytrenowany na korpusie polskich tekstów przez społeczność zorganizowaną wokół stowarzyszenia SpeakLeash oraz specjalistów z Cyfronet AGH. Model oparty na innym modelu open-source: Mistral-7B (głównie j. polski).</li>
 
             <li><strong>Regulamin AI</strong> - model 'dostosowany' - to definicja modelu opartego na llama-3.2-90b-text-preview z przypisanym odpowiednim promptem systemowym i bazą wiedzy (kolekcją dokumentów - w tym przypadku to regulaminy i zarządzenia obowiązujące w IH PAN. Uwaga: na razie w kolekcji są tylko wybrane regulaminy). Model odpowiada na tematy związane z regulaminami Instytutu.</li>
 
@@ -82,12 +82,17 @@
             <li><strong>Bałtyk AI</strong> - model 'dostosowany' - odpowiada na pytania dotyczące polityki morskiej Jagiellonów w XVI wieku, na podstawie kolekcji publikacji będących już w domenie publicznej (głównie autorstwa Stanisława Bodniaka)</li>
         </ul>
 
+        <p>Dodatkowo na lokalnym serwerze Ollama działa niewidoczny dla użytkowników model <strong>gte-qwen2-1.5b-instruct</strong>, który służy do przetwarzania kolekcji dokumentów - obliczania tzw. osadzeń (<a href="https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-generating-embeddings" target="_blank">embeddings</a>) dla fragmentów tekstów, które są przechowywane w tzw. <a href="https://en.wikipedia.org/wiki/Vector_database" target="_blank">bazach wektorowych</a> (OpenWebUI wykorzystuje obecnie <a href="https://www.trychroma.com/" target="_blank">ChromaDB</a>), co pozwala porównywać semantycznie (znaczeniowo) treść zapytań użytkownika z dokumentami.</p>
+
         <h4>4. Praca z OpenWebUI</h4>
 
-        <p>Po zalogowaniu widoczny jest interfejs czatu. W polu na treść promptu (pytania) widoczna jest podpowiedź: "Jak mogę Ci dzisiaj pomóc?", po lewej stronie widoczny jest znak + który wywoluje menu, dzięki któremu można załączyć plik (txt, pdf) lub włączyć wyszukiwanie w internecie. Poniżej widoczna jest lista typowych pytań które można zadać modelowi jednym kliknięciem.</p>
+        <p>Po zalogowaniu widoczny jest interfejs czatu. W polu na treść promptu (pytania) widoczna jest podpowiedź: "Jak mogę Ci dzisiaj pomóc?", po lewej stronie widoczny jest znak + który wywołuje menu, dzięki któremu można załączyć plik (txt, pdf) lub włączyć wyszukiwanie w internecie. Poniżej widoczna jest lista typowych pytań które można zadać modelowi jednym kliknięciem.</p>
 
         <p>Po lewej stronie ekranu widoczna jest lista poprzednich czatów (początkowo oczywiście pusta), u góry zaś przycisk do tworzenia nowego czatu, pole opcji z możliwością ustawienia aktywnego modelu. Można też dodać kolejny aktywny model. Aplikacja zapyta wówczas każdy z nich i wyświetli wiele odpowiedzi.</p>
-        <p>U góry po prawej stronie ekranu widoczne są trzy ikony. Pierwsza z trzema kropkami dotyczy opcji czatu, można:
+        <p>
+            U góry po prawej stronie ekranu widoczne są trzy ikony (jeżeli utworzony został nowy czat, pierwsza z ikon nie jest jeszcze widoczna, pojawia się po przygotowaniu pierwszej odpowiedzi przez model).
+            <br><img src="ikony.png"><br>
+            Pierwsza z trzema kropkami dotyczy opcji czatu, można:
 
         <ul>
             <li>udostępnić czat w sieci - aplikacja utworzy link, ale by go użyć należy mieć konto w danej instancji OpenWebUI</li>
@@ -103,9 +108,23 @@
 
         <p>Ustawienia użytkownika pozwalają na wybór domyślnego modelu dla bieżącego użytkownika, język interfejsu czy też zmianę hasła dla konta.</p>
 
-        <p>Sesję czatu z modelem można rozpocząć od wyboru modelu z menu u góry ekranu, następnie do rozmowy można (opcjonalnie) załączyć plik np. z lokalnego dysku (znak + i opcja Prześlij pliki), lub załączyć kolekcję dokumentów (bazę wiedzy) wpisując w polu na prompt znak #, który wywołuje listę dostępnych kolekcji dokumentów. Po ustawieniu pliku lub kolekcji będą one dostępne podczas całego czatu z modelem. Następnie można zadać pytanie, lub zdefiniować zadanie dla modelu. Działa też nagrywanie pytania głosem - aplikacja wykonuje transkrypcję (ale raczej w języku angielskim). Po wpisaniu pytania przycisk ze strzałką wysyła wiadomość do modelu. Czas oczekiwania na odpowiedź może być różny, zależnie od tego czy przeszukiwana jest kolekcja dokumentów, czy sieć internet, czy wykorzystywany jest model z szybkiego serwera zewnętrznego, czy też z serwera lokalnego. Zwykle oczekiwanie trwa od kilku sekund do paru minut.</p>
+        <p><br><img src="model_selection.png" width="350px"><br></p>
 
-        <h4>5. Pytania i Odpowiedzi:</h4>
+        <p>Sesję czatu z modelem można rozpocząć od wyboru modelu z menu u góry ekranu, do rozmowy można (opcjonalnie) załączyć plik np. z lokalnego dysku (znak + i opcja Prześlij pliki), lub załączyć kolekcję dokumentów (bazę wiedzy) wpisując w polu na prompt znak #, który wywołuje listę dostępnych kolekcji dokumentów. Po ustawieniu pliku lub kolekcji będą one dostępne podczas całego czatu z modelem. Następnie można zadać pytanie, lub zdefiniować zadanie dla modelu. Można też skorzystać z podpowiadanych gotowych sugerowanych pytań widocznych pod polem na treść promptu. Działa także nagrywanie pytania głosem - aplikacja wykonuje transkrypcję (ale raczej w języku angielskim). Po wpisaniu pytania przycisk ze strzałką wysyła wiadomość do modelu. Czas oczekiwania na odpowiedź może być różny, zależnie od tego czy przeszukiwana jest kolekcja dokumentów, czy sieć internet, czy wykorzystywany jest model z szybkiego serwera zewnętrznego, czy też z serwera lokalnego. Zwykle oczekiwanie trwa od kilku sekund do paru minut.</p>
+
+        <p>Jeżeli podczas rozmowy wskazana została kolekcja dokumentów, aplikacja oprócz odpowiedzi w formie tekstu wyświetla też listę dokumentów, których fragmenty dostarczone zostały jako kontekst do modelu, kliknięcie na danym odnośniku do dokumentu wyświetla konkretny fragment tekstu.</p>
+
+        <p>Oprócz listy gotowych sugerowanych pytań w aplikacji OpenWebUI dostępna jest także biblioteka promptów, z której można skorzystać wpisując w polu na prompt (zapytanie) znak '/' - wyświetlona zostanie wówczas lista gotowych promptów do wyboru.</p>
+
+        <h4>5. Ograniczenia</h4>
+
+        <p>Infrastruktura sprzętowa IHPAN nie jest na razie przygotowana do wykorzystania większych modeli LLM, dlatego największy udostępniany lokalnie model to Bielik w wersji 2.3 o 11 miliardach parametrów. Mimo małego rozmiaru, podczas korzystania z tego modelu należy uzbroić się w cierpliwość, modele LLM są bardzo wymagające obliczeniowo.</p>
+
+        <p>Każdy z dostępnych modeli ma ograniczenia w długości przetwarzanego kontekstu, model gemma2-9b-it ma tzw. okienko kontekstu równe 8192 tokeny (około 4 tys. słów w języku polskim), model gpt-4o-mini - około 60-70 tys. słów, bielik-2.3 - kilkanaście tysięcy. Należy brać te ograniczenia pod uwagę przy próbie przetwarzania dużych treści.</p>
+
+        <p>Tzw. kolekcje dokumentów (określane też jako 'Knowledge' czyli 'bazy wiedzy') są w aplikacji OpenWebUI wstępnie przetwarzane i zapisywane w wewnętrznej bazie wektorowej (ChromaDB). Wstepne przetwarzanie polega na mechanicznym dzieleniu dokumentów na fragmenty po kilkaset znaków (z zakładką 100 znaków) i obliczaniu dla takich fragmentów tzw. osadzeń (embeddings), które pozwalają na wyszukiwanie semantyczne (z uwzględnieniem znaczenia danego fragmentu).Podczas korzystania z mechanizmu RAG do modelu dostarczanych jest tylko 5 najbardziej pasujących znaczeniowo fragmentów oraz oczywiście treść promptu użytkownika (zapytania/zadania) i prompt systemowy. Ponieważ fragmenty dokumentów mają zwykle nie więcej niż 1000 znaków, całość mieści się w oknie kontekstu nawet najmniejszego z dostępnych modeli. Jednocześnie należy zauważyć, że wykorzystywany obecnie mechanizm RAG jest jednym z najprostszych wariantów tej technologii. Lepsze wyniki może można osiągnąć używając dodatkowych metod, np. wyszukiwania w zewnętrznych bazach wiedzy typu WikiHum, Wikidata.</p>
+
+        <h4>6. Pytania i Odpowiedzi:</h4>
 
         <p><em>- Jak podczas czatu korzystać ze wskazanej strony internetowej?</em></p>
 
@@ -131,7 +150,7 @@
 
         <h4>Zastrzeżenia</h4>
 
-        <p>LLMy mogą popełniać błędy. Zweryfikuj ważne informacje. Instytut Historii PAN nie ponosi odpowiedzialności ani za treść zapytań (lub załączonych do pytania dokumentów) wysyłanych do modeli przez użytkowników ani za treść odpowiedzi udzielanych przez modele LLM.</p>
+        <p>LLMy mogą popełniać błędy. Zweryfikuj ważne informacje. Instytut Historii PAN nie ponosi odpowiedzialności ani za treść zapytań (lub załączonych do pytania dokumentów) wysyłanych do modeli przez użytkowników ani za treść odpowiedzi udzielanych przez modele LLM. Treść zapytań i dokumentów może być przesyłana poza infrastrukturę IHPAN w przypadku korzystania z modeli LLM działających na serwerach zewnętrznych (OpenAI, Groq Cloud).</p>
 
         </div>
     </div>
