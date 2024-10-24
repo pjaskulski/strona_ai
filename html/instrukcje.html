@@ -49,7 +49,7 @@
 
         <h4>1. Opis</h4>
 
-        <p>OpenWebUI jest oprogramowaniem typu <a href="https://github.com/open-webui/open-webui" target="_blank">open source</a> będącym webowym interfejsem typu CHAT do modeli LLM. Aplikacja pozwala nie tylko na rozmowę z modelami, ale także dzięki wbudowanym mechanizmom RAG (Retrieval-Augmented Generation) użytkownicy mogą wprowadzać treść dokumentów i całych kolekcji dokumentów lub wyniki wyszukiwania web bezpośrednio do rozmowy, co wzbogaca kontekst i odpowiedzi modeli. Interfejs OpenWebUI pozwala na modyfikacje parametrów pracy modelu, zapisywanie treści rozmów w plikach pdf, json, txt. Dane używane podczas rozmowy nie są wysyłane na zewnątrz, chyba że wykorzystywany jest model z zewnętrznego a nie lokalnego serwera. Aplikacja działa na komputerach stacjonarnych, laptopach i urządzeniach mobilnych. Udostępniona na serwerze ai.ihpan.edu.pl instancja OpenWebUI korzysta z lokalnych modeli (obsługiwane przez oprogramowanie Ollama) oraz z modeli dostępnych przez <a href="https://en.wikipedia.org/wiki/Web_API" target="_blank">API</a> na zewnętrznych <a href="https://openai.com/api/" target="_blank">serwerach</a>.</p>
+        <p>OpenWebUI jest oprogramowaniem typu <a href="https://github.com/open-webui/open-webui" target="_blank">open source</a> będącym webowym interfejsem typu CHAT do modeli LLM. Aplikacja pozwala nie tylko na rozmowę z modelami, ale także dzięki wbudowanym mechanizmom RAG (<a href="https://en.wikipedia.org/wiki/Retrieval-augmented_generation" target="_blank">Retrieval-Augmented Generation</a>) użytkownicy mogą wprowadzać treść dokumentów i całych kolekcji dokumentów lub wyniki wyszukiwania web bezpośrednio do rozmowy, co wzbogaca kontekst i odpowiedzi modeli. Interfejs OpenWebUI pozwala na modyfikacje parametrów pracy modelu, zapisywanie treści rozmów w plikach pdf, json, txt. Dane używane podczas rozmowy nie są wysyłane na zewnątrz, chyba że wykorzystywany jest model z zewnętrznego a nie lokalnego serwera. Aplikacja działa na komputerach stacjonarnych, laptopach i urządzeniach mobilnych. Udostępniona na serwerze ai.ihpan.edu.pl instancja OpenWebUI korzysta z lokalnych modeli (obsługiwane przez oprogramowanie Ollama) oraz z modeli dostępnych przez <a href="https://en.wikipedia.org/wiki/Web_API" target="_blank">API</a> na zewnętrznych <a href="https://openai.com/api/" target="_blank">serwerach</a>.</p>
 
 
         <h4>2. Modele LLM dostępne w aplikacji OpenWebUI pochodzą z 3 źródeł:</h4>
@@ -73,7 +73,7 @@
 
             <li><strong>mixtral-8x7b-32768</strong> (Groq Cloud), model open-source francuskiej firmy Mistral AI (wielojęzyczny)</li>
 
-            <li><strong>bielik-11b-v2.3-instruct</strong> (lokalny) - model open-source wytrenowany na korpusie polskich tekstów przez społeczność zorganizowaną wokół stowarzyszenia SpeakLeash oraz specjalistów z Cyfronet AGH. Model oparty na innym modelu open-source: Mistral-7B (głównie j. polski).</li>
+            <li><strong>bielik-11b-v2.3-instruct</strong> (lokalny) - model open-source wytrenowany na korpusie polskich tekstów przez społeczność zorganizowaną wokół stowarzyszenia <a href="https://speakleash.org/" target="_blank">SpeakLeash</a> oraz specjalistów z Cyfronet AGH. Model oparty na innym modelu open-source: Mistral-7B (głównie j. polski).</li>
 
             <li><strong>Regulamin AI</strong> - model 'dostosowany' - to definicja modelu opartego na llama-3.2-90b-text-preview z przypisanym odpowiednim promptem systemowym i bazą wiedzy (kolekcją dokumentów - w tym przypadku to regulaminy i zarządzenia obowiązujące w IH PAN. Uwaga: na razie w kolekcji są tylko wybrane regulaminy). Model odpowiada na tematy związane z regulaminami Instytutu.</li>
 
@@ -133,7 +133,7 @@
 
         <p><em>- Jak skłonić czat do korzystania z internetu podczas przygotowywania odpowiedzi?</em></p>
 
-        <p>Po lewej stronie pola na treść pytania/promptu znajduje się przycisk '+', p jego wciśnięciu rozwijane jest menu pozwalające dodawać pliki do rozmowy (opcja: Przeslij pliki), lub właśnie włączyć korzystanie z internetu (Wyszukiwarka).</p>
+        <p>Po lewej stronie pola na treść pytania/promptu znajduje się przycisk '+', p jego wciśnięciu rozwijane jest menu pozwalające dodawać pliki do rozmowy (opcja: Przeslij pliki), lub właśnie włączyć korzystanie z internetu (Wyszukiwarka). Do przeszukiwania internetu aplikacja obecnie wykorzystuje usługę serwisu jina.ai. </p>
 
         <p><em>- Jak załączyć kolekcję dokumentów (bazę wiedzy) do rozmowy?</em></p>
 
@@ -146,6 +146,11 @@
         <p><em>- Skąd się biorą tytuły czatów z użytkownikiem zapisywanych przez OpenWebUI?</em></p>
 
         <p>Powstają automatycznie na podstawie treści rozmowy. Ale można je edytować.</p>
+
+        <p><em>- Gdzie znajdę więcej informacji o OpenWebUI?</em></p>
+
+        <p>Dokumentacja: <a href="https://docs.openwebui.com/" target="_blank">https://docs.openwebui.com/</a></p>
+
 
 
         <h4>Zastrzeżenia</h4>
