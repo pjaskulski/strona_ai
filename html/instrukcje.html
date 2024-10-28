@@ -65,7 +65,11 @@
         <h4>3. Lista dostępnych modeli:</h4>
 
         <ul>
-            <li><strong>llama-3.2-90b-text-preview</strong> (Groq Cloud), model open-source od formy Meta, jest domyślnym modelem używanym w czacie (wielojęzyczny)</li>
+            <li><strong>llama-3.2-90b-text-preview</strong> (Groq Cloud), model open-source od firmy Meta, <strong>uwaga:</strong> to największy model open-source dostępny obecnie na Groq Cloud i bywa mocno obciążony, co czasem powoduje iż gubi się i zapętla w odpowiedziach (wielojęzyczny)</li>
+
+            <li><strong>llama-3.1-70b-versatile</strong> (Groq Cloud), starszy wariant modelu open source od firmy Meta (wielojęzyczny)</li>
+
+            <li><strong>llama-3.2-11b-text-preview</strong> (Groq Cloud), jeden z mniejszych modeli open source od firmy Meta (wielojęzyczny)</li>
 
             <li><strong>gemma2-9b-it</strong> (Groq Cloud) lekki, otwarty model od Google, stworzony na podstawie tych samych badań i technologii, które posłużyły do ​​stworzenia modeli Gemini, ale sporo mniejszy (głównie j. angielski)</li>
 
@@ -153,7 +157,7 @@
 
         <p><em>- Czym różni się załączanie kolekcji dokumentów w czacie od korzystania z 'dostosowanych' modeli?</em></p>
 
-        <p>Jeżeli chodzi o efekt to właściwie niczym, model 'dostosowany' ma wybrany z góry rzeczywisty model LLM, już ustawione kolekcje dokumentów z których będzie korzystał, ma zdefiniowany prompt systemowy i podpowiada typowe pytania pytania, które można mu zadać jednym kliknięciem. Może też mieć zmodyfikowane parametry pracy modelu. To samo można osiągnąć tworząc zwykłą nową rozmowę, wybierając model LLM z listy, modyfikując parametry modelu w parametrach rozmowy, przypisując kolekcje dokumentów poprzez znak # w polu promptu. Model 'dostosowany' jest po prostu wygodniejszy do konkretnego celu, np. pytań o regulaminy.</p>
+        <p>Jeżeli chodzi o efekt to właściwie niczym, model 'dostosowany' ma wybrany z góry rzeczywisty model LLM, już ustawione kolekcje dokumentów z których będzie korzystał, ma zdefiniowany prompt systemowy i podpowiada typowe pytania, które można mu zadać jednym kliknięciem. Może też mieć zmodyfikowane parametry pracy modelu. To samo można osiągnąć tworząc zwykłą nową rozmowę, wybierając model LLM z listy, modyfikując parametry modelu w parametrach czatu, przypisując kolekcje dokumentów poprzez znak # w polu promptu. Model 'dostosowany' jest po prostu wygodniejszy do konkretnego celu, np. pytań o regulaminy.</p>
 
         <p><em>- Skąd się biorą tytuły czatów z użytkownikiem zapisywanych przez OpenWebUI?</em></p>
 
