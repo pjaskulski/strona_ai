@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -8,9 +7,7 @@
     <title>🔥 AI.IHPAN.EDU.PL 🔥</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
-    <!-- Link to your stylesheet here -->
     <link rel="stylesheet" href="lit.css">
-    <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <style>
     .example-grid .row {
@@ -29,62 +26,129 @@
     </style>
 </head>
 
-<body class="c">
+<body class="c pl">
+
+    <div class="lang-switch">
+        <span onclick="setLanguage('pl')" id="btn-pl" class="active">PL</span> |
+        <span onclick="setLanguage('en')" id="btn-en">EN</span>
+    </div>
 
     <div class="row">
         <div class="9 col">
             <h1>🔥 AI.IHPAN.EDU.PL 🔥</h1>
-            <h5>Serwer z narzędziami wykorzystującymi AI przeznaczonymi do badań historycznych</h5>
-            <p>Część aplikacji dostępna jest tylko do użytku wewnętrznego dla osób pracujących lub współpracujących z Instytutem Historii Polskiej Akademii Nauk.</p>
+
+            <h5 class="lang-pl">Serwer z narzędziami wykorzystującymi AI przeznaczonymi do badań historycznych</h5>
+            <h5 class="lang-en">Server with AI tools dedicated to historical research</h5>
+
+            <p class="lang-pl">Część aplikacji dostępna jest tylko do użytku wewnętrznego dla osób pracujących lub współpracujących z Instytutem Historii Polskiej Akademii Nauk.</p>
+            <p class="lang-en">Some applications are available only for internal use by staff and collaborators of the Institute of History of the Polish Academy of Sciences.</p>
         </div>
         <div class="3 col">
-            <div class="cytat"><img src="logo-ihpan.png" width="50"></div>
+            <div class="cytat"><img src="logo-ihpan.png" width="50" alt="Logo IH PAN"></div>
         </div>
     </div>
 
     <div class="row">
         <div class="card col">
-          <img src="openwebui.png" class="w-100">
-          <!--
-            <p><a href="#" onclick="javascript:window.location.port=8080">OpenWeb UI</a> - prosty chat z tekstami historycznymi</p>
-	  -->
-          <p><a href="https://ai-chat.ihpan.edu.pl">OpenWeb UI</a> - prosty chat z tekstami historycznymi</p>
+          <img src="openwebui.png" class="w-100" alt="OpenWeb UI">
+          <p>
+              <a href="https://ai-chat.ihpan.edu.pl">OpenWeb UI</a> -
+              <span class="lang-pl">prosty chat z tekstami historycznymi</span>
+              <span class="lang-en">simple chat with historical texts</span>
+          </p>
 
         </div>
         <div class="card col">
-          <a href="http://ai.ihpan.edu.pl/wikihumsearch"></a><img src="wikihumsearch.jpg" class="w-100"></a>
-          <p><a href="http://ai.ihpan.edu.pl/wikihumsearch">WikiHumSearch</a> - semantyczne (wektorowe) przeszukiwanie danych w bazie wiedzy WikiHum</p>
+          <a href="http://ai.ihpan.edu.pl/wikihumsearch"><img src="wikihumsearch.jpg" class="w-100" alt="WikiHumSearch"></a>
+          <p>
+              <a href="http://ai.ihpan.edu.pl/wikihumsearch">WikiHumSearch</a> -
+              <span class="lang-pl">semantyczne (wektorowe) przeszukiwanie danych w bazie wiedzy WikiHum</span>
+              <span class="lang-en">semantic (vector) data search in the WikiHum knowledge base</span>
+          </p>
         </div>
         <div class="card col">
-          <img src="sgkpsearch.jpg" class="w-100">
-          <p><a href="http://ai.ihpan.edu.pl/sgkpsearch">SGKP-Search</a> - hybrydowa (pełnotekstowa i wektorowa) wyszukiwarka informacji w Słowniku Geograficznym Królestwa Polskiego</p>
+          <img src="sgkpsearch.jpg" class="w-100" alt="SGKP Search">
+          <p>
+              <a href="http://ai.ihpan.edu.pl/sgkpsearch">SGKP-Search</a> -
+              <span class="lang-pl">hybrydowa (pełnotekstowa i wektorowa) wyszukiwarka informacji w Słowniku Geograficznym Królestwa Polskiego</span>
+              <span class="lang-en">hybrid (full-text and vector) information search engine for the Geographical Dictionary of the Kingdom of Poland</span>
+          </p>
         </div>
     </div>
 
     <hr>
         <div class="row">
         <div class="9 col">
-            <h2>Tutoriale:</h2>
+            <h2>
+                <span class="lang-pl">Tutoriale i opisy:</span>
+                <span class="lang-en">Tutorials and descriptions:</span>
+            </h2>
 
-            <h5><a href="tutorial.html"><strong>Wprowadzenie do systemów eScriptorium i Kraken (HTR)</strong></a></h5>
-            <p>eScriptorium jest webową aplikacją Open Source przeznaczoną do pracy nad historycznymi rękopisami i drukami - przygotowywaniem manualnych i automatycznych transkrypcji. Aplikacja jest zintegrowana z programem Kraken, narzędziem wykorzystującym algorytmy uczenia głębokiego do rozpoznawania tekstów (OCR i HTR). Projekt rozwijany jest przez zespół z École Pratique des Hautes Études - Université PSL.</p>
+            <h5><a href="tutorial.html"><strong>
+                <span class="lang-pl">Wprowadzenie do systemów eScriptorium i Kraken (HTR)</span>
+                <span class="lang-en">Introduction to eScriptorium and Kraken systems (HTR) - in Polish</span>
+            </strong></a></h5>
 
-            <h5><a href="instrukcje.html"><strong>OpenWebUI - krótka instrukcja obsługi</strong></a></h5>
-            <p>OpenWebUI jest oprogramowaniem typu open source będącym webowym interfejsem typu CHAT do modeli LLM.</p>
+            <p class="lang-pl">eScriptorium jest webową aplikacją Open Source przeznaczoną do pracy nad historycznymi rękopisami i drukami - przygotowywaniem manualnych i automatycznych transkrypcji. Aplikacja jest zintegrowana z programem Kraken, narzędziem wykorzystującym algorytmy uczenia głębokiego do rozpoznawania tekstów (OCR i HTR). Projekt rozwijany jest przez zespół z École Pratique des Hautes Études - Université PSL.</p>
+            <p class="lang-en">eScriptorium is an Open Source web application designed for working with historical manuscripts and prints - preparing manual and automatic transcriptions. The application is integrated with Kraken, a tool using deep learning algorithms for text recognition (OCR and HTR). The project is developed by a team from École Pratique des Hautes Études - Université PSL.</p>
+
+            <h5><a href="wikihumsearch.html">
+                <strong>
+                    <span class="lang-pl">WikiHumSearch - opis</span>
+                    <span class="lang-en">WikiHumSearch - description - in Polish</span>
+                </strong>
+                </a>
+            </h5>
+
+            <p class="lang-pl">WikiHumSearch jest eksperymentalną wyszukiwarką semantyczną (wektorową) w bazie wiedzy WikiHum.</p>
+            <p class="lang-en">WikiHumSearch is an experimental semantic (vector) data search in the WikiHum knowledge base.</p>
+
+            <h5><a href="instrukcje.html"><strong>
+                <span class="lang-pl">OpenWebUI - krótka instrukcja obsługi</span>
+                <span class="lang-en">OpenWebUI - short user manual - in Polish</span>
+            </strong></a></h5>
+
+            <p class="lang-pl">OpenWebUI jest oprogramowaniem typu open source będącym webowym interfejsem typu CHAT do modeli LLM.</p>
+            <p class="lang-en">OpenWebUI is open source software serving as a web-based CHAT interface for LLM models.</p>
         </div>
     </div>
 
     <hr>
 
-    <!--<div class="card">-->
-        <div class="cytat">
-            <p>Pracownia Historii Cyfrowej IH PAN
-            <a href="https://ihpan.edu.pl/dariah-lab/kontakt/" target="_blank">Skontaktuj się z nami!</a>
-           </p>
-        </div>
-    <!--</div>-->
+    <div class="cytat">
+        <p>
+            <span class="lang-pl">Pracownia Historii Cyfrowej IH PAN</span>
+            <span class="lang-en">Digital History Lab IH PAN</span>
+            <br>
+            <a href="https://ihpan.edu.pl/dariah-lab/kontakt/" target="_blank">
+                <span class="lang-pl">Skontaktuj się z nami!</span>
+                <span class="lang-en">Contact us!</span>
+            </a>
+        </p>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            // Ustawienie klasy na body
+            document.body.className = 'c ' + lang;
+
+            // Zmiana stylu przycisków
+            document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+            // Zmiana atrybutu lang html dla dostępności
+            document.documentElement.lang = lang;
+
+            // Zapisanie wyboru w localStorage
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Sprawdzenie czy użytkownik wybrał język wcześniej
+        const savedLang = localStorage.getItem('preferredLanguage');
+        if (savedLang) {
+            setLanguage(savedLang);
+        }
+    </script>
 
 </body>
 </html>
-
-
