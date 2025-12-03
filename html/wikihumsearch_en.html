@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>WikiHumSearch - Description</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="lit.css">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <style>
+        .example-grid .row {
+            text-align: center;
+            font-size: .8em;
+            letter-spacing: .1rem;
+            margin: .8em 0;
+        }
+
+        .example-grid .col {
+            background: #EEE;
+            padding: .3em;
+        }
+
+        DIV.cytat {
+            text-align: right
+        }
+    </style>
+</head>
+
+<body class="c">
+
+    <div class="row">
+        <div class="9 col">
+
+            <h2>WikiHumSearch - Description</h2>
+
+            <p>Semantic search, aided by artificial intelligence, sometimes called vector search, uses specialized Large
+                Language Models (LLMs) to retrieve search results based on the meaning and context of the query. For
+                every record (element, text fragment - depending on the type of data we are dealing with: database,
+                knowledge base, text corpus), a vector representation (a set of usually several hundred or more numbers)
+                is calculated using a special version of an LLM optimized for this purpose (see popular open-source
+                embedding models on <a href="https://ollama.com/search?c=embedding" target="_blank">Ollama</a> and the
+                description of embeddings in the <a href="https://platform.openai.com/docs/guides/embeddings"
+                    target="_blank">OpenAI</a> documentation). Such a set of numbers characterizes the given content in
+                terms of meaning - text fragments talking about mines in Silesia and places of metal ore extraction in
+                the Czech Republic will have values closer to each other than to a text fragment talking about potato
+                salad. <strong>Semantic search uses the meaning of texts, not the exact spelling of words.</strong></p>
+
+            <p>In the test semantic search mechanism, the <strong>Meilisearch</strong> search engine was used, which
+                supports traditional full-text search, semantic search, and a hybrid of both solutions. The multilingual
+                <strong>OpenAI model: text-embedding-3-small</strong> was used as the embedding model.</p>
+
+            <p>The method of preparing WikiHum data for the search engine is similar to what was done in the <a
+                    href="https://www.wikidata.org/wiki/Wikidata:Embedding_Project" target="_blank">Wikidata:Embedding
+                    Project</a>. Sample text exported from an entry regarding a person:</p>
+
+<pre>
+label: Marian Mieczysław Szulc
+time: 2025-11-07 13:54
+link: https://wikihum.lab.dariah.pl/wiki/Item:Q174825
+alias: Schulz, Marian
+description: (1913-1979) photographer, historian of photography, co-organizer
+of the Association of Polish Art Photographers, headed the first Photography
+Department at the Poznań Voivodeship Office
+attributes:
+  - date of birth: 1913-03-21
+  - date of birth: 1913
+  - date of death: 1979-09-12
+  - date of death: 1979
+  - instance of: human
+</pre>
+
+ <p>(the 'time' field contains the date the data was downloaded from WikiHum, useful for future data updates).</p>
+
+<p>Sample text exported from an entry (item) regarding a locality:</p>
+
+<pre>
+label: Zielęcin Wielki
+time: 2025-11-07 11:50
+link: https://wikihum.lab.dariah.pl/wiki/Item:Q138072
+alias: Zieloncino
+description: part of village: Zielęcin (commune: Warta, county: sieradzki, voivodeship: łódzkie)
+attributes:
+  - described as: Zielęcin Wielki (genitive ending: -na -kiego,
+    name status: unofficial name, date: 2022)
+  - locality type: part of village (date: 2022)
+  - geographic coordinates: 51.7360911,18.52880771 (date: 2022)
+  - located in secular administrative unit: gmina Warta (date: 2022)
+  - is part of: Zielęcin (date: 2022)
+  - instance of: settlement unit (date: 2022)
+</pre>
+
+            <p>Especially in the case of people, this data is currently not very extensive; the main significance is
+                usually a one-sentence description. In the case of localities, a few more properties regarding type and
+                ownership may influence semantic search. As WikiHum resources grow, data subject to semantic search will
+                of course be supplemented.</p>
+
+            <p>The exported data, in a form processed into JSON structures, is imported into the <a
+                    href="https://github.com/meilisearch/meilisearch" target="_blank">Meilisearch</a> engine, where the
+                calculation of the text's vector representation also takes place. WikiHum data in TXT format occupies
+                about 130 MB, while after import it is about 3 GB.</p>
+
+            <p>To make semantic search available to users, a simple application (Python + Flask) was prepared with the
+                ability to request a search and view the list of results. The search is actually hybrid (semantic and
+                full-text simultaneously), except that the semantic component accounts for 90% of the result (the
+                semanticRatio parameter of the search engine is set to 0.9).</p>
+
+            <p>Example two-word query: <strong>człowiek militaria</strong> (human militaria), returns a list of people
+                somehow related to the military, wars, the army, etc. While the word <strong>człowiek</strong> (human)
+                appears in the wikibase item data as the value of the 'instance of' property, the word
+                <strong>militaria</strong> usually does not appear there; the mechanism found items containing words
+                with similar meanings and prepared the results on this basis.</p>
+
+            <p><strong>Other example queries:</strong><br />
+                - localities 16th century monarch ownership<br />
+                - mathematicians<br />
+                - architects<br />
+                - mill settlements<br />
+                - participants of the November Uprising</p>
+
+            <p>It is worth comparing the results of the same queries with the full-text search mechanism in <a
+                    href="https://wikihum.lab.dariah.pl/index.php?search" target="_blank">WikiHum</a>.</p>
+
+            <p>Using the example of the last query (participants of the November Uprising), one can notice how semantic
+                search works (or fails). It is not precise filtering like in a database table; the mechanism searches
+                for items that seem to have a meaning similar to the words in the query. In this case, we have a word
+                related to an uprising (which probably influences the result the most), a word related to participation,
+                and an adjective regarding the name of the uprising. In the results, we receive people (correctly) who
+                participated in something (usually in uprisings); the first two results concern participants of the
+                November Uprising, in the first 20 results there are 8 such persons, besides that we have participants
+                of the January Uprising, Kościuszko Uprising. Semantic search results will therefore always be slightly
+                'blurred'. For the first example (monarch ownership), 17 out of 20 results match the intent of the
+                query, 2 results concern nobility localities and 1 the concept of 'monarch ownership' itself. This
+                question is quite a precise filter and likely a SPARQL query would work better in such a situation.<br />
+                In the case of WikiHum, the effects are also influenced by the small amount of text in the knowledge
+                base.<br />
+                <br />
+                The returned results should also not be understood as 'matches' - the system returns all items above a
+                certain relevance threshold, in order from most relevant to least relevant. It may happen that the first
+                30 results are actually related to the query and the next ones are not, but all are displayed so that
+                the user can decide on their usefulness.
+            </p>
+
+            <p>The search mechanism can mark words, or fragments of words, that are related to the query; the full-text
+                component of the search engine is responsible for this, so words appearing directly in the query content
+                are marked this way. After clicking on a specific result (the item label is a link), a details window is
+                displayed where you can see fuller item data; there is also a link to the item in WikiHum.</p>
+
+            <p>The application displays the default first 20 results (sorted by relevance/similarity ranking); at the
+                bottom of the screen, there is a button that can load the next part of the results (if they exist).
+            </p>
+
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="9 col">
+            <p>Return to the <a href="https://ai.ihpan.edu.pl">server main page</a>.</p>
+        </div>
+    </div>
+
+</body>
+</html>
