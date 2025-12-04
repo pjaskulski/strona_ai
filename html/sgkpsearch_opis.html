@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SGKP-Search - opis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+  <!-- Link to your stylesheet here -->
+  <link rel="stylesheet" href="lit.css">
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <style>
+    .example-grid .row {
+      text-align: center;
+      font-size: .8em;
+      letter-spacing: .1rem;
+      margin: .8em 0;
+    }
+
+    .example-grid .col {
+      background: #EEE;
+      padding: .3em;
+    }
+
+    DIV.cytat {
+      text-align: right
+    }
+  </style>
+</head>
+
+<body class="c">
+
+  <div class="row">
+    <div class="9 col">
+
+      <h2>Wyszukiwanie SGKP - opis</h2>
+
+      <p>Wyszukiwarka informacji w SGKP - <em>Słowniku Geograficznym Królestwa Polskiego i innych Krajów Słowiańskich</em>
+        (informacje o słowniku na stronie <a href="https://pl.wikipedia.org/wiki/S%C5%82ownik_geograficzny_Kr%C3%B3lestwa_Polskiego" target="_blank">Wikipedii</a>).
+        Wyszukiwarka łączy w sobie dwa podejścia do odnajdywania informacji, co można określić mianem
+        <strong>wyszukiwania hybrydowego</strong>:</p>
+
+      <ul>
+        <li>Wyszukiwanie <strong>pełnotekstowe</strong> (Full-Text): Działa klasycznie, wyszukując wystąpień słów w
+          tekście. Jest to
+          idealne rozwiązanie, gdy użytkownik zna nazwę szukanego obiektu lub terminu historycznego. Silnik radzi sobie
+          z prostymi literówkami (wyszukuje z pewnym 'rozmyciem', tolerancją), co jest kluczowe przy pracy z tekstem
+          przygotowanym za pomocą automatycznego rozpoznawania znaków (OCR).</li>
+        <li>Wyszukiwanie <strong>semantyczne</strong> (Vector Search): pozwala na wyszukiwanie <strong>znaczeń</strong>,
+          a nie tylko
+          ciągów znaków. Dzięki temu użytkownik może wpisać zapytanie np. "miejsca wydobycia kopalin" i otrzymać listę
+          haseł, w których te słowa nie padają wprost, ale ich tekst opisuje kopalnie. Pomaga to też ominąć błędy OCR
+          (drobne błędy w skanowaniu tekstu nie gubią kontekstu semantycznego).</li>
+      </ul>
+
+      <p>Zastosowanym silnikem wyszukiwania jest <strong>Meilisearch</strong> – lekki mechanizm <a
+          href="https://github.com/meilisearch/meilisearch" target="_blank">open source</a>, który obsługuje zarówno
+        szybkie wyszukiwanie tekstowe, jak i wektorowe. Do tworzenia reprezentacji wektorowej tekstu
+        (tzw. osadzeń - embeddings) użyto modelu <strong>OpenAI</strong> (`text-embedding-3-small`). Model ten zamienia
+        fragmenty tekstu ze słownika na ciągi liczb (wektory), które "kodują" znaczenie tego tekstu. Sama aplikacja
+        napisana jest w języku Python z wykorzystaniem frameworka Flask. Tekst SGKP pochodzi z rozpoznania narzędziami
+        OCR (Tesseract) 15 tomów Słownika. Skrypty importujące podzieliły tekst na hasła i pod-hasła (część haseł
+        Słownika to hasła zbiorcze, zawierające opisy wielu miejscowości o tej samej nazwie), aby umożliwić precyzyjne
+        wskazywanie miejsc w tak obszernym dziele.</p>
+
+      <h3>Interfejs użytkownika</h3>
+
+      <p>Interfejs dostępny pod adresem <a href="https://ai.ihpan.edu.pl/sgkpsearch"
+          target="_blank">ai.ihpan.edu.pl/sgkpsearch</a> jest minimalistyczny i nastawiony na użyteczność, zawiera:</p>
+
+      <ul>
+        <li><strong>Pole wyszukiwania</strong>: użytkownik wpisuje dowolną frazę, przycisk Szukaj rozpoczyna
+          wyszukiwanie</li>
+        <li><strong>Suwak „Balans Słów Kluczowych i Semantyki”</strong>: określa on proporcję między wyszukiwaniem słów
+          kluczowych (tradycyjne pełnotekstowe),
+          a wyszukiwaniem wektorowym (semantycznym).</li>
+        <li><strong>Listę wyników</strong>: prezentowana w formie listy znalezionych haseł wg rankingu trafności. Każdy
+          wynik zawiera:
+          <ul>
+            <li>Tytuł hasła</li>
+            <li>Informację o tomie i stronie, strona jest jednocześnie linkiem do skanu Słownika na serwerach ICM
+              (Interdyscyplinarnego Centrum Modelowania Matematycznego i Komputerowego UW).</li>
+            <li>Inne podstawowe informacje o haśle, jeżeli są dostępne. Dane dla haseł SGKP np. nazwy powiatów, gmin,
+              parafii, właścicieli, obiektów występujących w danej miejscowości zostały pozyskane poprzez automatyczne
+              przetwarzanie treści haseł i wydobywanie informacji przez duże modele językowe (LLM) w ramach projektu <a
+                href="https://ihpan.edu.pl/badania-naukowe/projekty-badawcze/wykaz-projektow-aktualnie-realizowanych-w-ih-pan/w-ramach-nprh/"
+                target="_blank">Vademcum</a></li>
+            <li>Fragment tekstu z kontekstem (gdzie znaleziono treść odpowiadającą podanym słowom kluczowym), w
+              przypadku wyszukiwania pełnotekstowego słowa kluczowe wyróżnione są kolorem żółtym.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Jak szukać</h3>
+      <ul>
+        <li>Wpisz w pole wyszukiwania interesującą Cię frazę np. "mielenie ziarna", "Karaim", "piwo browar", "młyn
+          parowy", "Poniatowski", "Namysłów" - bez cudzysłowów, wersja z cudzysłówami dla wielu słów oznaczałaby
+          wyszukiwanie dokładnej frazy. Można na przykład porównać wyniki wyszukiwania dla: Stanisław August Poniatowski
+          (3 tys. wyników) i "Stanisław August Poniatowski" (6 wyników).</li>
+        <li>Naciśnij "Szukaj" lub klawisz Enter.</li>
+        <li>Wyszukiwarka korzysta z wyszukiwania hybrydowego, łącząc słowa kluczowe z wyszukiwaniem wektorowym
+          (semantycznym), aby dać jak najlepsze wyniki. Ustawienie suwaka "Balans Słów Kluczowych i Semantyki" decyduje
+          o wpływie danego typu wyszukiwania na wynik. Domyślne ustawienie na 0% oznacze wyszukiwanie tylko według słów
+          kluczowych, ustawienie na 100% to eksperymentalne wyszukiwanie tylko wektorowe (semantyczne). Każda inna
+          wartość oznacza
+          wyszukiwane hubrydowe korzystające proporcjonalnie z obu metod.</li>
+        <li>Wyszukiwanie wg słów kluczowych szuka haseł, w których występują wprowadzone w polu wyszukiwania słowa,
+          wyszukiwanie odbywa się z pewną tolerancją tzn. wprowadzając słowo "młyny" otrzymamy wyniki w których
+          znajdowało się zarówno to słowo, jak i "młyn", "młynowi" itp.</li>
+        <li>Wyszukiwanie wektorowe (semantyczne) wyszukuje hasła według znaczenia wprowadzonych wyrazów, dlatego
+          sformułowanie "mielenie ziarna" zwróci hasła zwierające słowa młyn, młyny. To samo sformułowanie wprowadzone
+          przy ustawieniu na wyszukiwanie tylko według słów kluczowych zwróci hasła, w których występuje słowo
+          "mielenie".</li>
+        <li>Wyszukiwanie semantyczne nie odpowiada na pytania (jak chat z modelem językowym), zwraca jedynie wyniki o
+          zbliżonym znaczeniu do zapytania, nie zwraca też kompletnej, precyzyjnej listy informacji.</li>
+      </ul>
+
+      <p><strong>Wyniki:</strong></p>
+
+      <ul>
+        <li>Jeżeli wyników jest więcej niż 20, aplikacja wyświetla wyniki z podziałem na strony, u dołu listy wyników
+          znajdują się przyciski do nawigacji między stronami: „Pierwsza”, „Poprzednia”, „Następna”, „Ostatnia”</li>
+        <li>Kliknij na tytuł (label) wyniku, aby zobaczyć więcej szczegółów w osobnym oknie (np. pełny tekst hasła).
+        </li>
+        <li>Dla każdego hasła na liście wyników wyświetlany jest numer tomu i numer strony na której zaczyna się dane
+          hasło w wersji drukowanej, numer strony jest linkiem, który prowadzi do skanu strony na serwerach ICM
+          (Interdyscyplinarnego Centrum Modelowania Matematycznego i Komputerowego UW).</li>
+        <li>Użyj przycisku "Wyczyść", aby zresetować widok.</li>
+      </ul>
+
+      <p>Uwagi:</p>
+      <ul>
+        <li>Aplikacja zawiera wstępnie przetworzoną treść SGKP, mogą występować literówki, błędy w podziale treści haseł
+          i inne artefakty przetwarzania</li>
+        <li>Wyszukiwarka jest na wczesnym etapie testów, wyniki mogą być niekompletne lub niedokładne.</li>
+        <li>Kod źródłowy aplikacji dostępny jest w repozytorium Github <a
+            href="https://github.com/pjaskulski/sgkp_search" target="_blank">(projekt sgkp_search)</a></li>
+        <li>Kod źródłowy skryptów użytych do automatycznej ekstrakcji informacji z haseł SGKP jest dostępny w
+          repozytorium Github <a href="https://github.com/pjaskulski/sgkp_information_extraction">(projekt
+            sgkp_information_extraction)</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="9 col">
+      <p>Powrót na <a href="https://ai.ihpan.edu.pl">główną stronę</a> serwera.</p>
+    </div>
+  </div>
+
+</body>
+
+</html>

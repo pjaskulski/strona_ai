@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SGKP-Search - Description</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="lit.css">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <style>
+    .example-grid .row {
+      text-align: center;
+      font-size: .8em;
+      letter-spacing: .1rem;
+      margin: .8em 0;
+    }
+
+    .example-grid .col {
+      background: #EEE;
+      padding: .3em;
+    }
+
+    DIV.cytat {
+      text-align: right
+    }
+  </style>
+</head>
+
+<body class="c">
+
+  <div class="row">
+    <div class="9 col">
+
+      <h2>SGKP Search - Description</h2>
+
+      <p>Information search engine for the SGKP - <em>Geographical Dictionary of the Kingdom of Poland and Other Slavic Countries</em>
+        (information about the dictionary on <a href="https://en.wikipedia.org/wiki/S%C5%82ownik_geograficzny_Kr%C3%B3lestwa_Polskiego" target="_blank">Wikipedia</a>).
+        The search engine combines two approaches to information retrieval, which can be described as
+        <strong>hybrid search</strong>:</p>
+
+      <ul>
+        <li><strong>Full-Text</strong> Search: Works classically by searching for word occurrences in the text. This is the ideal solution when the user knows the name of the searched object or historical term. The engine handles simple typos (searching with a certain degree of 'fuzziness' or tolerance), which is crucial when working with text generated via Optical Character Recognition (OCR).</li>
+        <li><strong>Semantic</strong> (Vector) Search: Allows searching for <strong>meanings</strong> rather than just character strings. This enables the user to enter a query like "mining sites" and receive a list of entries where these specific words do not appear directly, but the text describes mines. This also helps bypass OCR errors (minor scanning errors do not lose the semantic context).</li>
+      </ul>
+
+      <p>The search engine used is <strong>Meilisearch</strong> – a lightweight <a
+          href="https://github.com/meilisearch/meilisearch" target="_blank">open source</a> engine that supports both fast text and vector search. To create the vector representation of the text (so-called embeddings), the <strong>OpenAI</strong> model (`text-embedding-3-small`) was used. This model converts text fragments from the dictionary into sequences of numbers (vectors) that "encode" the meaning of the text. The application itself is written in Python using the Flask framework. The SGKP text comes from OCR processing (Tesseract) of 15 volumes of the Dictionary. The import scripts divided the text into entries and sub-entries (some Dictionary entries are collective entries containing descriptions of many locations with the same name) to enable precise location pointing within such a voluminous work.</p>
+
+      <h3>User Interface</h3>
+
+      <p>The interface available at <a href="https://ai.ihpan.edu.pl/sgkpsearch"
+          target="_blank">ai.ihpan.edu.pl/sgkpsearch</a> is minimalist and focused on usability, containing:</p>
+
+      <ul>
+        <li><strong>Search Bar</strong>: The user enters any phrase; the Search button starts the process.</li>
+        <li><strong>"Keyword vs. Semantic Balance" Slider</strong>: Determines the proportion between keyword search (traditional full-text) and vector search (semantic).</li>
+        <li><strong>Results List</strong>: Presented as a list of found entries ranked by relevance. Each result contains:
+          <ul>
+            <li>Entry title</li>
+            <li>Information about the volume and page; the page number is also a link to the Dictionary scan on the ICM (Interdisciplinary Centre for Mathematical and Computational Modelling at UW) servers.</li>
+            <li>Other basic information about the entry, if available. Data for SGKP entries, e.g., names of counties, communes, parishes, owners, and objects occurring in a given location, were acquired through automatic text processing and information extraction by Large Language Models (LLM) as part of the <a
+                href="https://ihpan.edu.pl/en/research/research-projects/list-of-projects-currently-implemented-at-the-institute-of-history-pan/national-programme-for-the-development-of-humanities/"
+                target="_blank">Vademecum</a> project.</li>
+            <li>A text fragment with context (where content matching the keywords was found); in the case of full-text search, keywords are highlighted in yellow.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>How to Search</h3>
+      <ul>
+        <li>Enter the phrase you are interested in into the search box, e.g., "grain milling" (pl. <em>mielenie ziarna</em>), "Karaim", "beer brewery" (pl. <em>piwo browar</em>), "steam mill" (pl. <em>młyn parowy</em>), "Poniatowski", "Namysłów" - without quotation marks. A version with quotation marks for multiple words would imply searching for an exact phrase. For example, compare search results for: Stanisław August Poniatowski (3k results) and "Stanisław August Poniatowski" (6 results).</li>
+        <li>Press "Search" or the Enter key.</li>
+        <li>The search engine uses hybrid search, combining keywords with vector (semantic) search to provide the best results. The setting of the "Keyword vs. Semantic Balance" slider determines the impact of a given search type on the result. The default setting of 0% means searching only by keywords; a setting of 100% is an experimental search using only vectors (semantic). Any other value means hybrid search using both methods proportionally.</li>
+        <li>Keyword search looks for entries containing the words entered in the search box; the search is performed with some tolerance, i.e., entering the word "mills" will return results containing both that word and "mill", "to a mill", etc.</li>
+        <li>Vector (semantic) search finds entries based on the meaning of the entered words; therefore, the phrase "grain milling" will return entries containing words like mill, mills. The same phrase entered with the setting set to keyword-only search would return entries where the specific word "milling" appears.</li>
+        <li>Semantic search does not answer questions (like a chat with a language model); it only returns results with a meaning similar to the query, and it does not return a complete, precise list of information.</li>
+      </ul>
+
+      <p><strong>Results:</strong></p>
+
+      <ul>
+        <li>If there are more than 20 results, the application displays results divided into pages; navigation buttons are located at the bottom of the results list: "First", "Previous", "Next", "Last".</li>
+        <li>Click on the result title (label) to see more details in a separate window (e.g., the full text of the entry).
+        </li>
+        <li>For each entry on the results list, the volume number and the page number where the entry begins in the printed version are displayed. The page number is a link leading to the page scan on the ICM servers.</li>
+        <li>Use the "Clear" button to reset the view.</li>
+      </ul>
+
+      <p>Notes:</p>
+      <ul>
+        <li>The application contains pre-processed SGKP content; typos, errors in entry segmentation, and other processing artifacts may occur.</li>
+        <li>The search engine is in the early testing stage; results may be incomplete or inaccurate.</li>
+        <li>The source code of the application is available in the Github repository <a
+            href="https://github.com/pjaskulski/sgkp_search" target="_blank">(project sgkp_search)</a></li>
+        <li>The source code of the scripts used for automatic information extraction from SGKP entries is available in the Github repository <a href="https://github.com/pjaskulski/sgkp_information_extraction">(project
+            sgkp_information_extraction)</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="9 col">
+      <p>Return to the <a href="https://ai.ihpan.edu.pl">main page</a> of the server.</p>
+    </div>
+  </div>
+
+</body>
+
+</html>
