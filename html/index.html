@@ -4,149 +4,221 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>🔥 AI.IHPAN.EDU.PL 🔥</title>
+    <title>AI.IHPAN.EDU.PL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="lit.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
     <style>
-    .example-grid .row {
-        text-align: center;
-        font-size: .8em;
-        letter-spacing: .1rem;
-        margin: .8em 0;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
 
-    .example-grid .col {
-        background: #EEE;
-        padding: .3em;
-    }
+        /* Logika ukrywania języków */
+        body.pl .lang-en { display: none !important; }
+        body.en .lang-pl { display: none !important; }
 
-    DIV.cytat {text-align: right}
+        /* Aktywny przycisk języka */
+        .lang-btn.active {
+            color: #d97706; /* amber-600 */
+            font-weight: 700;
+            border-bottom: 2px solid #d97706;
+        }
     </style>
 </head>
 
-<body class="c pl">
+<body class="bg-gray-50 text-gray-800 transition-colors duration-200 c pl">
 
-    <div class="lang-switch">
-        <span onclick="setLanguage('pl')" id="btn-pl" class="active">PL</span> |
-        <span onclick="setLanguage('en')" id="btn-en">EN</span>
-    </div>
-
-    <div class="row">
-        <div class="9 col">
-            <h1>🔥 AI.IHPAN.EDU.PL 🔥</h1>
-
-            <h5 class="lang-pl">Serwer z narzędziami wykorzystującymi AI przeznaczonymi do badań historycznych</h5>
-            <h5 class="lang-en">Server with AI tools dedicated to historical research</h5>
-
-            <p class="lang-pl">Część aplikacji dostępna jest tylko do użytku wewnętrznego dla osób pracujących lub współpracujących z Instytutem Historii Polskiej Akademii Nauk.</p>
-            <p class="lang-en">Some applications are available only for internal use by staff and collaborators of the Institute of History of the Polish Academy of Sciences.</p>
-        </div>
-        <div class="3 col">
-            <div class="cytat"><img src="logo-ihpan.png" width="50" alt="Logo IH PAN"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 flex justify-end">
+        <div class="text-sm font-medium text-gray-500 cursor-pointer">
+            <span onclick="setLanguage('pl')" id="btn-pl" class="lang-btn hover:text-amber-600 transition mx-1 active">PL</span>
+            <span class="text-gray-300">|</span>
+            <span onclick="setLanguage('en')" id="btn-en" class="lang-btn hover:text-amber-600 transition mx-1">EN</span>
         </div>
     </div>
 
-    <div class="row">
-        <div class="card col">
-          <img src="openwebui.png" class="w-100" alt="OpenWeb UI">
-          <p>
-              <a href="https://ai-chat.ihpan.edu.pl">OpenWeb UI</a> -
-              <span class="lang-pl">prosty chat z tekstami historycznymi</span>
-              <span class="lang-en">simple chat with historical texts</span>
-          </p>
+    <header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+        <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-8">
+            <div class="text-center lg:text-left">
+                <h1 class="text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
+                    <span class="text-amber-600">AI</span>.IHPAN.EDU.PL
+                </h1>
 
+                <h2 class="text-xl lg:text-2xl text-gray-600 font-light mb-6">
+                    <span class="lang-pl">Serwer z narzędziami wykorzystującymi sztuczną inteligencję (LLM/ML/NLP) przeznaczonymi do badań historycznych</span>
+                    <span class="lang-en">Server with artificial intelligence tools (LLM/ML/NLP) dedicated to historical research</span>
+                </h2>
+
+                <p></p>
+
+                <p class="text-sm text-gray-500 max-w-2xl mx-auto lg:mx-0 leading-relaxed bg-amber-50 p-4 rounded-lg border border-amber-100">
+                    <span class="lang-pl">⚠️ Część aplikacji dostępna jest tylko do użytku wewnętrznego dla osób pracujących lub współpracujących z Instytutem Historii Polskiej Akademii Nauk.</span>
+                    <span class="lang-en">⚠️ Some applications are available only for internal use by staff and collaborators of the Institute of History of the Polish Academy of Sciences.</span>
+                </p>
+            </div>
+
+            <div class="flex-shrink-0">
+                <img src="logo-ihpan.png" class="w-24 h-24 lg:w-32 lg:h-32 object-contain opacity-90 hover:opacity-100 transition" alt="Logo IH PAN">
+            </div>
         </div>
-        <div class="card col">
-          <a href="http://ai.ihpan.edu.pl/wikihumsearch"><img src="wikihumsearch.jpg" class="w-100" alt="WikiHumSearch"></a>
-          <p>
-              <a href="http://ai.ihpan.edu.pl/wikihumsearch">WikiHumSearch</a> -
-              <span class="lang-pl">semantyczne (wektorowe) przeszukiwanie danych w bazie wiedzy WikiHum</span>
-              <span class="lang-en">semantic (vector) data search in the WikiHum knowledge base</span>
-          </p>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col border border-gray-100 group">
+                <div class="h-48 overflow-hidden bg-gray-100 relative">
+                    <img src="openwebui.png" class="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-500" alt="OpenWeb UI">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">
+                        <a href="https://ai-chat.ihpan.edu.pl" class="focus:outline-none">OpenWeb UI &rarr;</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-1">
+                        <span class="lang-pl">Prosty chat z tekstami historycznymi. Interfejs do modeli LLM.</span>
+                        <span class="lang-en">Simple chat with historical texts. Interface for LLM models.</span>
+                    </p>
+                    <div class="mt-auto">
+                        <span class="lang-pl"><a href="wikihumsearch.html" class="text-xs font-semibold text-amber-600 hover:text-amber-800 uppercase tracking-wider block mb-1">Zobacz instrukcję</a></span>
+                        <span class="lang-en"><a href="wikihumsearch.html" class="text-xs font-semibold text-amber-600 hover:text-amber-800 uppercase tracking-wider block mb-1">View manual</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col border border-gray-100 group">
+                <div class="h-48 overflow-hidden bg-gray-100 relative">
+                     <a href="http://ai.ihpan.edu.pl/wikihumsearch">
+                        <img src="wikihumsearch.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" alt="WikiHumSearch">
+                     </a>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">
+                        <a href="http://ai.ihpan.edu.pl/wikihumsearch">WikiHumSearch &rarr;</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-1">
+                        <span class="lang-pl">Semantyczne (wektorowe) przeszukiwanie danych w bazie wiedzy WikiHum.</span>
+                        <span class="lang-en">Semantic (vector) data search in the WikiHum knowledge base.</span>
+                    </p>
+                    <div class="mt-auto">
+                            <span class="lang-pl"><a href="wikihumsearch.html" class="text-xs font-semibold text-amber-600 hover:text-amber-800 uppercase tracking-wider block mb-1">Opis narzędzia</a></span>
+                            <span class="lang-en"><a href="wikihumsearch_en.html" class="text-xs font-semibold text-amber-600 hover:text-amber-800 uppercase tracking-wider block mb-1">Tool description</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col border border-gray-100 group">
+                <div class="h-48 overflow-hidden bg-gray-100 relative">
+                    <img src="sgkpsearch.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" alt="SGKP Search">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">
+                        <a href="http://ai.ihpan.edu.pl/sgkpsearch">SGKP-Search &rarr;</a>
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4 flex-1">
+                        <span class="lang-pl">Hybrydowa wyszukiwarka w Słowniku Geograficznym Królestwa Polskiego.</span>
+                        <span class="lang-en">Hybrid search tool for the Geographical Dictionary of the Kingdom of Poland.</span>
+                    </p>
+                    <div class="mt-auto">
+                        <a href="sgkpsearch_opis.html" class="lang-pl text-xs font-semibold text-amber-600 hover:text-amber-800 uppercase tracking-wider block">Opis narzędzia</a>
+                        <a href="sgkpsearch_en.html" class="lang-en text-xs font-semibold text-amber-600 hover:text-amber-800 uppercase tracking-wider block">Tool description</a>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+    </main>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-gray-200 mt-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center lg:text-left">
+            <span class="lang-pl">Tutoriale i dokumentacja</span>
+            <span class="lang-en">Tutorials and documentation</span>
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <div class="bg-gray-50 rounded-lg p-6 hover:bg-white hover:shadow-md transition duration-200 border border-transparent hover:border-gray-200">
+                <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                    <a href="tutorial.html" class="hover:text-amber-600 transition">
+                        <span class="lang-pl">Wprowadzenie do eScriptorium i Kraken (HTR)</span>
+                        <span class="lang-en">Introduction to eScriptorium and Kraken (HTR) - in Polish</span>
+                    </a>
+                </h4>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    <span class="lang-pl">eScriptorium jest webową aplikacją Open Source przeznaczoną do pracy nad historycznymi rękopisami i drukami - przygotowywaniem manualnych i automatycznych transkrypcji. Aplikacja jest zintegrowana z programem Kraken, narzędziem wykorzystującym algorytmy uczenia głębokiego do rozpoznawania tekstów (OCR i HTR). Projekt rozwijany jest przez zespół z École Pratique des Hautes Études - Université PSL.</span>
+                    <span class="lang-en">eScriptorium is an Open Source web application designed for working with historical manuscripts and prints - preparing manual and automatic transcriptions. The application is integrated with Kraken, a tool using deep learning algorithms for text recognition (OCR and HTR). The project is developed by a team from École Pratique des Hautes Études - Université PSL.</span>
+                </p>
+            </div>
+
+            <!-- <div class="bg-gray-50 rounded-lg p-6 hover:bg-white hover:shadow-md transition duration-200 border border-transparent hover:border-gray-200">
+                <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                    <a href="wikihumsearch.html" class="lang-pl hover:text-amber-600 transition">WikiHumSearch - opis</a>
+                    <a href="wikihumsearch_en.html" class="lang-en hover:text-amber-600 transition">WikiHumSearch - description</a>
+                </h4>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    <span class="lang-pl">Eksperymentalna wyszukiwarka semantyczna w bazie wiedzy WikiHum.</span>
+                    <span class="lang-en">Experimental semantic search tool in the WikiHum knowledge base.</span>
+                </p>
+            </div>
+
+            <div class="bg-gray-50 rounded-lg p-6 hover:bg-white hover:shadow-md transition duration-200 border border-transparent hover:border-gray-200">
+                <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                    <a href="sgkpsearch_opis.html" class="lang-pl hover:text-amber-600 transition">SGKP-Search - opis </a>
+                    <a href="sgkpsearch_en.html" class="lang-en hover:text-amber-600 transition">SGKP-Search - description</a>
+                </h4>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    <span class="lang-pl">SGKP-Search jest eksperymentalną wyszukiwarką hybrydową (pełnotekstową i wektorową) w treści haseł Słownika Geograficznego Królestwa Polskiego.</span>
+                    <span class="lang-en">SGKP-Search is an experimental hybrid tool (combining full-text and vector search) used to search the entries of the Geographical Dictionary of the Kingdom of Poland.</span>
+                </p>
+            </div>
+             <div class="bg-gray-50 rounded-lg p-6 hover:bg-white hover:shadow-md transition duration-200 border border-transparent hover:border-gray-200">
+                <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                    <a href="instrukcje.html" class="hover:text-amber-600 transition">
+                        <span class="lang-pl">OpenWebUI - instrukcja</span>
+                        <span class="lang-en">OpenWebUI - manual (PL)</span>
+                    </a>
+                </h4>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    <span class="lang-pl">OpenWebUI jest oprogramowaniem typu open source będącym webowym interfejsem typu CHAT do modeli LLM.</span>
+                    <span class="lang-en">OpenWebUI is open source software serving as a web-based CHAT interface for LLM models.</span>
+                </p>
+            </div>
+        </div> -->
+    </section>
+
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="text-center md:text-left mb-4 md:mb-0">
+                <p class="font-bold text-gray-800">
+                    <span class="lang-pl">Pracownia Historii Cyfrowej IH PAN</span>
+                    <span class="lang-en">Digital History Lab IH PAN</span>
+                </p>
+                <p class="text-sm text-gray-500 mt-1">&copy; 2025 AI.IHPAN.EDU.PL</p>
+            </div>
+
+            <div>
+                <a href="mailto:lab.dariah@ihpan.edu.pl" class="inline-flex items-center justify-center px-5 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700 transition shadow-sm">
+                    <span class="lang-pl">Skontaktuj się z nami</span>
+                    <span class="lang-en">Contact us</span>
+                </a>
+            </div>
         </div>
-        <div class="card col">
-          <img src="sgkpsearch.jpg" class="w-100" alt="SGKP Search">
-          <p>
-              <a href="http://ai.ihpan.edu.pl/sgkpsearch">SGKP-Search</a> -
-              <span class="lang-pl">hybrydowa (pełnotekstowa i wektorowa) wyszukiwarka informacji w Słowniku Geograficznym Królestwa Polskiego</span>
-              <span class="lang-en">hybrid (full-text and vector) information search engine for the Geographical Dictionary of the Kingdom of Poland</span>
-          </p>
-        </div>
-    </div>
-
-    <hr>
-        <div class="row">
-        <div class="9 col">
-            <h2>
-                <span class="lang-pl">Tutoriale i opisy:</span>
-                <span class="lang-en">Tutorials and descriptions:</span>
-            </h2>
-
-            <h5><a href="tutorial.html"><strong>
-                <span class="lang-pl">Wprowadzenie do systemów eScriptorium i Kraken (HTR)</span>
-                <span class="lang-en">Introduction to eScriptorium and Kraken systems (HTR) - in Polish</span>
-            </strong></a></h5>
-
-            <p class="lang-pl">eScriptorium jest webową aplikacją Open Source przeznaczoną do pracy nad historycznymi rękopisami i drukami - przygotowywaniem manualnych i automatycznych transkrypcji. Aplikacja jest zintegrowana z programem Kraken, narzędziem wykorzystującym algorytmy uczenia głębokiego do rozpoznawania tekstów (OCR i HTR). Projekt rozwijany jest przez zespół z École Pratique des Hautes Études - Université PSL.</p>
-            <p class="lang-en">eScriptorium is an Open Source web application designed for working with historical manuscripts and prints - preparing manual and automatic transcriptions. The application is integrated with Kraken, a tool using deep learning algorithms for text recognition (OCR and HTR). The project is developed by a team from École Pratique des Hautes Études - Université PSL.</p>
-
-            <h5>
-                <strong>
-                    <span class="lang-pl"><a href="wikihumsearch.html">WikiHumSearch - opis</a></span>
-                    <span class="lang-en"><a href="wikihumsearch_en.html">WikiHumSearch - description</a></span>
-                </strong>
-
-            </h5>
-
-            <p class="lang-pl">WikiHumSearch jest eksperymentalną wyszukiwarką semantyczną (wektorową) w bazie wiedzy WikiHum.</p>
-            <p class="lang-en">WikiHumSearch is an experimental semantic (vector) data search in the WikiHum knowledge base.</p>
-
-            <h5>
-                <strong>
-                    <span class="lang-pl"><a href="sgkpsearch_opis.html">SGKP-Search - opis</a></span>
-                    <span class="lang-en"><a href="sgkpsearch_en.html">SGKP-Search - description</a></span>
-                </strong>
-
-            </h5>
-
-            <p class="lang-pl">SGKP-Search jest eksperymentalną wyszukiwarką hybrydową (pełnotekstową i wektorową) w treści haseł Słownika Geograficznego Królestwa Polskiego.</p>
-            <p class="lang-en">SGKP-Search is an experimental hybrid tool (combining full-text and vector search) used to search the entries of the Geographical Dictionary of the Kingdom of Poland.</p>
-
-
-            <h5><a href="instrukcje.html"><strong>
-                <span class="lang-pl">OpenWebUI - krótka instrukcja obsługi</span>
-                <span class="lang-en">OpenWebUI - short user manual - in Polish</span>
-            </strong></a></h5>
-
-            <p class="lang-pl">OpenWebUI jest oprogramowaniem typu open source będącym webowym interfejsem typu CHAT do modeli LLM.</p>
-            <p class="lang-en">OpenWebUI is open source software serving as a web-based CHAT interface for LLM models.</p>
-        </div>
-    </div>
-
-    <hr>
-
-    <div class="cytat">
-        <p>
-            <span class="lang-pl">Pracownia Historii Cyfrowej IH PAN</span>
-            <span class="lang-en">Digital History Lab IH PAN</span>
-            <br>
-            <a href="https://ihpan.edu.pl/dariah-lab/kontakt/" target="_blank">
-                <span class="lang-pl">Skontaktuj się z nami!</span>
-                <span class="lang-en">Contact us!</span>
-            </a>
-        </p>
-    </div>
+    </footer>
 
     <script>
         function setLanguage(lang) {
             // Ustawienie klasy na body
-            document.body.className = 'c ' + lang;
+            document.body.className = 'bg-gray-50 text-gray-800 transition-colors duration-200 c ' + lang;
 
             // Zmiana stylu przycisków
             document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+            // Kolorowanie nieaktywnego przycisku
+            document.getElementById('btn-pl').classList.toggle('text-gray-400', lang !== 'pl');
+            document.getElementById('btn-en').classList.toggle('text-gray-400', lang !== 'en');
 
             // Zmiana atrybutu lang html dla dostępności
             document.documentElement.lang = lang;
@@ -159,6 +231,9 @@
         const savedLang = localStorage.getItem('preferredLanguage');
         if (savedLang) {
             setLanguage(savedLang);
+        } else {
+            // Domyślnie PL jeśli brak zapisu
+            setLanguage('pl');
         }
     </script>
 
