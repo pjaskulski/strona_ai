@@ -243,34 +243,57 @@
         </div>
     </footer>
 
+    <div id="cookie-banner" class="fixed bottom-0 inset-x-0 bg-white border-t border-gray-200 shadow-2xl z-50 transform translate-y-full transition-transform duration-500">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-sm text-gray-600">
+                <span class="lang-pl">Ta strona korzysta z plików cookies (ciasteczek) w celu zapewnienia poprawnego działania (np. zapamiętania wyboru języka).</span>
+                <span class="lang-en">This website uses cookies to ensure proper functionality (e.g., remembering your language choice).</span>
+            </div>
+            <button onclick="acceptCookies()" class="whitespace-nowrap bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-md text-sm font-bold transition shadow-sm">
+                <span class="lang-pl">Rozumiem</span>
+                <span class="lang-en">I understand</span>
+            </button>
+        </div>
+    </div>
+
     <script>
         function setLanguage(lang) {
-            // Ustawienie klasy na body
             document.body.className = 'bg-gray-50 text-gray-800 transition-colors duration-200 c ' + lang;
-
-            // Zmiana stylu przycisków
             document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
-            // Kolorowanie nieaktywnego przycisku
             document.getElementById('btn-pl').classList.toggle('text-gray-400', lang !== 'pl');
             document.getElementById('btn-en').classList.toggle('text-gray-400', lang !== 'en');
-
-            // Zmiana atrybutu lang html dla dostępności
             document.documentElement.lang = lang;
-
-            // Zapisanie wyboru w localStorage
             localStorage.setItem('preferredLanguage', lang);
         }
 
-        // Sprawdzenie czy użytkownik wybrał język wcześniej
-        const savedLang = localStorage.getItem('preferredLanguage');
-        if (savedLang) {
-            setLanguage(savedLang);
-        } else {
-            // Domyślnie PL jeśli brak zapisu
-            setLanguage('pl');
+        // logika dla ciasteczek
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'true');
+            const banner = document.getElementById('cookie-banner');
+            banner.classList.add('translate-y-full');
         }
+
+        // inicjalizacja przy ładowaniu strony
+        window.addEventListener('DOMContentLoaded', () => {
+            // obsługa języka
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                setLanguage(savedLang);
+            } else {
+                setLanguage('pl');
+            }
+
+            // obsługa baneru cookies
+            if (!localStorage.getItem('cookieConsent')) {
+                const banner = document.getElementById('cookie-banner');
+                // małe opóźnienie dla lepszego efektu wizualnego
+                setTimeout(() => {
+                    banner.classList.remove('translate-y-full');
+                }, 1000);
+            }
+        });
+
     </script>
 
 </body>
