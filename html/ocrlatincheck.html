@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>OCR/HTR Tester Łaciny - opis i instrukcja</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col">
+
+    <nav class="w-full bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html"
+                class="flex items-center text-gray-500 hover:text-amber-600 transition font-medium text-sm">
+                &larr; Powrót na stronę główną
+            </a>
+            <div class="text-sm font-bold text-gray-900 tracking-tight">
+                <span class="text-amber-600">AI</span>.IHPAN.EDU.PL
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow py-10 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+
+            <article class="p-8 sm:p-12">
+
+                <header class="mb-8 border-b border-gray-100 pb-8">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">OCR/HTR Tester Łaciny</h1>
+                    <p class="text-lg text-gray-500">Opis działania i instrukcja obsługi narzędzia do weryfikacji tekstów</p>
+                </header>
+
+                <div class="space-y-6 text-gray-700 leading-relaxed">
+
+                    <p>
+                        Aplikacja jest prostym narzędziem webowym zaprojektowanym do weryfikacji i poprawy jakości tekstów łacińskich przetworzonych 
+                        przez systemy automatycznego rozpoznawania pisma (OCR) lub pisma ręcznego (HTR). Narzędzie może pomóc badaczom i edytorom 
+                        tekstów źródłowych zidentyfikować typowe błędy digitalizacji, takie jak błędne rozpoznanie liter, problemy z segmentacją wyrazów 
+                        czy błędy w rozwinięciach skrótów.                    
+                    </p>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Kluczowe funkcje i metody analizy</h3>
+                    <p>Aplikacja oferuje dwa niezależne sposoby analizy, które można przełączać w zależności od potrzeb:</p>
+
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-gray-900">Silnik Lokalny (Hunspell + CLTK)</h4>
+                        <p>Działa w oparciu o reguły słownikowe i algorytmy przetwarzania języka naturalnego (NLP):</p>
+                        <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+                            <li>system automatycznie rozpoznaje warianty zapisu typowe dla nowożytnej łaciny, takie jak zamienność liter (<code class="text-sm bg-gray-200 px-1 rounded">u/v</code>, <code class="text-sm bg-gray-200 px-1 rounded">i/j</code>, oraz użycie długiego s <code class="text-sm bg-gray-200 px-1 rounded">ſ</code>),</li>
+                            <li>posiada wbudowaną listę najczęstszych pomyłek wizualnych OCR (np. <code class="text-sm bg-gray-200 px-1 rounded">m</code> zamiast <code class="text-sm bg-gray-200 px-1 rounded">in</code>),</li>
+                            <li>wykorzystuje <strong>Classical Language Toolkit</strong> do sprowadzania słów do ich form podstawowych, co pozwala rozpoznać poprawność gramatyczną słów, których nie ma wprost w słowniku.</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-gray-900">Silnik LLM</h4>
+                        <p>Wykorzystuje duży model językowy GPT do analizy kontekstowej:</p>
+                        <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+                            <li>analizuje składnię i sens całego zdania,</li>
+                            <li>sugeruje poprawki w miejscach, gdzie słowo jest poprawne słownikowo, ale może nie pasować do kontekstu historycznego.</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Instrukcja Obsługi Krok po Kroku</h3>
+
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-amber-400 pl-4">
+                            <h5 class="font-bold text-gray-900">Logowanie</h5>
+                            <p>Dostęp do aplikacji jest zabezpieczony, należy się zalogować.</p>
+                        </div>
+
+                        <div class="border-l-4 border-amber-400 pl-4">
+                            <h5 class="font-bold text-gray-900">Wprowadzenie tekstu</h5>
+                            <p>Wklej tekst uzyskany z OCR/HTR do głównego pola tekstowego. Obowiązuje limit <strong>5000 znaków</strong>. Licznik pod polem tekstowym informuje o aktualnej długości tekstu.</p>
+                        </div>
+
+                        <div class="border-l-4 border-amber-400 pl-4">
+                            <h5 class="font-bold text-gray-900">Wybór trybu i analiza</h5>
+                            <p>Wybierz tryb <strong>Lokalna</strong> (weryfikacja słownikowa) lub <strong>LLM</strong> (analiza kontekstowa). Kliknij przycisk „Analizuj tekst” i zaczekaj na zakończenie przetwarzania (analiza może potrwać od kilkunastu do kilkudziesięciu sekund).</p>
+                        </div>
+
+                        <div class="border-l-4 border-amber-400 pl-4">
+                            <h5 class="font-bold text-gray-900">Przegląd wyników</h5>
+                            <p>System wyświetli dwa panele: wizualną reprezentację tekstu z kolorowymi podświetleniami (określającymi rodzaj problemu) oraz tabelaryczną listę wskazań potencjalnych błędów z opisem.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Nawigacja i Narzędzia Pomocnicze</h3>
+                    <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+                        <li><strong>Interaktywność:</strong> Kliknięcie numeru błędu (#) w tabeli wskazań przenosi widok do odpowiadającego mu miejsca w tekście.</li>
+                        <li><strong>Tooltips:</strong> Najechanie kursorem na podświetlone słowo wyświetli skrócony powód oznaczenia oraz sugestię.</li>
+                        <li><strong>Czyszczenie:</strong> Przycisk „Wyczyść” resetuje całą aplikację i usuwa wyniki.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Ograniczenia i Uwagi Techniczne</h3>
+                    <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+                        <li><strong>Szybkość:</strong> Silnik lokalny potrzebuje chwili na załadowanie słowników przy pierwszym uruchomieniu po przerwie, analiza przez model językowy opiera sie na API OpenAI i zależy od jego dostępności.</li>
+                        <li><strong>Błędy segmentacji:</strong> Narzędzie stara się wykryć zlane wyrazy (np. „etnon”), sugerując ich rozdzielenie, jeśli części składowe tworzą poprawne formy łacińskie.</li>
+                        <li><strong>Długie słowa:</strong> W trybie lokalnym, aby uniknąć zawieszenia systemu, sugestie Hunspell nie są generowane dla słów dłuższych niż 10 znaków.</li>
+                    </ul>
+
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-4xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
+            <p>
+                Powrót na <a href="https://ai.ihpan.edu.pl"
+                    class="text-amber-600 hover:text-amber-800 font-medium">główną stronę</a> serwera.
+            </p>
+            <p class="mt-2 text-xs text-gray-400">&copy; 2026 Pracownia Historii Cyfrowej IH PAN</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
