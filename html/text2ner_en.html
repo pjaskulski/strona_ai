@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TEXT2NER - description and instructions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col">
+
+    <nav class="w-full bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html"
+                class="flex items-center text-gray-500 hover:text-amber-600 transition font-medium text-sm">
+                &larr; Return to the main page
+            </a>
+            <div class="text-sm font-bold text-gray-900 tracking-tight">
+                <span class="text-amber-600">AI</span>.IHPAN.EDU.PL
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow py-10 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+
+            <article class="p-8 sm:p-12">
+
+                <header class="mb-8 border-b border-gray-100 pb-8">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">TEXT2NER</h1>
+                    <p class="text-lg text-gray-500">Operation description and user manual for the tool converting documents to TEI-XML format with named entity recognition</p>
+                </header>
+
+                <div class="space-y-6 text-gray-700 leading-relaxed">
+
+                    <p>
+                        The TEXT2NER application is designed for the preliminary conversion of historical documents into the TEI-XML format. A document in plain text form is transformed into XML structures (header head, and body with div and p elements). Subsequently, the text is searched for proper names occurring within it: persons and places (localities, countries, etc.).
+                    </p>
+
+                    <p>Proper names in the exact form recorded in the document transcription can be difficult to identify; therefore, before the process of linking names with external reference databases, the application performs "normalization/enrichment" of the name, using the context of its occurrence and a large language model (Gemini 3.1 Flash Lite Preview). Thanks to this, the occurrence of the name "Fridericus" in a Latin document from the turn of the 15th/16th century is recognized as "Fryderyk Jagiellończyk". In this form, the name can be more easily searched in reference databases. It may also happen that the "normalization/enrichment" of the name is ineffective, in which case the original name from the document is used for the search.</p>
+
+                    <p>The application searches the following databases: <strong>wikidata</strong>, <strong>WikiHum</strong>, and in the case of places, <strong>geonames</strong>. From each, it retrieves a list of the most probable candidates for identification (provided the database returns such a list) along with additional information—for example, in the case of wikidata, in addition to the name and Q identifier, the description of the wikidata item and name aliases are returned. Based on the candidate lists from the reference databases, the name appearing in the document, and the context of its occurrence in the text, an analysis and selection of the most appropriate candidate is performed using a large language model.</p>
+
+                    <p>The result of the search is the recording of the proper name in the form of a tag, e.g., <strong>persName</strong>, with key and ref attributes, for example:</p>
+
+                    <pre><code>&lt;persName key="Fryderyk Jagiellończyk"
+ref="https://wikihum.lab.dariah.pl/entity/Q152903"&gt;Fridericus&lt;/persName&gt;</code></pre>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">User Manual</h3>
+
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-amber-400 pl-4">
+                            <h5 class="font-bold text-gray-900">Login</h5>
+                            <p>Access to the application is secured; you must log in.</p>
+                        </div>
+
+                        <div class="border-l-4 border-amber-400 pl-4">
+                            <h5 class="font-bold text-gray-900">Entering text</h5>
+                            <p>Paste the text of the historical document into the main field (5000 character limit). You can also use the list of examples visible below the field.</p>
+                        </div>
+
+                        <div class="border-l-4 border-amber-400 pl-4">
+                            <h5 class="font-bold text-gray-900">Analysis</h5>
+                            <p>Click "Analyze text". The system will automatically convert the text to TEI-XML format and search for entities in the Wikidata, WikiHum, and GeoNames databases (the analysis may take from several to several dozen seconds).</p>
+                        </div>
+
+                        <div class="border-l-4 border-amber-400 pl-4">
+                            <h5 class="font-bold text-gray-900">Results</h5>
+                            <p>The system will display two views:
+                            <ul>
+                                <li><strong>XML Code</strong>: a preview of the TEI-XML structure, ready to be saved.</li>
+                                <li><strong>Text Preview</strong>: Interactive reading with tooltips. Hover your mouse over a person or place to see data from external databases.</li>
+                            </ul>
+                            </p>
+                        </div>
+
+                        <div class="border-l-4 border-amber-400 pl-4">
+                            <h5 class="font-bold text-gray-900">Data Export</h5>
+                            <p>You can copy the result to the clipboard or download it as an .xml file.</p>
+                        </div>
+                    </div>
+
+                    <p><br><img src="text2ner_2.png" alt="Application screenshot" width="800px"><br></p>
+
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-4xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
+            <p>
+                Return to the <a href="https://ai.ihpan.edu.pl"
+                    class="text-amber-600 hover:text-amber-800 font-medium">main page</a> of the server.
+            </p>
+            <p class="mt-2 text-xs text-gray-400">&copy; 2026 Digital History Lab IH PAN</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
