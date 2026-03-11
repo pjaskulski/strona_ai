@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Od edycji papierowej do cyfrowej - AI.IHPAN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col">
+
+    <nav class="w-full bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html"
+                class="flex items-center text-gray-500 hover:text-amber-600 transition font-medium text-sm">
+                &larr; Powrót na stronę główną
+            </a>
+            <div class="text-sm font-bold text-gray-900 tracking-tight">
+                <span class="text-amber-600">AI</span>.IHPAN.EDU.PL
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow py-10 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+
+            <article class="p-8 sm:p-12">
+
+                <header class="mb-8 border-b border-gray-100 pb-8">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">Od edycji papierowej do cyfrowej dzięki LLM?</h1>
+                    <p class="text-lg text-gray-500">Eksperyment z modelem Gemini na przykładzie „Acta Alexandri”</p>
+                </header>
+
+                <div class="space-y-6 text-gray-700 leading-relaxed">
+
+                    <p>
+                        W obliczu rozwoju dużych modeli językowych (LLM), które coraz sprawniej radzą sobie z logiką, analizą kontekstową i redukcją halucynacji, zasadne stają się pytania: czy obecne generacje modeli pozwalają już na wiarygodne przetwarzanie źródeł w formie skanów i tekstów? Czy AI, która dotyka wielu innych dziedzin nauki i biznesu może też wpłynąć na świat cyfrowego edytorstwa?
+                    </p>
+
+                    <p>
+                        W ramach eksperymentu przeprowadzonego w naszej Pracowni postanowiliśmy sprawdzić, czy osoby badające historię, bez wsparcia technicznego, korzystając z ogólnie dostępnego modelu LLM (znanego z dobrych wyników w rozpoznawaniu pisma - OCR i analizy obrazów) są w stanie półautomatycznie przeprowadzić proces konwersji drukowanej edycji źródłowej do wersji cyfrowej w standardzie TEI-XML, wzbogaconej o identyfikację encji (Entity Linking) oraz przygotować prostą lecz funkcjonalną aplikację webową. 
+                    </p>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Case Study: Acta Alexandri Regis Poloniae (1501-1506)</h3>
+
+                    <p>
+                        Za materiał źródłowy posłużyła edycja Fryderyka Papéego z 1927 roku: <em>Acta Alexandri Regis Poloniae, Magni Ducis Lithuaniae etc.</em>. Celem było przejście od skanów publikacji do prototypu łatwej w użyciu edycji cyfrowej, unikając zarówno pracy manualnej jak i pomocy programistów, tak by zasymulować sytuację samodzielnej pracy historyka / historyczki z AI. Podczas eksperymentu rolę narzędzia do indentyfikacji osób i miejsc (NEL) w tekście pełnił skrypt, ale już po jego zakończeniu przygotowana została uniwersalna aplikacja wykorzystująca model LLM i bazy referencyjne, nie wymagająca wiedzy informatycznej. Za materiał testowy posłużyła próbka 11 stron (od strony 19 do strony 29 w pliku pdf).
+                    </p>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Metodologia i warsztat</h3>
+
+                    <p>
+                        Do realizacji zadania wykorzystano ogólnodostępne narzędzia: środowisko <strong class="font-semibold text-gray-900">Google AI Studio</strong> oraz model <strong class="font-semibold text-gray-900">Gemini 3.1 Pro</strong>. Proces został zaprojektowany tak, aby mogła go powtórzyć osoba bez zaawansowanego przygotowania technicznego:
+                    </p>
+
+                    <ol class="list-decimal list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+                        <li><strong class="font-semibold text-gray-900">Segmentacja:</strong> Ze względu na limity tokenów wyjściowych, plik PDF musi zostać podzielony na fragmenty po ok. 10-12 stron.</li>
+                        <li><strong class="font-semibold text-gray-900">Transkrypcja i strukturyzacja:</strong> Zastosowano prompty, które wymusiły na modelu nie tylko odczyt tekstu (warstwa OCR w plikach PDF bywa zawodna, zwłaszcza w przypadku kursywy), ale i analizę układu strony, podział na sekcje oraz zapis w formacie <strong class="font-semibold text-gray-900">TEI-XML</strong>.</li>
+                        <li><strong class="font-semibold text-gray-900">Wzbogacenie (NER):</strong> Model automatycznie otagował osoby (<code class="bg-gray-200 text-gray-800 px-1.5 py-0.5 rounded font-mono text-sm">persName</code>), miejsca (<code class="bg-gray-200 text-gray-800 px-1.5 py-0.5 rounded font-mono text-sm">placeName</code>) oraz daty.</li>
+                        <li><strong class="font-semibold text-gray-900">Przekład:</strong> Kolejne kroki obejmowały automatyczne tłumaczenie dokumentów na język polski, co stanowi istotne ułatwienie w dostępie do treści źródłowej.</li>
+                        <li><strong>Identyfikacja:</strong> łączenie otagowanych wcześniej osób i miejsc z bazami referencyjnymi wspomagane modelem językowym.</li>
+                    </ol>
+
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-6">
+                        <div>
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Prompt: Transkrypcja i TEI</span>
+                            <pre class="mt-2 block w-full p-4 bg-white border border-gray-200 rounded font-mono text-xs sm:text-sm text-gray-700 whitespace-pre-wrap break-words leading-relaxed">
+Załączony plik pdf to fragment edycji listów i dokumentów z kancelarii króla Aleksandra Jagiellończyka. Edycja została wydana w 1927 roku, przygotuj edycję cyfrową tych dokumentów. 
+
+Zadanie:
+
+Transkrypcja tekstu ze stron pdf. Należy zwrócić uwagę na układ tekstu. 
+
+Zwykle każda strona zawiera w nagłówku numer strony, rok którego dotyczą dokumenty na stronie oraz numery dokumentów występujące na stronie na przykład: "9  1501 Nr. 10". 
+
+Każdy list lub dokument ma wyrażnie określone sekcje: zaczyna się od nagłówka w postaci wytłuszczonego napisu z numerem dokumentu np. Nr 8
+
+Pod numerem znajduje się zapis kursywą z miejscem i datą dokumentów. W tej sekcji może wystąpić skrót B. m. d. r., który oznacza: Bez miejsca, dnia, roku, zaś po nim występuje często w nawiasie informacja o miejscu i dacie, ale są to dane zrekonstruowane przez historyków. Wówczas te dane w nawiasie można oznaczyć tagiem &lt;supplied&gt; np. &lt;supplied reason="reconstruction">(&lt;placeName&gt;Gniezno&lt;/placeName&gt;, 15 sierpnia 1502)&lt;/supplied&gt;
+
+Poniżej widoczne jest zwykle krótkie streszczenie również zapisane kursywą, zaś pod streszczeniem, kursywą i mniejszą czcionką informacje o samym dokumencie, jego źródło itp.
+Teksty kursywą są zapisane zwykle w języku polskim.
+
+Pod informacjami zapisanymi kursywą znajduje się treść dokumentu, zwykle po łacinie.
+
+Zrządzanie przypisami:
+U dołu strony mogą znajdować się przypisy do tekstu, a w tekście odnośniki do nich zapisane liczbą w superscripcie, rzadziej małą literą w superscipcie np. a. Zwróć szczególną uwagę, że numeracja przypisów resetuje się na każdej stronie (np. dokument rozbity na dwie strony może mieć dwa przypisy nr 1).
+
+Zachowaj oryginalne numery (litery) przypisów w atrybucie n (np. &lt;note place="foot" n="a"&gt;).
+Każdy przypis musi zostać umieszczony w kodzie XML dokładnie w tym miejscu tekstu głównego, w którym pojawia się jego odnośnik (liczba / litera w superscripcie).
+Bezwzględnie nie łącz treści przypisów o tym samym numerze.
+Aby uniknąć duplikatów w atrybucie n w obrębie jednego dokumentu, dodaj do numeru / litery przypisu numer strony z oryginalnego pliku, z której on pochodzi, np.: &lt;note place="foot" n="page_1-1"&gt; dla przypisu nr 1 ze strony 1 oraz &lt;note place="foot" n="page_2-1"&gt; dla przypisu nr 1 ze strony 2.
+Niektóre przypisy są bardzo długie i wydrukowane zostały na kolejnych stronach, wówczas pod falistą linią oddzielającą tekst od przypisów występuje ciąg dalszy przypisu z poprzedniej strony bez żadnego numeru, dołącz treść takiego ciągu dalszego przypisu do jego pierwszej częśći. 
+
+Wynik:
+
+Plik XML w zgodny ze standardem TEI-XML. Oprócz wyróżnienia wspomnanych wyżej sekcji należy wyszukać i otagować występujące w tekście osoby i miejsca, z użyciem tagów &lt;persName&gt; i &lt;placeName&gt;
+                            </pre>
+                        </div>
+
+                        <div>
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Prompt: tłumaczenie na język polski</span>
+                            <pre class="mt-2 block w-full p-4 bg-white border border-gray-200 rounded font-mono text-xs sm:text-sm text-gray-700 whitespace-pre-wrap break-words">
+Załączam plik xml z przygotowaną wstępnie edycją cyfrową dokumentów króla Aleksandra Jagiellończyka (początek XVI wieku). Każdy dokument ma swoją sekcję &lt;div&gt; a w niej główną treść dokumentu w sekcji &lt;div type="original" xml:lang="la"&gt; gdzie w atrybutach podany jest skrót języka, zwykle jest to łacina ale może też być niemiecki. Chciałbym dodać do edycji tlumaczenia głównej treści dokumentów na język polski, po opisanej sekcji div powinna pojawić się nowa
+np./ &lt;div type="translation" xml:lang="pl"&gt;
+z treścią przetłumaczoną na polski. W tłumaczeniu należy pominąć przypisy, notki, tagowanie osób i miejsc - chodzi tylko o przetłumaczoną treść dokumentu. Tłumaczenie powinno być dokładne, z jakością odpowiednią do dalszych badań historycznych.
+
+Przygotuj dokument xml rozszerzony o tłumaczenie.</pre>
+                        </div>
+
+                    <p>
+                        Prace przeprowadzono na próbce 11 stron, natomiast szacowany czas podobnej pracy nad dziełem liczącym ok. 600 stron to dwa do czterech dni.
+                    </p>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Identyfikacja osób i miejsc: Aplikacja TEXT2NER</h3>
+
+                    <p>
+                        Dużym wyzwaniem podczas przygotowywania edycji cyfrowych jest <strong class="font-semibold text-gray-900">Entity Linking</strong>, czyli łączenie nazwy z tekstu z konkretnym identyfikatorem w bazie wiedzy. W tym celu powstał prototyp aplikacji <strong class="font-semibold text-gray-900">TEXT2NER</strong>, który realizuje ten proces w dwóch etapach:
+                    </p>
+
+                    <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+                        <li><strong class="font-semibold text-gray-900">Normalizacja (rozpoznawanie encji):</strong> Model analizuje kontekst i sprowadza nazwy do mianownika, identyfikując postacie ukryte pod łacińskimi (lub niemieckimi) wariantami nazw. Przykładowo: <em>Sigismundus</em> zostaje znormalizowany do <em>Zygmunt I Stary</em>, a <em>Andreas de Schamothuli</em> do <em>Andrzej Szamotulski</em>.</li>
+                        <li><strong class="font-semibold text-gray-900">Weryfikacja w bazach referencyjnych:</strong> System przeszukuje <strong class="font-semibold text-gray-900">Wikidata, WikiHum oraz GeoNames</strong>. Model LLM (w tym przypadku Gemini 3.1 Flash Lite) otrzymuje listę propozycji z tych baz i na podstawie kontekstu dokumentu i danych z baz referencyjnych wybiera najbardziej prawdopodobnego kandydata, przypisując jego identyfikator do atrybut <code class="bg-gray-200 text-gray-800 px-1.5 py-0.5 rounded font-mono text-sm">ref</code> w tagu XML.</li>
+                    </ul>
+                    
+                    <p><br><img src="text2ner.png" width="800px"><br></p>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Wyniki i ewaluacja</h3>
+
+                    <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+                        
+                        <li><strong class="font-semibold text-gray-900">Jakość OCR:</strong> w celu ocemny wyników wykonany został ocr za pomocą systemu Tesseract i poprawiony manualnie, tak otrzymany odczyt porównano z tekstem odczytanym przez model. Współczynnik błędu (CER) dla badanej próbki wyniósł zaledwie <strong class="font-semibold text-gray-900">1,5%</strong> (a po zignorowaniu spacji spadł do <strong class="font-semibold text-gray-900">0,53%</strong>).</li>
+                        
+                        <li><strong class="font-semibold text-gray-900">Struktura:</strong> Model praktycznie bezbłędnie rozpoznał nagłówki, streszczenia, tekst główny i przypisy (nawet te kontynuowane na kolejnych stronach).</li>
+                        
+                        <li><strong class="font-semibold text-gray-900">Normalizacja nazw:</strong> Wśród 90 wystąpień osób <strong class="font-semibold text-gray-900">87 zostało znormalizowanych poprawnie</strong>. Np. postać opisana w dokumencie jako "Johannes von Gots gnaden Bischoff zcu Meyssenn" została poprawnie rozpoznana jako Johann von Saalhausen.</li>
+                        
+                        <li><strong class="font-semibold text-gray-900">Identyfikacja osób:</strong> 75 identyfikatorów dla osób zostało ustalonych poprawnie, 10 błędnie, w 4 przypadkach aplikacja nie znalazła identyfikatora, w jednym przypadku identyfikacja jest wątpliwa. Wyszukiwanie zawodziło np. w sytuacjach gdy dana osoba opisana była tylko w niemieckich źródłach (niemieckie bazy wiedzy np. Ulricus von Wolfferstorff w saebi.isgv.de lub tylko w niemieckich zapisach w wikidata, podczas gdy aplikacja wyszukiwała spolszczoną wersję nazwy).</li>
+                        
+                        <li><strong class="font-semibold text-gray-900">Normalizacja miejsc:</strong> Z 93 wystąpień miejsc (miejscowości, krajów) <strong class="font-semibold text-gray-900">wszystkie</strong> zostały "znormalizowane" poprawnie, trzeba jednak przyznać, że w większości były to nazwy większych i bardziej znanych miejscowości, choć czasem w mniej znanej, historycznej postaci np. Gnysen, Thorun.</li>
+
+                        <li><strong class="font-semibold text-gray-900">Identyfikacja miejsc:</strong> 80 identyfikatorów dla miejsc zostało ustalonych poprawnie, 7 prawdopodobnie niepoprawnie, 6 błędnie. Problemy dotyczyły np. krain, które identyfikowane były ze współczesnymi bytami, podczas gdy w wikidata znajdowały się ich odpowiedniki z epoki powstania dokumentów (np. Litwa -> Wielkie Księstwo Litewskie).</li>
+                        
+                        <li><strong class="font-semibold text-gray-900">Tłumaczenia:</strong> Tłumaczenia automatyczne oddają sens dokumentów, nie są jednak wystarczające z punktu widzenia badań historycznych.</li>
+                    </ul>
+
+                    <p>Oceniając te wyniki trzeba oczywiście pamiętać o małej skali eksperymentu (jedynie 10 dokumentów).</p>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Vibe coding, czyli aplikacja „na żądanie”</h3>
+
+                    <p>
+                        Zwieńczeniem prac było stworzenie aplikacji webowej do prezentacji wyników. Wykorzystując metodę tzw. <strong class="font-semibold text-gray-900">vibe codingu</strong> (interaktywnej sesji z modelem Gemini Pro 3, bez samodzielnego pisania kodu), w ciągu około godziny powstała funkcjonalna przeglądarka oparta na <strong class="font-semibold text-gray-900">Pythonie i Flasku</strong>. Kolejna godzina i 12 iteracji promptów pozwoliła na naniesienie niezbędnch poprawek i dodatków do aplikacji.
+                    </p>
+
+                    <p>Aplikacja oferuje:</p>
+
+                    <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+                        <li>Przeglądanie listy dokumentów (z paginacją).</li>
+                        <li>Dwukolumnowy układ wyświetlanego dokumentu (treść oryginału vs. tłumaczenie).</li>
+                        <li>Podświetlanie encji z linkami do baz referencyjnych.</li>
+                        <li>Wyszukiwanie pełnotekstowe i filtrowanie (facetowe) po osobach i miejscach.</li>
+                    </ul>
+                    
+                    <p><br><img src="blog_2026_03_01.png" width="800px"><br></p>
+                    
+                    <p><br><img src="blog_2026_03_02.png" width="800px"><br></p>
+
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-6">
+                        <div>
+                            <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Prompt: Przygotowanie aplikacji webowej</span>
+                            <pre class="mt-2 block w-full p-4 bg-white border border-gray-200 rounded font-mono text-xs sm:text-sm text-gray-700 whitespace-pre-wrap break-words leading-relaxed">
+W załączniku znajduje się edycja cyfrowa dokumentów Aleksandra Jagiellończyka w formie pliku TEI-XML. Dla historyków taka surowa forma będzie jednak mało czytelna. Idealnie byłoby udostępnić ją prostą aplikacją webową. Aplikacja powinna umożliwiać przeglądanie listy dokumentów, z podstawowymi danymi i fragmentami streszczeń. Po wybraniu dokumentu system powinien wyświetlić dane nagłówkowe, treść z kolorowaniem osób i miejsc, obok także tłumaczenie na polski. Przydatne byłoby też wyszukiwanie pełnotekstowe oraz filtrowanie wg osób i miejsc. Numery przypisów w dokumentach powinny być "klikalne" i wyświetlać okienko z tekstem przypisu. Osoby i miejsca oprócz kolorowania powinny także wyświetlać (po najechaniu myszą) dodatkowe informacje w tzw. dymkach (np. identyfikatory tam gdzie zostały ustalone). 
+Przygotuj taką prostą aplikację z użyciem Pythona, frameworka Flask i Bootstrap.
+                            </pre>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Wnioski:</h3>
+
+                    <p>
+                        Wyniki eksperymentu sugerują, że modele LLM (czy ogólnie narzędzia AI) mogą w istotnym stopniu obniżyć próg wejścia w dziedzinie tworzenia edycji cyfrowych, przejmując zadania dawniej rezerwowane dla programistów, czy zaawansowanych humanistów cyfrowych, mogą też zastąpić specjalistyczne narzędzia wykorzystywane w tej dziedzinie. Trzeba przyznać też, że korzystanie z LLM znacząco redukuje czas pracy (tworzenia edycji, weryfikacja poprawności pozostała manualna, więc bez zmiany czasochłonności).
+                    </p>
+
+                    <p>
+                        Ale czy oznacza to, że specjaliści będą zbędni? W procesie konwersji i wstępnej obróbki - może tak się wydawać, choć wsparcie informatyczne w zakresie weryfikacji plików przygotowywanych przez LLM. Podobnie w przypadku tworzenia aplikacji - LLM sprawdzi się w przypadku szybkiego prototypowania, trzeba jednak pamiętać że niezbędny jest jeszcze etap testów, wdrożenia aplikacji na serwer itp. Zdecydowanie rolą człowieka jest także <strong class="font-semibold text-gray-900">krytyczna weryfikacja</strong> wyników. To osoby badające historię muszą ostatecznie zatwierdzić (poprawić) jakość transkrypcji, pewność identyfikacji nazw własnych, czy niuanse tłumaczenia łaciny średniowiecznej.
+                    </p>
+                    <p>
+                        Należy podkreślić, że był to bardzo prosty test, opierający się głównie na możliwościach jednego modelu: Gemini, przetwarzaniu podlegała niewielka próbka dokumentów. Do dużo bardziej zaawansowanych prac dotyczących tej tematyki odsyłamy w sekcji <strong class="font-semibold text-gray-900">Literatura przedmiotu</strong>, poniżej.
+                    </p>
+                    <p>
+                        Krytycznym elementem wykorzystania LLM-ów jest wiarygodność efektów ich pracy, z wersji na wersję można obserwować, że modele coraz lepiej radzą sobie z problemem halucynacji, nie należy jednak spodziewać się że halucynacje znikną całkowicie. Jaki poziom błędów w wynikach pracy AI jest akceptowalny tzn. możliwy do poprawienia przez człowieka w czasie krótszym niż praca wykonana w całości przez człowieka lub z użyciem tradycyjnych narzędzi? Pytanie czy już osiągnęliśmy ten etap pozostaje otwarte, choć powszechne użycie AI w innych obszarach np. programowaniu może to potwierdzać.
+                    </p>
+
+                    <p>
+                        Zapraszamy do obejrzenia aplikacji Acta ("edycji cyfrowej" Acta Alexandri Regis Poloniae): 
+                        <a href="https://ai.ihpan.edu.pl/acta/" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://ai.ihpan.edu.pl/acta/</a><br>
+
+                        Kod źródłowy aplikacji dostępny jest w repozytorium: <a href="https://github.com/pjaskulski/digital-edition-for-fun" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://github.com/pjaskulski/digital-edition-for-fun</a>.<br>
+                        
+                        <!-- oraz narzędzia TEXT2NER:
+                        <a href="https://ai.ihpan.edu.pl/text2ner/" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://ai.ihpan.edu.pl/text2ner/</a> -->
+                    </p>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Literatura przedmiotu:</h3>
+
+                    <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+                        <li>
+                            Strutz, Sabrina. <em>A Multi-Dimensional Evaluation Framework for Assessing LLM Performance in TEI Encoding</em>. Journal of Open Humanities Data 12 (March 2026): 39. <a href="https://doi.org/10.5334/johd.484" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://doi.org/10.5334/johd.484</a>.
+                        </li>
+                        <li>
+                            Boscariol, Marta, Luana Bulla, Lia Draetta, Beatrice Fiumanò, Emanuele Lenzi, and Leonardo Piano. <em>Evaluation of LLMs on Long-Tail Entity Linking in Historical Documents</em>, <a href="https://doi.org/10.48550/arXiv.2505.03473" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">arXiv:2505.03473</a> (2025).
+                        </li>
+                        <li>
+                            Haffoudhi, Samy, Fabian M. Suchanek, and Nils Holzenberger. <em>LELA: An LLM-Based Entity Linking Approach with Zero-Shot Domain Adaptation</em>, <a href="https://arxiv.org/abs/2601.05192" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">arXiv:2601.05192</a>.
+                        </li>
+                        <li>
+                            Daniel Vollmers, Hamada Zahera, Diego Moussallem, and Axel-Cyrille Ngonga Ngomo. <em>Contextual Augmentation for Entity Linking Using Large Language Models</em>, Proceedings of the 31st International Conference on Computational Linguistics, n.d., 8535–45. <a href="https://aclanthology.org/2025.coling-main.570/" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://aclanthology.org/2025.coling-main.570/</a>
+                        </li>
+                        <li>
+                            Rosu, Paul. <em>LITERA: An LLM Based Approach to Latin-to-English Translation</em>. arXiv:2504.10660. Preprint, arXiv, April 14, 2025. <a href="https://doi.org/10.48550/arXiv.2504.10660" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://doi.org/10.48550/arXiv.2504.10660</a>.
+
+                        </li>
+                    </ul>
+
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-4xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
+            <p>
+                Powrót na <a href="https://ai.ihpan.edu.pl"
+                    class="text-amber-600 hover:text-amber-800 font-medium">główną stronę</a> serwera.
+            </p>
+            <p class="mt-2 text-xs text-gray-400">&copy; 2026 Pracownia Historii Cyfrowej IH PAN</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
