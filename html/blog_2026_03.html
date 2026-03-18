@@ -81,7 +81,7 @@ Załączony plik pdf to fragment edycji listów i dokumentów z kancelarii król
 
 Zadanie:
 
-Transkrypcja tekstu ze stron pdf. Należy zwrócić uwagę na układ tekstu. 
+Transkrypcja tekstu ze stron pdf z zapisem w formacie TEI-XML. Należy zwrócić uwagę na układ tekstu.
 
 Zwykle każda strona zawiera w nagłówku numer strony, rok którego dotyczą dokumenty na stronie oraz numery dokumentów występujące na stronie na przykład: "9  1501 Nr. 10". 
 
@@ -101,18 +101,20 @@ Zachowaj oryginalne numery (litery) przypisów w atrybucie n (np. &lt;note place
 Każdy przypis musi zostać umieszczony w kodzie XML dokładnie w tym miejscu tekstu głównego, w którym pojawia się jego odnośnik (liczba / litera w superscripcie).
 Bezwzględnie nie łącz treści przypisów o tym samym numerze.
 Aby uniknąć duplikatów w atrybucie n w obrębie jednego dokumentu, dodaj do numeru / litery przypisu numer strony z oryginalnego pliku, z której on pochodzi, np.: &lt;note place="foot" n="page_1-1"&gt; dla przypisu nr 1 ze strony 1 oraz &lt;note place="foot" n="page_2-1"&gt; dla przypisu nr 1 ze strony 2.
-Niektóre przypisy są bardzo długie i wydrukowane zostały na kolejnych stronach, wówczas pod falistą linią oddzielającą tekst od przypisów występuje ciąg dalszy przypisu z poprzedniej strony bez żadnego numeru, dołącz treść takiego ciągu dalszego przypisu do jego pierwszej częśći. 
+Niektóre przypisy są bardzo długie i wydrukowane zostały na kolejnych stronach, wówczas pod falistą linią oddzielającą tekst od przypisów występuje ciąg dalszy przypisu z poprzedniej strony bez żadnego numeru, dołącz treść takiego ciągu dalszego przypisu do jego pierwszej części.
+
+Oprócz wyróżnienia wspomnianych wyżej sekcji należy wyszukać i otagować występujące w tekście osoby i miejsca, z użyciem tagów &lt;persName&gt; i &lt;placeName&gt; a także daty (tag &lt;date&gt;)
 
 Wynik:
 
-Plik XML w zgodny ze standardem TEI-XML. Oprócz wyróżnienia wspomnanych wyżej sekcji należy wyszukać i otagować występujące w tekście osoby i miejsca, z użyciem tagów &lt;persName&gt; i &lt;placeName&gt;
+Plik XML w zgodny ze standardem TEI-XML.
                             </pre>
                         </div>
 
                         <div>
                             <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Prompt: tłumaczenie na język polski</span>
                             <pre class="mt-2 block w-full p-4 bg-white border border-gray-200 rounded font-mono text-xs sm:text-sm text-gray-700 whitespace-pre-wrap break-words">
-Załączam plik xml z przygotowaną wstępnie edycją cyfrową dokumentów króla Aleksandra Jagiellończyka (początek XVI wieku). Każdy dokument ma swoją sekcję &lt;div&gt; a w niej główną treść dokumentu w sekcji &lt;div type="original" xml:lang="la"&gt; gdzie w atrybutach podany jest skrót języka, zwykle jest to łacina ale może też być niemiecki. Chciałbym dodać do edycji tlumaczenia głównej treści dokumentów na język polski, po opisanej sekcji div powinna pojawić się nowa
+Załączony plik to xml (TEI-XML) z przygotowaną wstępnie edycją cyfrową dokumentów króla Aleksandra Jagiellończyka (początek XVI wieku). Każdy dokument ma swoją sekcję &lt;div&gt; a w niej główną treść dokumentu w sekcji &lt;div type="original" xml:lang="la"&gt; gdzie w atrybutach podany jest skrót języka, zwykle jest to łacina ale może też być niemiecki. Chciałbym dodać do edycji tlumaczenia głównej treści dokumentów na język polski, po opisanej sekcji div powinna pojawić się nowa
 np./ &lt;div type="translation" xml:lang="pl"&gt;
 z treścią przetłumaczoną na polski. W tłumaczeniu należy pominąć przypisy, notki, tagowanie osób i miejsc - chodzi tylko o przetłumaczoną treść dokumentu. Tłumaczenie powinno być dokładne, z jakością odpowiednią do dalszych badań historycznych.
 
