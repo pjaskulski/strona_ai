@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Opis aplikacji Manuscript Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+body { font-family: 'Inter', sans-serif; }
+.prose h2 { font-size: 1.55rem; line-height: 2rem; font-weight: 800; color: #111827; margin-top: 2.5rem; margin-bottom: 1rem; }
+.prose h3 { font-size: 1.25rem; line-height: 1.75rem; font-weight: 700; color: #111827; margin-top: 2rem; margin-bottom: 0.75rem; }
+.prose h4 { font-size: 1.05rem; line-height: 1.5rem; font-weight: 700; color: #111827; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.prose p { margin: 1rem 0; color: #374151; }
+.prose ul, .prose ol { margin: 0.75rem 0 1rem 1.5rem; color: #374151; }
+.prose li { margin: 0.35rem 0; }
+.prose code { background: #f3f4f6; color: #111827; padding: 0.12rem 0.35rem; border-radius: 0.375rem; font-size: 0.92em; }
+.prose pre { background: #111827; color: #f9fafb; padding: 1rem; border-radius: 0.75rem; overflow-x: auto; margin: 1rem 0; }
+.prose pre code { background: transparent; color: inherit; padding: 0; }
+.prose strong { color: #111827; font-weight: 700; }
+.prose hr { border: 0; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+.prose blockquote { border-left: 4px solid #f59e0b; padding-left: 1rem; color: #4b5563; margin: 1rem 0; }
+.prose a { color: #d97706; text-decoration: none; }
+.prose a:hover { color: #92400e; text-decoration: underline; }
+.lead { font-size: 1.05rem; line-height: 1.8; color: #4b5563; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col">
+    <nav class="w-full bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html"
+               class="flex items-center text-gray-500 hover:text-amber-600 transition font-medium text-sm">
+                &larr; Powrót na stronę główną
+            </a>
+            <div class="text-sm font-bold text-gray-900 tracking-tight">
+                <span class="text-amber-600">AI</span>.IHPAN.EDU.PL
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow py-10 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <article class="p-8 sm:p-12">
+                <header class="mb-8 border-b border-gray-100 pb-8">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">Opis aplikacji Manuscript Lab</h1>
+                </header>
+
+                <section class="mb-10">
+                    <p class="lead">Manuscript Lab jest aplikacją internetową przeznaczoną do organizacji pracy ze skanami manuskryptów, wariantami odczytu HTR oraz wariantami tłumaczeń dokumentów. Umożliwia zarządzanie skanami i dokumentami, porównywanie wyników rozpoznawania pisma i tłumaczeń z użyciem metryk jakości, a także przygotowywanie raportów zbiorczych. Kod źródłowy aplikacji dostępny jest w repozytorium aplikacji: <a href="https://github.com/pjaskulski/manuscript-lab"
+                    class="text-amber-600 hover:text-amber-800 font-medium">https://github.com/pjaskulski/manuscript-lab</a>.
+                    </p>
+
+                     <p><br><img src="manuscriptlab_start.png" width="800px"><br></p>
+                </section>
+
+                <section class="prose max-w-none leading-relaxed">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">Podręcznik użytkownika</h1>
+                    <h2>1. Cel aplikacji</h2>
+<p>Manuscripts Lab służy do pracy ze skanami manuskryptów, wariantami odczytu HTR oraz wariantami tłumaczeń dokumentów. Aplikacja pozwala:</p>
+<ul>
+<li>gromadzić i opisywać skany,</li>
+<li>importować pojedyncze skany albo wiele plików naraz,</li>
+<li>zapisywać różne wersje tekstu dla pojedynczego skanu,</li>
+<li>wygodnie poprawiać tekst HTR w osobnym workspace,</li>
+<li>porównywać wyniki HTR z tekstem wzorcowym przy użyciu metryk <code>CER</code> i <code>WER</code>,</li>
+<li>łączyć skany z dokumentami,</li>
+<li>budować tekst źródłowy dokumentu na podstawie powiązanych skanów,</li>
+<li>zapisywać ręczne i automatyczne warianty tłumaczeń,</li>
+<li>automatycznie tłumaczyć teksty poprzez API (Google Translate, DeepL, OpenAI GPT, Google Gemini)</li>
+<li>porównywać tłumaczenia przy użyciu metryk <code>BLEU</code> i <code>chrF++</code>,</li>
+<li>przygotowywać raporty zbiorcze na temat HTR i tłumaczeń, i eksportować je do <code>CSV</code> lub <code>XLSX</code>.</li>
+</ul>
+<p>Instrukcja opisuje obsługę aplikacji z perspektywy użytkownika końcowego.</p>
+<h2>2. Dostęp do aplikacji</h2>
+<p>Po uruchomieniu aplikacji użytkownik loguje się przez formularz <code>Logowanie</code>. Po zalogowaniu wszystkie główne widoki są dostępne z górnego menu.</p>
+<p>Jeżeli użytkownik jest już zalogowany, w prawym górnym rogu widać jego nazwę oraz przycisk <code>Wyloguj</code>.</p>
+<h2>3. Menu główne</h2>
+<p>W górnym pasku nawigacji dostępne są sekcje:</p>
+<ul>
+<li><code>Start</code> – strona główna z krótkim podsumowaniem liczby skanów i dokumentów.</li>
+<li><code>Skany</code> – baza skanów, ich metadanych oraz wariantów tekstu HTR.</li>
+<li><code>Dokumenty</code> – baza dokumentów złożonych ze skanów oraz tłumaczeń.</li>
+<li><code>Parametry</code> – słowniki modeli HTR, modeli tłumaczeń i promptów tłumaczeniowych.</li>
+<li><code>Raport jakości HTR</code> – zbiorczy raport jakości modeli HTR.</li>
+<li><code>Raport jakości tłumaczeń</code> – zbiorczy raport jakości tłumaczeń.</li>
+</ul>
+<h2>4. Zalecana kolejność pracy</h2>
+<p>Najwygodniejszy sposób pracy z aplikacją wygląda tak:</p>
+<ol>
+<li>Uzupełnić słowniki w sekcji <code>Parametry</code>.</li>
+<li>Dodać skan albo zaimportować serię skanów.</li>
+<li>Dodać do skanu tekst wzorcowy i jeden lub więcej wyników modelu HTR.</li>
+<li>W razie potrzeby poprawić tekst w workspace HTR.</li>
+<li>Wykonać porównanie HTR dla skanu.</li>
+<li>Oznaczyć wybrane skany jako element próbki uczącej.</li>
+<li>Utworzyć dokument w sekcji <code>Dokumenty</code>.</li>
+<li>Powiązać z dokumentem odpowiednie skany i ustawić ich kolejność.</li>
+<li>Przebudować tekst źródłowy dokumentu ze skanów (lub wgrać ręcznie)</li>
+<li>Dodać warianty tłumaczeń, w tym warianty automatyczne, jeśli są skonfigurowane.</li>
+<li>Wykonać porównania tłumaczeń.</li>
+<li>Przenalizować wyniki w raportach jakości i w razie potrzeby je eksportować.</li>
+</ol>
+<h2>5. Sekcja Parametry</h2>
+<p>Sekcja <code>Parametry</code> służy do prowadzenia słowników modeli i promptów. Obecne są tam trzy listy:</p>
+<ul>
+<li>modele HTR,</li>
+<li>modele tłumaczeń,</li>
+<li>prompty tłumaczeń.</li>
+</ul>
+<h3>Modele HTR</h3>
+<p>Modele HTR są wykorzystywane przy dodawaniu i edycji wariantów tekstu w module <code>Skany</code>.</p>
+<h3>Modele tłumaczeń</h3>
+<p>Modele tłumaczeń są wykorzystywane przy dodawaniu wariantów tłumaczeń w module <code>Dokumenty</code>.</p>
+<p>Dla modelu tłumaczeń można ustawić dodatkowo:</p>
+<ul>
+<li><code>API</code> – definicję zaplecza używanego do automatycznego tłumaczenia,</li>
+<li><code>Kod modelu</code> – identyfikator modelu przekazywany do API.</li>
+</ul>
+<p>Jeżeli model ma poprawnie skonfigurowane API, może być używany przez funkcję <code>Przetłumacz automatycznie</code>.</p>
+<p><br><img src="manuscriptlab_auto_translate.png" width="800px"><br></p>
+<h3>Prompty tłumaczeń</h3>
+<p>Prompty tłumaczeń to osobny słownik nazwanych instrukcji. Można je przypisywać do wariantów tłumaczeń używających modeli obsługujących prompty (Gemini, GPT).</p>
+<h3>Dodawanie modelu</h3>
+<ol>
+<li>Wejdź do <code>Parametry</code>.</li>
+<li>W odpowiedniej sekcji kliknij <code>Dodaj model</code>.</li>
+<li>Wpisz nazwę modelu.</li>
+<li>Dla modelu tłumaczeń opcjonalnie ustaw <code>API</code> i <code>Kod modelu</code>.</li>
+<li>Kliknij <code>Zapisz</code>.</li>
+</ol>
+<h3>Dodawanie promptu</h3>
+<ol>
+<li>Wejdź do <code>Parametry</code>.</li>
+<li>W sekcji <code>Prompty tłumaczeń</code> kliknij <code>Dodaj prompt</code>.</li>
+<li>Wpisz nazwę promptu.</li>
+<li>Wpisz treść promptu.</li>
+<li>Kliknij <code>Zapisz</code>.</li>
+</ol>
+<h3>Edycja i usuwanie wpisów</h3>
+<ul>
+<li><code>Edytuj</code> pozwala zmienić dane modelu albo promptu.</li>
+<li><code>Usuń</code> usuwa wpis ze słownika.</li>
+<li>Specjalna pozycja odpowiadająca pracy ręcznej może być zablokowana przed usunięciem.</li>
+<li>Model lub prompt używany w istniejących wariantach nie może zostać usunięty.</li>
+</ul>
+<p>Warto najpierw uzupełnić słowniki, ponieważ później te nazwy są wybierane w formularzach HTR i tłumaczeń.</p>
+<h2>6. Sekcja Skany</h2>
+<p>Sekcja <code>Skany</code> służy do zarządzania pojedynczymi obrazami skanów oraz ich odczytami tekstowymi.</p>
+<h3>Lista skanów</h3>
+<p>Na liście skanów można:</p>
+<ul>
+<li>filtrować rekordy po tytule, sygnaturze, folio lub ręce,</li>
+<li>sortować listę po <code>ID</code>, <code>Tytule</code>, <code>Sygnaturze</code>, <code>Folio</code> i <code>Ręce</code>,</li>
+<li>sprawdzać oznaczenia <code>Do próbki uczącej</code> i <code>Gotowe</code>,</li>
+<li>przechodzić do podglądu skanu,</li>
+<li>edytować metadane,</li>
+<li>uruchomić funkcję <code>Eksport próbki uczącej</code>,</li>
+<li>uruchomić funkcję <code>Import wielu skanów</code>,</li>
+<li>dodać nowy skan.</li>
+</ul>
+<h3>Dodawanie pojedynczego skanu</h3>
+<ol>
+<li>Otwórz <code>Skany</code>.</li>
+<li>Kliknij <code>Dodaj skan</code>.</li>
+<li>Uzupełnij pola:
+<code>Tytuł</code>, <code>Sygnatura</code>, <code>Folio</code>, <code>Kolejność</code>, <code>Ręka</code>, <code>Uwagi</code>.</li>
+<li>Opcjonalnie zaznacz:
+<code>Do próbki uczącej</code> i <code>Gotowe</code>.</li>
+<li>Opcjonalnie dodaj plik obrazu skanu.</li>
+<li>Kliknij <code>Zapisz</code>.</li>
+</ol>
+<p>Obsługiwane są typowe formaty graficzne, m.in. <code>JPG</code>, <code>PNG</code>, <code>WEBP</code>, <code>TIF</code> i <code>TIFF</code>.</p>
+<h3>Import wielu skanów</h3>
+<p>Funkcja <code>Import wielu skanów</code> służy do szybkiego utworzenia wielu rekordów jednocześnie.</p>
+<ol>
+<li>Otwórz <code>Skany</code>.</li>
+<li>Kliknij <code>Import wielu skanów</code>.</li>
+<li>Dodaj pliki przez wybór z dysku albo przeciągnięcie do pola importu.</li>
+<li>Opcjonalnie uzupełnij wspólne wartości:
+<code>Sygnatura domyślna</code>, <code>Ręka domyślna</code>, <code>Wspólne uwagi</code>.</li>
+<li>Opcjonalnie zaznacz <code>Do próbki uczącej</code>.</li>
+<li>Kliknij <code>Importuj skany</code>.</li>
+</ol>
+<p>Ważne informacje:</p>
+<ul>
+<li>jednorazowo można dodać do <code>20</code> plików (w sumie do 250 MB),</li>
+<li>tytuł każdego skanu jest tworzony automatycznie z nazwy pliku,</li>
+<li>podczas importu widoczny jest pasek postępu wysyłania.</li>
+</ul>
+<p><br><img src="manuscriptlab_import.png" width="800px"><br></p>
+<h3>Widok pojedynczego skanu</h3>
+<p>W widoku skanu dostępne są:</p>
+<ul>
+<li>obraz skanu wraz z miniaturą,</li>
+<li>możliwość pobrania pliku,</li>
+<li>możliwość otwarcia pełnego podglądu z powiększaniem i przesuwaniem,</li>
+<li>metadane skanu,</li>
+<li>lista wariantów tekstu przypisanych do skanu,</li>
+<li>lista porównań HTR,</li>
+<li>przyciski nawigacji <code>Poprzedni</code> i <code>Następny</code> w obrębie aktualnej listy skanów,</li>
+<li>akcje:
+<code>Edytuj metadane</code>, <code>Dodaj tekst</code>, <code>Porównaj HTR</code>, <code>Usuń skan</code>.</li>
+</ul>
+<h2>7. Warianty tekstu HTR</h2>
+<p>Każdy skan może mieć wiele wariantów tekstu, np. tekst wzorcowy i wyniki różnych modeli.</p>
+<h3>Dodawanie tekstu do skanu</h3>
+<ol>
+<li>Otwórz wybrany skan.</li>
+<li>Kliknij <code>Dodaj tekst</code>.</li>
+<li>Uzupełnij pola:<ul>
+<li><code>Typ tekstu</code></li>
+<li><code>Model</code></li>
+<li><code>Uwagi</code></li>
+<li><code>Treść</code></li>
+</ul>
+</li>
+<li>W razie potrzeby zaznacz:<ul>
+<li><code>Podstawowa wersja ground truth</code></li>
+<li><code>Tekst poliniowany</code></li>
+</ul>
+</li>
+<li>Kliknij <code>Zapisz</code>.</li>
+</ol>
+<h3>Typy tekstu</h3>
+<p>Dostępne typy to:</p>
+<ul>
+<li><code>Ground truth</code></li>
+<li><code>Ground truth, zapis dyplomatyczny</code></li>
+<li><code>Ground truth, zapis rozwinięty</code></li>
+<li><code>Wynik modelu HTR</code></li>
+</ul>
+<p>Jeżeli dany tekst ma być podstawowym tekstem wzorcowym dla skanu i dla eksportu próbki uczącej, należy oznaczyć go jako <code>Podstawowa wersja ground truth</code>.</p>
+<p>W danym skanie aktywna może być tylko jedna podstawowa wersja ground truth. Jeżeli oznaczysz nową, poprzednia zostanie automatycznie odznaczona.</p>
+<h3>Pole <code>Tekst poliniowany</code></h3>
+<p>Pole <code>Tekst poliniowany</code> oznacza, że tekst jest już zapisany w układzie linia-po-linii, czyli odpowiednim dla materiału treningowego dla HTR. Taki układ można przygotować w widoku HTR skanu funkcją dopasowania linii przez AI.</p>
+<h3>Edycja tekstu i workspace</h3>
+<p>Przy każdym wariancie tekstu dostępne są akcje:</p>
+<ul>
+<li><code>HTR</code> – otwiera przestrzeń roboczą do wygodnej korekty treści,</li>
+<li><code>Edytuj</code> – otwiera formularz metadanych i treści,</li>
+<li><code>Usuń</code> – usuwa wariant tekstu.</li>
+</ul>
+<p>Pod tabelą każdego wariantu widoczny jest podgląd początku treści tekstu.</p>
+<h3>Workspace HTR</h3>
+<p>Widok <code>HTR</code> służy do wygodnej pracy z treścią jednego wariantu tekstu.</p>
+<p>W workspace można:</p>
+<ul>
+<li>edytować pełną treść tekstu,</li>
+<li>zapisać poprawki bez wracania do widoku skanu,</li>
+<li>wrócić do skanu przez przycisk <code>Anuluj</code> lub odpowiedni link powrotu,</li>
+<li>użyć funkcji <code>Dopasuj linie przez AI</code>.</li>
+</ul>
+<p>Funkcja dopasowania linii przez AI:</p>
+<ul>
+<li>działa tylko wtedy, gdy skan ma przypisany obraz,</li>
+<li>korzysta z bieżącej treści tekstu,</li>
+<li>zwraca sformatowany tekst z podziałem na linie,</li>
+<li>sprawdza, czy wynik po usunięciu białych znaków zgadza się z tekstem wejściowym,</li>
+<li>może zgłosić błąd, jeśli usługa zewnętrzna nie jest skonfigurowana albo nie zwróci poprawnego wyniku.</li>
+</ul>
+<p><br><img src="manuscriptlab_htr_view.png" width="800px"><br></p>
+<h2>8. Porównania HTR</h2>
+<p>Porównania HTR wykonuje się na poziomie pojedynczego skanu.</p>
+<h3>Jak wykonać porównanie HTR</h3>
+<ol>
+<li>Otwórz skan.</li>
+<li>Kliknij <code>Porównaj HTR</code>.</li>
+<li>Wybierz:<ul>
+<li><code>Tekst wzorcowy</code></li>
+<li><code>Tekst porównywany</code></li>
+<li><code>Profil normalizacji</code></li>
+</ul>
+</li>
+<li>Kliknij <code>Porównaj</code>.</li>
+</ol>
+<p>Do wykonania porównania potrzebne są co najmniej dwa warianty tekstu.</p>
+<h3>Profile normalizacji</h3>
+<p>Dostępne profile:</p>
+<ul>
+<li><code>raw</code> – bez normalizacji, tekst w takiej postaci jak został zapisany</li>
+<li><code>lowercase</code> – po konwersji do małych liter,</li>
+<li><code>lowercase_no_punct</code> – małe litery i bez interpunkcji.</li>
+</ul>
+<h3>Co pokazuje wynik porównania HTR</h3>
+<p>Widok szczegółów porównania pokazuje:</p>
+<ul>
+<li>metrykę <code>CER</code>,</li>
+<li>metrykę <code>WER</code>,</li>
+<li>użyty profil normalizacji,</li>
+<li>źródła porównania,</li>
+<li>tabelaryczną wizualizację różnic między tekstem wzorcowym i porównywanym,</li>
+<li>przycisk usunięcia porównania.</li>
+</ul>
+<p>Jeżeli porównanie zostało otwarte z raportu jakości HTR, przycisk powrotu prowadzi z powrotem do raportu. Jeżeli zostało otwarte z widoku skanu, przycisk prowadzi do skanu.</p>
+<p><br><img src="manuscriptlab_htr_compare.png" width="800px"><br></p>
+<h3>Lista porównań HTR w widoku skanu</h3>
+<p>Na liście porównań HTR w widoku skanu można:</p>
+<ul>
+<li>sortować po <code>ID</code>, <code>CER</code> i <code>WER</code>,</li>
+<li>przejść do <code>Szczegóły</code>,</li>
+<li>usunąć porównanie przyciskiem <code>Usuń</code>.</li>
+</ul>
+<h2>9. Raport jakości HTR</h2>
+<p>Raport jakości HTR prezentuje zbiorczą ocenę modeli HTR na podstawie zapisanych porównań.</p>
+<h3>Jak działa raport</h3>
+<p>Raport:</p>
+<ul>
+<li>grupuje porównania według źródła tekstu porównywanego i profilu normalizacji,</li>
+<li>przelicza metryki <code>CER</code> i <code>WER</code> dla całego zbioru porównań w grupie,</li>
+<li>pokazuje liczbę porównań i liczbę skanów w danej grupie,</li>
+<li>pozwala otworzyć skład konkretnej grupy,</li>
+<li>pozwala eksportować wynik do <code>CSV</code> i <code>XLSX</code>.</li>
+</ul>
+<h3>Jak czytać raport</h3>
+<p>W sekcji <code>Lista modeli</code> znajdują się:</p>
+<ul>
+<li><code>Model</code></li>
+<li><code>Normalizacja</code></li>
+<li><code>Porównania</code></li>
+<li><code>Skany</code></li>
+<li><code>CER zbiorcze</code></li>
+<li><code>WER zbiorcze</code></li>
+</ul>
+<p>Kliknięcie <code>Skład</code> przy wybranej pozycji otwiera sekcję <code>Lista porównywanych skanów</code>, w której widać:</p>
+<ul>
+<li>identyfikator porównania,</li>
+<li>skan,</li>
+<li>wynik <code>CER</code> dla skanu,</li>
+<li>wynik <code>WER</code> dla skanu,</li>
+<li>link <code>Szczegóły</code>.</li>
+</ul>
+<p>Raport służy przede wszystkim do porównywania jakości modeli HTR między sobą.</p>
+<h2>10. Eksport próbki uczącej</h2>
+<p>Sekcja <code>Skany</code> zawiera funkcję <code>Eksport próbki uczącej</code>.</p>
+<h3>Kiedy skan trafi do eksportu</h3>
+<p>Do eksportu zostaną uwzględnione tylko te skany, które:</p>
+<ul>
+<li>są oznaczone jako <code>Do próbki uczącej</code>,</li>
+<li>mają przypisany obraz,</li>
+<li>mają wskazaną <code>Podstawową wersję ground truth</code>.</li>
+</ul>
+<h3>Jak wykonać eksport</h3>
+<ol>
+<li>Otwórz <code>Skany</code>.</li>
+<li>Kliknij <code>Eksport próbki uczącej</code>.</li>
+<li>Sprawdź liczbę skanów gotowych do eksportu.</li>
+<li>Opcjonalnie zaznacz <code>Dołącz pliki skanów</code>.</li>
+<li>Kliknij <code>Przygotuj paczkę ZIP</code>.</li>
+</ol>
+<p>W wyniku zostanie pobrany plik <code>ZIP</code> zawierający:</p>
+<ul>
+<li>pliki tekstowe <code>TXT</code> z treścią podstawowego ground truth,</li>
+<li>opcjonalnie obrazy skanów.</li>
+</ul>
+<p>Jeżeli żaden skan nie spełnia warunków, aplikacja pokaże komunikat ostrzegawczy i nie przygotuje paczki.</p>
+<h2>11. Sekcja Dokumenty</h2>
+<p>Dokument to logiczna jednostka złożona z jednego lub wielu skanów. W tej sekcji można także prowadzić warianty tłumaczeń.</p>
+<h3>Lista dokumentów</h3>
+<p>Na liście dokumentów można:</p>
+<ul>
+<li>filtrować rekordy po tytule lub sygnaturze źródła,</li>
+<li>sortować po <code>ID</code>, <code>Tytule</code> i <code>Sygnaturze źródła</code>,</li>
+<li>sprawdzać status <code>Gotowe</code>,</li>
+<li>sprawdzać liczbę powiązanych skanów,</li>
+<li>sprawdzać liczbę wariantów tłumaczeń,</li>
+<li>przejść do podglądu dokumentu,</li>
+<li>edytować metadane,</li>
+<li>dodać nowy dokument.</li>
+</ul>
+<h3>Dodawanie dokumentu</h3>
+<ol>
+<li>Otwórz <code>Dokumenty</code>.</li>
+<li>Kliknij <code>Dodaj dokument</code>.</li>
+<li>Uzupełnij:<ul>
+<li><code>Tytuł</code></li>
+<li><code>Sygnatura źródła</code></li>
+<li><code>Adres bibliograficzny</code></li>
+<li><code>Uwagi</code></li>
+<li>opcjonalnie <code>Tekst źródłowy</code></li>
+<li>opcjonalnie <code>Gotowe</code></li>
+</ul>
+</li>
+<li>Kliknij <code>Zapisz</code>.</li>
+</ol>
+<h3>Widok dokumentu</h3>
+<p>Widok dokumentu zawiera:</p>
+<ul>
+<li>metadane,</li>
+<li>listę powiązanych skanów,</li>
+<li>tekst źródłowy dokumentu,</li>
+<li>listę wariantów tłumaczeń,</li>
+<li>listę porównań tłumaczeń,</li>
+<li>przyciski nawigacji <code>Poprzedni</code> i <code>Następny</code> w obrębie aktualnej listy dokumentów.</li>
+</ul>
+<p>Dostępne akcje:</p>
+<ul>
+<li><code>Edytuj metadane</code></li>
+<li><code>Powiąż skan</code></li>
+<li><code>Dodaj wariant tłumaczenia</code></li>
+<li><code>Porównaj tłumaczenia</code></li>
+<li><code>Przebuduj tekst źródłowy ze skanów</code></li>
+<li><code>Usuń dokument</code></li>
+</ul>
+<h2>12. Powiązywanie skanów z dokumentem</h2>
+<h3>Dodawanie powiązania</h3>
+<ol>
+<li>Otwórz dokument.</li>
+<li>Kliknij <code>Powiąż skan</code>.</li>
+<li>Wybierz skan z listy niepowiązanych jeszcze rekordów.</li>
+<li>Ustaw jego <code>Kolejność</code>.</li>
+<li>Kliknij <code>Zapisz</code>.</li>
+</ol>
+<p>Kolejność ma znaczenie przy budowie tekstu źródłowego dokumentu.</p>
+<h3>Edycja i usuwanie powiązań</h3>
+<p>Przy każdym powiązanym skanie dostępne są akcje:</p>
+<ul>
+<li><code>Edytuj</code></li>
+<li><code>Usuń</code></li>
+</ul>
+<p>Jeżeli wszystkie dostępne skany są już powiązane z dokumentem, aplikacja nie pozwoli dodać kolejnego powiązania.</p>
+<h2>13. Przebudowa tekstu źródłowego dokumentu</h2>
+<p>Przycisk <code>Przebuduj tekst źródłowy ze skanów</code> tworzy lub aktualizuje tekst źródłowy dokumentu na podstawie powiązanych skanów i ich treści.</p>
+<p>Do przebudowy aplikacja wykorzystuje podstawowy wariant ground truth każdego powiązanego skanu, według ustawionej kolejności.</p>
+<p>Z tej funkcji warto skorzystać po:</p>
+<ul>
+<li>dodaniu nowych skanów do dokumentu,</li>
+<li>zmianie kolejności skanów,</li>
+<li>poprawkach w tekstach HTR lub ground truth.</li>
+<li>tylko jeżeli z założenia teksty dokumentów nie są wprowadzane ręcznie, z innych źródeł niż tekst skanu</li>
+</ul>
+<h3>Kiedy przebudowa się nie uda</h3>
+<p>Aplikacja pokaże ostrzeżenie, jeżeli:</p>
+<ul>
+<li>dokument nie ma żadnych powiązanych skanów,</li>
+<li>któryś skan nie ma podstawowego wariantu ground truth,</li>
+<li>podstawowe warianty ground truth są puste.</li>
+</ul>
+<h3>Nadpisanie istniejącego tekstu</h3>
+<p>Jeżeli dokument ma już wpisany <code>Tekst źródłowy</code>, aplikacja poprosi o potwierdzenie zastąpienia obecnej treści tekstem zbudowanym ze skanów.</p>
+<h2>14. Warianty tłumaczeń</h2>
+<p>Do każdego dokumentu można dodać wiele wariantów tłumaczeń.</p>
+<h3>Dodawanie wariantu tłumaczenia</h3>
+<ol>
+<li>Otwórz dokument.</li>
+<li>Kliknij <code>Dodaj wariant tłumaczenia</code>.</li>
+<li>Uzupełnij:<ul>
+<li><code>Typ wariantu</code></li>
+<li><code>Model</code></li>
+<li><code>Prompt</code></li>
+<li><code>Uwagi</code></li>
+<li><code>Treść</code></li>
+</ul>
+</li>
+<li>Kliknij <code>Zapisz</code>.</li>
+</ol>
+<h3>Typy wariantów tłumaczeń</h3>
+<p>Dostępne typy:</p>
+<ul>
+<li><code>Referencyjne</code></li>
+<li><code>Wynik modelu</code></li>
+</ul>
+<p>Wariant <code>Referencyjne</code> oznacza tłumaczenie ręczne lub wzorcowe. W takim wariancie model, prompt i automatyczne tłumaczenie nie są używane.</p>
+<h3>Automatyczne tłumaczenie</h3>
+<p>W formularzu wariantu tłumaczenia może być dostępny przycisk <code>Przetłumacz automatycznie</code>.</p>
+<p>Funkcja działa wtedy, gdy:</p>
+<ul>
+<li>dokument ma uzupełniony <code>Tekst źródłowy</code>,</li>
+<li>wybrano model tłumaczeń obsługujący automatyczne tłumaczenie,</li>
+<li>konfiguracja API modelu została wcześniej poprawnie ustawiona.</li>
+</ul>
+<p>Po użyciu przycisku:</p>
+<ul>
+<li>tekst źródłowy dokumentu jest wysyłany do wybranego silnika tłumaczeniowego,</li>
+<li>wynik zostaje wpisany do pola <code>Treść</code>,</li>
+<li>formularz pokazuje status operacji,</li>
+<li>może pojawić się dodatkowa informacja o użytym modelu, promptcie i czasie przetwarzania.</li>
+</ul>
+<p>Nie wszystkie modele używają promptów. Dla części silników pole <code>Prompt</code> może być nieaktywne czyli niepotrzebne.</p>
+<h3>Edycja wariantów</h3>
+<p>Przy każdym wariancie dostępne są akcje:</p>
+<ul>
+<li><code>Edytuj</code></li>
+<li><code>Usuń</code></li>
+</ul>
+<p>Pod tabelą każdego wariantu widoczny jest podgląd początku treści tłumaczenia.</p>
+<p>Jeżeli zmienisz treść wariantu tłumaczenia, zapisane wcześniej porównania pozostaną w bazie, ale ich metryki zostaną przeliczone ponownie przy kolejnym odczycie.</p>
+<h2>15. Porównania tłumaczeń</h2>
+<p>Porównania tłumaczeń wykonuje się na poziomie pojedynczego dokumentu.</p>
+<h3>Jak wykonać porównanie tłumaczeń</h3>
+<ol>
+<li>Otwórz dokument.</li>
+<li>Kliknij <code>Porównaj tłumaczenia</code>.</li>
+<li>Wybierz wariant referencyjny i wariant porównywany.</li>
+<li>Opcjonalnie dodaj uwagi.</li>
+<li>Kliknij <code>Porównaj</code>.</li>
+</ol>
+<p>Do wykonania porównania potrzebne są co najmniej dwa warianty tłumaczenia.</p>
+<h3>Co pokazuje wynik</h3>
+<p>Widok szczegółów porównania tłumaczeń pokazuje:</p>
+<ul>
+<li><code>BLEU</code>,</li>
+<li><code>chrF++</code>,</li>
+<li>tekst wzorcowy,</li>
+<li>tekst porównywany.</li>
+</ul>
+<h3>Lista porównań tłumaczeń w widoku dokumentu</h3>
+<p>Na liście porównań tłumaczeń można:</p>
+<ul>
+<li>sortować po <code>ID</code>, wzorcu, wariancie porównywanym, <code>BLEU</code> i <code>chrF++</code>,</li>
+<li>przejść do <code>Szczegóły</code>,</li>
+<li>usunąć porównanie przyciskiem <code>Usuń</code>.</li>
+</ul>
+<h2>16. Raport jakości tłumaczeń</h2>
+<p>Raport jakości tłumaczeń agreguje zapisane porównania tłumaczeń dla całych korpusów dokumentów.</p>
+<p>W raporcie można zobaczyć:</p>
+<ul>
+<li>grupy porównań,</li>
+<li>liczbę porównań i dokumentów,</li>
+<li><code>BLEU korpusowe</code>,</li>
+<li><code>chrF++ korpusowe</code>,</li>
+<li>skład danej grupy,</li>
+<li>eksport danych do <code>CSV</code> i <code>XLSX</code>.</li>
+</ul>
+<p>Wyniki są liczone ponownie dla całego zbioru porównań, a nie jako średnia z dokumentów.</p>
+<p>Kliknięcie <code>Skład</code> otwiera listę porównań należących do wybranej grupy.</p>
+<h2>17. Sortowanie, filtrowanie i nawigacja</h2>
+<p>W wielu tabelach w aplikacji nazwy kolumn są jednocześnie linkami sortującymi. Ponowne kliknięcie tej samej kolumny zmienia kierunek sortowania.</p>
+<p>Na listach <code>Skany</code> i <code>Dokumenty</code> dostępny jest filtr tekstowy oraz przycisk <code>Wyczyść</code>.</p>
+<p>W widokach pojedynczego skanu i dokumentu dostępne są przyciski <code>Poprzedni</code> i <code>Następny</code>, które działają w oparciu o aktualny filtr i sortowanie listy.</p>
+<h2>18. Komunikaty i bezpieczeństwo pracy</h2>
+<h3>Komunikaty po operacjach</h3>
+<p>Po większości operacji aplikacja wyświetla komunikat:</p>
+<ul>
+<li>sukcesu, gdy operacja się udała,</li>
+<li>ostrzegawczy, gdy dane są niepełne albo warunki nie zostały spełnione,</li>
+<li>błędu, gdy operacja nie mogła zostać wykonana.</li>
+</ul>
+<h3>Równoczesna edycja</h3>
+<p>Aplikacja wykrywa sytuację, w której ten sam rekord został zmieniony przez inną osobę lub w innym oknie przeglądarki między otwarciem formularza a zapisem.</p>
+<p>W takiej sytuacji:</p>
+<ul>
+<li>zmiany nie są zapisywane automatycznie,</li>
+<li>pojawia się komunikat ostrzegawczy,</li>
+<li>należy odświeżyć widok i ponowić edycję na aktualnych danych.</li>
+</ul>
+<h3>Potwierdzenia usunięcia</h3>
+<p>Operacje usuwania są zabezpieczone oknem potwierdzenia, np. dla:</p>
+<ul>
+<li>skanu,</li>
+<li>dokumentu,</li>
+<li>wariantu tekstu,</li>
+<li>wariantu tłumaczenia,</li>
+<li>porównania HTR,</li>
+<li>porównania tłumaczeń,</li>
+<li>powiązania skanu z dokumentem,</li>
+<li>modelu lub promptu w słowniku.</li>
+</ul>
+<h2>19. Oznaczenia i dobre praktyki</h2>
+<h3>Oznaczenie <code>Gotowe</code></h3>
+<p>Pole <code>Gotowe</code> występuje przy skanach i dokumentach. Można go używać jako znacznika zakończenia prac nad danym rekordem.</p>
+<h3>Oznaczenie <code>Do próbki uczącej</code></h3>
+<p>To pole należy zaznaczać tylko wtedy, gdy skan ma być uwzględniony w eksporcie materiałów treningowych.</p>
+<h3>Podstawowa wersja ground truth</h3>
+<p>Dla jednego skanu warto wskazać dokładnie jedną podstawową wersję ground truth. To ona jest używana:</p>
+<ul>
+<li>przy eksporcie próbki uczącej,</li>
+<li>przy przebudowie tekstu źródłowego dokumentu ze skanów.</li>
+</ul>
+<h3>Sugerowany model pracy</h3>
+<ul>
+<li>Najpierw wprowadź model do słownika.</li>
+<li>Potem dodaj skan i tekst wzorcowy.</li>
+<li>Następnie dodaj wynik modelu HTR.</li>
+<li>Dopiero potem wykonuj porównania HTR.</li>
+<li>Po zebraniu skanów zbuduj dokument i przebuduj jego tekst źródłowy.</li>
+<li>Na końcu dodawaj i porównuj tłumaczenia.</li>
+</ul>
+<h2>20. Najczęstsze sytuacje</h2>
+<h3>Nie widać modelu na liście wyboru</h3>
+<p>Najpierw dodaj go w sekcji <code>Parametry</code>.</p>
+<h3>Nie można usunąć modelu albo promptu</h3>
+<p>Sprawdź, czy nie jest używany w istniejących wariantach.</p>
+<h3>Skan nie trafia do eksportu próbki uczącej</h3>
+<p>Sprawdź, czy:</p>
+<ul>
+<li>zaznaczono <code>Do próbki uczącej</code>,</li>
+<li>dodano obraz skanu,</li>
+<li>istnieje podstawowa wersja ground truth.</li>
+</ul>
+<h3>Nie da się przebudować tekstu źródłowego dokumentu</h3>
+<p>Sprawdź, czy:</p>
+<ul>
+<li>dokument ma powiązane skany,</li>
+<li>każdy z nich ma podstawową wersję ground truth,</li>
+<li>te warianty nie są puste.</li>
+</ul>
+<h3>Przycisk automatycznego tłumaczenia jest nieaktywny</h3>
+<p>Najczęstsze przyczyny:</p>
+<ul>
+<li>dokument nie ma tekstu źródłowego,</li>
+<li>wybrano wariant <code>Referencyjne</code>,</li>
+<li>wybrany model nie obsługuje automatycznego tłumaczenia,</li>
+<li>model nie ma poprawnie skonfigurowanego API.</li>
+</ul>
+<h3>Raport jakości HTR jest pusty</h3>
+<p>Raport pokazuje tylko zapisane porównania HTR. Najpierw trzeba wykonać porównania dla co najmniej jednego skanu.</p>
+<h3>Raport jakości tłumaczeń jest pusty</h3>
+<p>Najpierw trzeba dodać warianty tłumaczeń i zapisać porównania dla dokumentów.</p>
+<h2>21. Podsumowanie</h2>
+<p>Aplikacja wspiera trzy główne obszary pracy:</p>
+<ul>
+<li>przygotowanie materiału treningowego do uczenia modeli HTR</li>
+<li>analizę jakości HTR na poziomie skanów i zbiorów skanów,</li>
+<li>analizę jakości tłumaczeń na poziomie dokumentów i korpusów.</li>
+</ul>
+<p>Najlepsze efekty daje konsekwentne uzupełnianie:</p>
+<ul>
+<li>metadanych,</li>
+<li>słowników modeli i promptów,</li>
+<li>tekstów wzorcowych,</li>
+<li>wyników modeli,</li>
+<li>zapisanych porównań,</li>
+<li>powiązań między skanami i dokumentami.</li>
+</ul>
+
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-4xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
+            <p>
+                Powrót na <a href="https://ai.ihpan.edu.pl"
+                    class="text-amber-600 hover:text-amber-800 font-medium">główną stronę</a> serwera.
+            </p>
+            <p class="mt-2 text-xs text-gray-400">&copy; 2026 Pracownia Historii Cyfrowej IH PAN</p>
+        </div>
+    </footer>
+</body>
+</html>
