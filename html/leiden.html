@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Building a Knowledge Graph for historical biographies using LLM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col">
+
+     <nav class="w-full bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html"
+                class="flex items-center text-gray-500 hover:text-amber-600 transition font-medium text-sm">
+                &larr; Powrót na stronę główną
+            </a>
+            <div class="text-sm font-bold text-gray-900 tracking-tight">
+                <span class="text-amber-600">AI</span>.IHPAN.EDU.PL
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-4 py-12">
+
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                Building a Knowledge Graph for historical biographies using LLM
+            </h1>
+            <p class="text-lg text-slate-600">
+                <strong>Note:</strong> Presentation delivered at the
+                    <a href="https://www.universiteitleiden.nl/en/events/2025/03/european-social-science-history-conference-2025" class="text-amber-600 hover:text-amber-800 font-medium">European Social Science History Conference (ESSHC) 2025</a>.
+            </p>
+        </header>
+
+        <div class="space-y-8">
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-01.png" alt="Slajd" class="w-full h-auto block">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-02.png" alt="Slajd" class="w-full h-auto block">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-03.png" alt="Slajd" class="w-full h-auto block">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-04.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-05.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-06.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-07.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-08.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-09.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-10.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-11.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-12.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-13.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-14.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-015.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-16.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-17.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-18.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-19.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-20.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-21.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-22.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-23.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-24.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-25.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-26.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-27.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-28.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-29.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-30.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-31.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-32.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-33.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-34.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-35.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-36.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-37.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+            <article class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+                <img src="slides_leiden/img-38.png" class="w-full h-auto block" alt="Slajd">
+            </article>
+
+        </div>
+    </div>
+
+     <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-4xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
+            <p>
+                Powrót na <a href="https://ai.ihpan.edu.pl"
+                    class="text-amber-600 hover:text-amber-800 font-medium">główną stronę</a> serwera.
+            </p>
+            <p class="mt-2 text-xs text-gray-400">&copy; 2026 Pracownia Historii Cyfrowej IH PAN</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
