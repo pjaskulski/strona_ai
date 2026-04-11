@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Scans and Transcriptions – description and user guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    figure {
+      margin: 1.5rem 0;
+      padding: 0.6rem;
+      border: 1px solid #ddd;
+      background: #fcfcfc;
+    }
+
+    figure img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    figcaption {
+      margin-top: 0.45rem;
+      font-size: 0.9em;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col">
+
+  <nav class="w-full bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center text-gray-500 hover:text-amber-600 transition font-medium text-sm">
+        &larr; Back to the main page
+      </a>
+      <div class="text-sm font-bold text-gray-900 tracking-tight">
+        <span class="text-amber-600">AI</span>.IHPAN.EDU.PL
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow py-10 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+
+      <article class="p-8 sm:p-12">
+
+        <header class="mb-8 border-b border-gray-100 pb-8">
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">Scans and Transcriptions</h1>
+          <p class="text-lg text-gray-500">Description and user instructions for an application that allows you to view scans and create,
+          verify, and export transcripts using Gemini models.</p>
+        </header>
+
+        <div class="space-y-6 text-gray-700 leading-relaxed">
+
+          <p>
+            <strong>Scans and Transcriptions</strong> is a desktop application (Linux/Windows) designed for working with scans
+            of manuscripts,
+            typescripts, early printed books, and other source materials. The program makes it possible to generate an automatic
+            transcription and then verify its accuracy by working with the document image and the text side by side.
+          </p>
+
+          <figure>
+            <img src="image_scans/entity_names_on_scan_2.jpg"
+              alt="Scans and Transcriptions application screen">
+            <figcaption>Scans and Transcriptions application screen
+            </figcaption>
+          </figure>
+
+          <p>
+            The application works with a selected working directory. In one place, it can store scan images,
+            text files with transcriptions, audio recordings of the reading, and auxiliary metadata files. This makes the tool
+            suitable
+            both for the quick reading of a single document and for gradual work on a larger collection
+            of materials.
+          </p>
+
+          <div class="note">
+            The application uses Gemini models via API. This means that an internet connection is required for automatic transcription, text-to-speech playback,
+            and some auxiliary functions. Using the API involves charges
+            in accordance with Google's current pricing.
+          </div>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Key features</h3>
+          <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+            <li>browsing scans and their corresponding transcription files,</li>
+            <li>importing pages from a PDF file into the working directory,</li>
+            <li>automatic transcription of a single scan or an entire series of files,</li>
+            <li>saving results in TXT, DOCX, and TEI-XML formats,</li>
+            <li>verification of transcriptions by zooming, panning, and filtering the image,</li>
+            <li>text-to-speech playback,</li>
+            <li>highlighting named entities in the text and marking them on the scan,</li>
+            <li>exporting recognized entities to a CSV file,</li>
+            <li>recording API call costs for the current directory.</li>
+          </ul>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">User guide</h3>
+
+          <h5 class="font-bold text-gray-900">Selecting a working directory</h5>
+          <p>
+            After launching the program, the user should indicate the folder containing the scans. If the directory already contains
+            <code>.txt</code> files whose names correspond to the image file names, the application will load them as existing transcriptions.
+            If such files do not yet exist, the program will automatically create empty files, which will be filled in after running the Gemini model.
+            If there are no scans in the selected folder but a PDF file is present, the application will offer to extract scans from the PDF file
+            (they will be saved as files named <code>img-01.png</code>, etc.).
+          </p>
+
+          <h5 class="font-bold text-gray-900">Importing from a PDF file</h5>
+          <p>
+            If the source material is available as a PDF file, the import function can be used. The program will extract the successive
+            pages and save them in the working directory as separate image files, for example <code>img-01.png</code>,
+            <code>img-02.png</code>, and so on. This is particularly useful when working with materials downloaded from
+            digital libraries.
+          </p>
+
+          <h5 class="font-bold text-gray-900">Automatic transcription</h5>
+          <p>
+            The application can read either a single scan or an entire series of files. The user may rely on predefined
+            prompts
+            or prepare their own instructions for the model. In batch reading mode, the program by default selects those files
+            that do not yet have a transcription or whose transcription file is empty, but this selection can be changed manually.
+          </p>
+
+          <h5 class="font-bold text-gray-900">Verifying and correcting the text</h5>
+          <p>
+            Once the reading has been completed, the user can inspect the result by comparing the text with the scan. In the image panel,
+            the following tools are available:
+            panning, zooming in and out, a magnifier, and basic image filters. In the text panel, the user can manually
+            correct
+            the transcription, search text fragments, and change the font size.
+          </p>
+
+          <h5 class="font-bold text-gray-900">Exporting results</h5>
+          <p>
+            Completed transcriptions can be saved as a merged text file, a DOCX document, or a TEI-XML file. Recognized
+            named entities
+            can also be exported to a CSV file, which facilitates their further use in research.
+          </p>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Interface elements</h3>
+
+          <h5 class="font-bold text-gray-900">Scan panel</h5>
+          <p>
+            The left panel is used for working with the document image. The user can move the scan with the mouse, change the viewing scale,
+            use the magnifier, and apply simple filters such as contrast enhancement or color inversion.
+            These functions are particularly useful for manuscripts and less legible reproductions.
+          </p>
+
+          <h5 class="font-bold text-gray-900">Main toolbar</h5>
+          <p>
+            The main toolbar makes it possible to move between files, save changes, run the reading of a single
+            scan
+            or an entire series, and export the results to selected formats. This area also displays information
+            about the currently selected prompt file.
+          </p>
+
+          <h5 class="font-bold text-gray-900">Transcription toolbar</h5>
+          <p>
+            Above the text field there are auxiliary tools: transcription search, font size adjustment,
+            switching the interface language, and buttons related to text-to-speech playback and named-entity control. The application
+            currently supports
+            Polish and English language versions.
+          </p>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Named-entity control</h3>
+          <p>
+            In automatic transcription practice, errors occur particularly often in the names of people, places, and
+            institutions.
+            For this reason, the application includes separate functions that support the verification of such elements.
+          </p>
+          <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+            <li><strong>NER</strong> highlights named entities in the transcription text,</li>
+            <li><strong>BOX</strong> marks them directly on the scan,</li>
+            <li><strong>CLS</strong> removes the markings,</li>
+            <li><strong>LEG</strong> displays a color legend for entity categories,</li>
+            <li><strong>CSV</strong> exports the list of recognized names to a file.</li>
+          </ul>
+
+          <p>
+            The BOX function is experimental in nature. The boxes indicating names can be moved and corrected manually.
+            Its purpose is not full automation of verification, but rather to facilitate the quick comparison of text with the document image.
+          </p>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Text-to-speech playback and cost control</h3>
+          <p>
+            The program makes it possible to read the transcription aloud, which may help identify typos and editorial
+            issues.
+            In addition, the application records information about the models used, the number of tokens, and the costs of API calls for
+            the current directory.
+          </p>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Sample application screens</h3>
+
+          <figure>
+            <img src="image_scans/screen_scan_transcript.png"
+              alt="Main application window with scan and transcription view">
+            <figcaption>Main application window. The scan is shown on the left, and the transcription field on the right.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img src="image_scans/import_pdf.png" alt="Importing pages from a PDF file">
+            <figcaption>Importing pages from a PDF file into the working directory.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="image_scans/toolbar.png" alt="Main application toolbar">
+            <figcaption>Main toolbar used for navigation, reading, and exporting results.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="image_scans/highlighting_entity_names.jpg" alt="Highlighting named entities in the transcription">
+            <figcaption>Highlighting named entities in the text as an aid in transcription verification.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="image_scans/entity_names_on_scan.jpg" alt="Marking named entities directly on the scan">
+            <figcaption>Experimental marking of named entities directly on the scan image.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="image_scans/settings.png" alt="Application settings">
+            <figcaption>Application settings.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="image_scans/cost_control.jpg" alt="Overview of API call costs">
+            <figcaption>View of API call cost information for the current set of materials.</figcaption>
+          </figure>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">User tips</h3>
+          <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+            <li>for the application, a “project” is simply a folder containing scans, so it is best to work in separate folders for each set of scans,</li>
+            <li>after automatic reading, the text should always be checked manually,</li>
+            <li>special attention should be paid to named entities, dates, and numbers,</li>
+            <li>the magnifier and image filters are particularly useful for manuscripts and low-quality scans,</li>
+            <li>export to TEI-XML may serve as a convenient starting point for further scholarly processing of the source material.
+            </li>
+          </ul>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Project access</h3>
+          <p>
+            Project repository: <a href="https://github.com/pjaskulski/scans-and-transcriptions" class="text-amber-600 hover:text-amber-800 font-medium">GitHub –
+              scans-and-transcriptions</a>
+          </p>
+          <p>
+            Release 0.1 for Windows: <a
+              href="https://github.com/pjaskulski/scans-and-transcriptions/releases/tag/v0.1" class="text-amber-600 hover:text-amber-800 font-medium">GitHub Releases – v0.1</a>
+              The link above contains a ZIP package with the folder containing the application.
+              <strong>Note</strong>: due to restrictions and security features in newer versions of Windows, it may be necessary to exclude the application folder in order to run it correctly.
+          </p>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-auto">
+    <div class="max-w-4xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
+      <p>
+        Return to the <a href="https://ai.ihpan.edu.pl" class="text-amber-600 hover:text-amber-800 font-medium">main
+          server page</a>.
+      </p>
+      <p class="mt-2 text-xs text-gray-400">&copy; 2026 Digital History Lab, Tadeusz Manteuffel Institute of History, Polish Academy of Sciences</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

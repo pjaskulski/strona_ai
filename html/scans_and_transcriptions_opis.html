@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Scans and Transcriptions – opis i instrukcja</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    figure {
+    margin: 1.5rem 0;
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    background: #fcfcfc;
+  }
+
+  figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  figcaption {
+    margin-top: 0.45rem;
+    font-size: 0.9em;
+    color: #666;
+    text-align: center;
+  }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col">
+
+  <nav class="w-full bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center text-gray-500 hover:text-amber-600 transition font-medium text-sm">
+        &larr; Powrót na stronę główną
+      </a>
+      <div class="text-sm font-bold text-gray-900 tracking-tight">
+        <span class="text-amber-600">AI</span>.IHPAN.EDU.PL
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow py-10 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+
+      <article class="p-8 sm:p-12">
+
+        <header class="mb-8 border-b border-gray-100 pb-8">
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">Scans and Transcriptions</h1>
+          <p class="text-lg text-gray-500">Opis działania i instrukcja obsługi aplikacji do przeglądania skanów oraz
+            przygotowywania, weryfikowania i eksportowania transkrypcji z użyciem modeli Gemini.</p>
+        </header>
+
+        <div class="space-y-6 text-gray-700 leading-relaxed">
+
+          <p>
+            <strong>Scans and Transcriptions</strong> to aplikacja desktopowa (Linux/Windows) przeznaczona do pracy ze skanami
+            rękopisów,
+            maszynopisów, starodruków i innych materiałów źródłowych. Program pozwala przygotować automatyczną
+            transkrypcję,
+            a następnie sprawdzać jej poprawność przez równoległą pracę z obrazem dokumentu i tekstem.
+          </p>
+
+          <figure>
+            <img src="image_scans/entity_names_on_scan_2.jpg"
+              alt="Ekran aplikacji Scans and Transcriptions">
+            <figcaption>Ekran aplikacji Scans and Transcriptions
+            </figcaption>
+          </figure>
+
+          <p>
+            Aplikacja działa na wskazanym katalogu roboczym. W jednym miejscu mogą być przechowywane obrazy skanów,
+            pliki tekstowe z transkrypcją, nagrania odczytu oraz pliki pomocnicze z metadanymi. Dzięki temu narzędzie
+            nadaje się
+            zarówno do szybkiego odczytu pojedynczego dokumentu, jak i do stopniowej pracy nad większym zbiorem
+            materiałów.
+          </p>
+
+          <div class="note">
+            Aplikacja korzysta z modeli Gemini poprzez API. Oznacza to, że podczas automatycznej transkrypcji, odsłuchu
+            tekstu
+            i części funkcji pomocniczych wymagane jest połączenie z internetem. Korzystanie z API wiąże się z opłatami
+            zgodnymi
+            z aktualnym cennikiem Google.
+          </div>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Najważniejsze funkcje</h3>
+          <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+            <li>przeglądanie skanów i odpowiadających im plików transkrypcji,</li>
+            <li>import stron z pliku PDF do katalogu roboczego,</li>
+            <li>automatyczna transkrypcja pojedynczego skanu albo całej serii plików,</li>
+            <li>zapisywanie wyników do formatów TXT, DOCX oraz TEI-XML,</li>
+            <li>weryfikacja transkrypcji przez powiększanie, przesuwanie i filtrowanie obrazu,</li>
+            <li>odsłuch tekstu z użyciem syntezy mowy,</li>
+            <li>wyróżnianie nazw własnych w tekście oraz zaznaczanie ich na skanie,</li>
+            <li>eksport rozpoznanych encji do pliku CSV,</li>
+            <li>rejestrowanie kosztów wywołań API dla bieżącego katalogu.</li>
+          </ul>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Instrukcja obsługi</h3>
+
+          <h5 class="font-bold text-gray-900">Wybór katalogu roboczego</h5>
+          <p>
+            Po uruchomieniu programu należy wskazać folder, w którym znajdują się skany. Jeżeli w katalogu są już pliki
+            <code>.txt</code> o nazwach zgodnych z nazwami obrazów, aplikacja wczyta je jako istniejące transkrypcje.
+            Jeżeli takich plików jeszcze nie ma, program utworzy automatycznie puste pliki, które zostaną uzupełnione po uruchomieniu modelu Gemini.
+            Jeżeli we wskazanym folderze nie ma skanów ale znajduje się tam plik pdf aplikacja zaproponuje wyodrębnienie skanów z pliku pdf (zostaną zapisane jako pliki o nazwach img-01.png itd.)
+          </p>
+
+          <h5 class="font-bold text-gray-900">Import z pliku PDF</h5>
+          <p>
+            Jeżeli materiał źródłowy jest dostępny w postaci pliku PDF, można użyć funkcji importu. Program wyodrębni
+            kolejne
+            strony i zapisze je w katalogu roboczym jako osobne pliki graficzne, na przykład <code>img-01.png</code>,
+            <code>img-02.png</code> i następne. Jest to szczególnie przydatne przy pracy z materiałami pobranymi z
+            bibliotek cyfrowych.
+          </p>
+
+          <h5 class="font-bold text-gray-900">Automatyczna transkrypcja</h5>
+          <p>
+            Aplikacja może odczytać pojedynczy skan albo całą serię plików. Użytkownik może korzystać z gotowych
+            promptów
+            lub przygotować własne instrukcje dla modelu. Przy odczycie seryjnym program domyślnie zaznacza te pliki,
+            które nie mają jeszcze transkrypcji albo mają plik pusty, ale wybór ten można zmienić ręcznie.
+          </p>
+
+          <h5 class="font-bold text-gray-900">Weryfikacja i poprawianie tekstu</h5>
+          <p>
+            Po wykonaniu odczytu użytkownik może kontrolować wynik, porównując tekst ze skanem. W panelu obrazu dostępne
+            są:
+            przesuwanie, przybliżanie i oddalanie, lupa oraz podstawowe filtry obrazu. W panelu tekstowym można ręcznie
+            poprawiać
+            transkrypcję, wyszukiwać fragmenty tekstu i zmieniać wielkość czcionki.
+          </p>
+
+          <h5 class="font-bold text-gray-900">Eksport wyników</h5>
+          <p>
+            Gotowe transkrypcje można zapisać jako scalony plik tekstowy, dokument DOCX albo plik TEI-XML. Rozpoznane
+            nazwy własne
+            mogą zostać również wyeksportowane do pliku CSV, co ułatwia ich dalsze wykorzystanie badawcze.
+          </p>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Elementy interfejsu</h3>
+
+          <h5 class="font-bold text-gray-900">Panel skanu</h5>
+          <p>
+            Lewy panel służy do pracy z obrazem dokumentu. Użytkownik może przesuwać skan myszą, zmieniać skalę widoku,
+            korzystać z lupy oraz używać prostych filtrów, takich jak wzmocnienie kontrastu czy odwrócenie kolorów.
+            Funkcje te są szczególnie przydatne przy rękopisach i słabiej czytelnych reprodukcjach.
+          </p>
+
+          <h5 class="font-bold text-gray-900">Główny pasek narzędzi</h5>
+          <p>
+            Główny pasek umożliwia przechodzenie między plikami, zapisywanie zmian, uruchamianie odczytu pojedynczego
+            skanu
+            lub całej serii oraz eksport wyników do wybranych formatów. W tym miejscu widoczna jest również informacja
+            o aktualnie wybranym pliku promptu.
+          </p>
+
+          <h5 class="font-bold text-gray-900">Pasek transkrypcji</h5>
+          <p>
+            Nad polem tekstowym znajdują się narzędzia pomocnicze: wyszukiwanie w transkrypcji, zmiana wielkości
+            czcionki,
+            przełączanie języka interfejsu oraz przyciski związane z odsłuchem i kontrolą nazw własnych. Aplikacja
+            obsługuje
+            obecnie polską i angielską wersję językową.
+          </p>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Kontrola nazw własnych</h3>
+          <p>
+            W praktyce transkrypcji automatycznej szczególnie często błędy pojawiają się w nazwach osób, miejsc i
+            instytucji.
+            Dlatego aplikacja zawiera osobne funkcje wspomagające weryfikację takich elementów.
+          </p>
+          <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+            <li><strong>NER</strong> wyróżnia nazwy własne w tekście transkrypcji,</li>
+            <li><strong>BOX</strong> zaznacza je bezpośrednio na skanie,</li>
+            <li><strong>CLS</strong> usuwa oznaczenia,</li>
+            <li><strong>LEG</strong> wyświetla legendę kolorów dla kategorii encji,</li>
+            <li><strong>CSV</strong> eksportuje listę rozpoznanych nazw do pliku.</li>
+          </ul>
+
+          <p>
+            Funkcja BOX ma charakter eksperymentalny. Ramki wskazujące nazwy można przesuwać i poprawiać ręcznie.
+            Jej celem nie jest pełna automatyzacja kontroli, lecz ułatwienie szybkiego porównania tekstu z obrazem
+            dokumentu.
+          </p>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Odczytywanie transkrypcji i kontrola kosztów</h3>
+          <p>
+            Program umożliwia odczytanie transkrypcji na głos, co może pomagać w wychwytywaniu literówek i usterek
+            redakcyjnych.
+            Ponadto aplikacja zapisuje informacje o użytych modelach, liczbie tokenów i kosztach wywołań API dla
+            bieżącego katalogu.
+          </p>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Przykładowe ekrany aplikacji</h3>
+
+          <figure>
+            <img src="image_scans/screen_scan_transcript.png"
+              alt="Główne okno aplikacji z widokiem skanu i transkrypcji">
+            <figcaption>Główne okno aplikacji. Po lewej stronie widoczny jest skan, po prawej pole transkrypcji.
+            </figcaption>
+          </figure>
+
+          <figure>
+            <img src="image_scans/import_pdf.png" alt="Import stron z pliku PDF">
+            <figcaption>Import stron z pliku PDF do katalogu roboczego.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="image_scans/toolbar.png" alt="Główny pasek narzędzi aplikacji">
+            <figcaption>Główny pasek narzędzi służący do nawigacji, odczytu i eksportu wyników.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="image_scans/highlighting_entity_names.jpg" alt="Wyróżnianie nazw własnych w transkrypcji">
+            <figcaption>Wyróżnianie nazw własnych w tekście jako pomoc przy weryfikacji transkrypcji.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="image_scans/entity_names_on_scan.jpg" alt="Zaznaczanie nazw własnych bezpośrednio na skanie">
+            <figcaption>Eksperymentalne zaznaczanie nazw własnych bezpośrednio na obrazie skanu.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="image_scans/settings.png" alt="Ustawienia aplikacji">
+            <figcaption>Ustawienia aplikacji.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="image_scans/cost_control.jpg" alt="Podgląd kosztów wywołań API">
+            <figcaption>Widok informacji o kosztach wywołań API dla bieżącego zbioru materiałów.</figcaption>
+          </figure>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Wskazówki dla użytkownika</h3>
+          <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+            <li>"projektem" dla aplikacji jest po prostu folder ze skanami, dlatego należy pracować w osobnych folderach dla każdego zespołu skanów,</li>
+            <li>po automatycznym odczycie należy zawsze przeprowadzić ręczną kontrolę tekstu,</li>
+            <li>szczególną uwagę warto zwracać na nazwy własne, daty i liczby,</li>
+            <li>lupa i filtry obrazu są szczególnie użyteczne przy rękopisach oraz skanach niskiej jakości,</li>
+            <li>eksport do TEI-XML może stanowić wygodny punkt wyjścia do dalszego opracowania materiału źródłowego.
+            </li>
+          </ul>
+
+          <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Dostęp do projektu</h3>
+          <p>
+            Repozytorium projektu: <a href="https://github.com/pjaskulski/scans-and-transcriptions" class="text-amber-600 hover:text-amber-800 font-medium">GitHub –
+              scans-and-transcriptions</a>
+          </p>
+          <p>
+            Wydanie 0.1 dla systemu Windows: <a
+              href="https://github.com/pjaskulski/scans-and-transcriptions/releases/tag/v0.1" class="text-amber-600 hover:text-amber-800 font-medium">GitHub Releases – v0.1</a>
+              Pod linkiem powyżej znajduje się paczka zip z folderem zawierającym aplikację.
+              <strong>Uwaga</strong>: ze wględu na restrykcje i zabezpieczenia w nowych wersjach systemu Windows konieczne może być wyłączenie katalogu z aplikacją, by ją poprawnie uruchomić.
+          </p>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-gray-200 mt-auto">
+    <div class="max-w-4xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
+      <p>
+        Powrót na <a href="https://ai.ihpan.edu.pl" class="text-amber-600 hover:text-amber-800 font-medium">główną
+          stronę</a> serwera.
+      </p>
+      <p class="mt-2 text-xs text-gray-400">&copy; 2026 Pracownia Historii Cyfrowej IH PAN</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
