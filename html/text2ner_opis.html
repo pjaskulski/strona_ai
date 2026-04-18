@@ -69,6 +69,9 @@
                             używane w każdym przebiegu analizy. Użytkownik może zdecydować, które typy mają być
                             włączone przed uruchomieniem rozpoznawania. Służy do tego okno parametrów aplikacji
                             wyświetlane po kliknięciu przycisku <strong>Parametry</strong> u góry ekranu.
+                            Dodatkowo w osobnym oknie <strong>Słowniki</strong> można edytować wybrane słowniki
+                            pomocnicze używane przy wyszukiwaniu i interpretacji encji, bez modyfikowania kodu
+                            programu.
                         </p>
 
                     </section>
@@ -165,6 +168,33 @@
                         </p>
 
                         <p><img src="text2ner_parametry.png" alt="Okno parametrów aplikacji" class=" rounded-lg border border-gray-200"></p>
+                    </section>
+
+
+                    <section class="space-y-4">
+                        <h2 class="text-2xl font-bold text-gray-900">Słowniki pomocnicze</h2>
+                        <p>
+                            Obok przycisku <strong>Parametry</strong> dostępny jest także przycisk
+                            <strong>Słowniki</strong>. Otwiera on osobne okno z czterema zakładkami, odpowiadającymi
+                            czterem słownikom pomocniczym używanym przez aplikację.
+                        </p>
+                        <ul class="list-disc ml-6 space-y-1">
+                            <li>słownik historycznych i łacińskich form imion,</li>
+                            <li>słownik historycznych i łacińskich nazw miejsc,</li>
+                            <li>słownik polskich odpowiedników przymiotnikowych od nazw miejsc,</li>
+                            <li>słownik urzędów, funkcji i godności używany przy dodatkowych zapytaniach pomocniczych.</li>
+                        </ul>
+                        <p>
+                            Każdy słownik można edytować w postaci prostych par <code>klucz -&gt; wartość</code>:
+                            dodawać nowe wiersze, usuwać istniejące i zapisać nową wersję bez restartu aplikacji.
+                        </p>
+                        <p>
+                            Przy zapisie aplikacja sprawdza, czy każdy wiersz zawiera niepusty klucz i wartość,
+                            odrzuca zduplikowane klucze, tworzy kopię bezpieczeństwa pliku <code>.bak</code>
+                            i natychmiast przeładowuje słowniki w pamięci procesu.
+                        </p>
+
+                        <p><img src="text2ner_slowniki.png" alt="Okno słowników aplikacji" class=" rounded-lg border border-gray-200"></p>
                     </section>
 
                     <section class="space-y-4">

@@ -68,7 +68,9 @@
                             <strong>roleName</strong>, and <strong>orgName</strong>. Not all of them need to be used in
                             every analysis run. The user can decide which tag types should be enabled before
                             recognition starts. This is done in the application parameters window opened with the
-                            <strong>Parameters</strong> button at the top of the screen.
+                            <strong>Parameters</strong> button at the top of the screen. In addition, a separate
+                            <strong>Dictionaries</strong> window allows selected auxiliary dictionaries used in entity
+                            search and interpretation to be edited without modifying the application code.
                         </p>
                     </section>
 
@@ -165,6 +167,35 @@
                         </p>
 
                         <p><img src="text2ner_parametry.png" alt="Application parameters window"
+                                class="rounded-lg border border-gray-200"></p>
+                    </section>
+
+
+                    <section class="space-y-4">
+                        <h2 class="text-2xl font-bold text-gray-900">Auxiliary dictionaries</h2>
+                        <p>
+                            Next to the <strong>Parameters</strong> button, the interface also provides a
+                            <strong>Dictionaries</strong> button. It opens a separate window with four tabs,
+                            corresponding to the four auxiliary dictionaries currently used by the application.
+                        </p>
+                        <ul class="list-disc ml-6 space-y-1">
+                            <li>a dictionary of historical and Latin personal-name forms,</li>
+                            <li>a dictionary of historical and Latin place-name forms,</li>
+                            <li>a dictionary of adjectival Polish equivalents derived from place names,</li>
+                            <li>a dictionary of offices, functions, and ranks used in auxiliary query expansion.</li>
+                        </ul>
+                        <p>
+                            Each dictionary can be edited as a simple set of <code>key -&gt; value</code> pairs: new rows
+                            may be added, existing ones removed, and the updated version can be saved without
+                            restarting the application.
+                        </p>
+                        <p>
+                            During saving, the application validates that each row contains a non-empty key and value,
+                            rejects duplicate keys, creates a <code>.bak</code> backup copy, and immediately reloads
+                            the dictionaries in process memory.
+                        </p>
+
+                        <p><img src="text2ner_slowniki.png" alt="The application configuration dictionaries window."
                                 class="rounded-lg border border-gray-200"></p>
                     </section>
 
