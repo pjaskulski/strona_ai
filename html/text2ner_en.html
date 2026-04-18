@@ -56,9 +56,10 @@
                         <p>
                             TEXT2NER is an application designed to support the preliminary editorial processing of
                             historical source transcriptions. It takes plain text input, divides it into a paragraph
-                            structure, creates a working TEI-XML document, recognizes named entities in that document,
-                            and can then perform identification against external reference databases. The tool has been
-                            designed primarily for fourteenth- to sixteenth-century texts in Latin, Polish, and German.
+                            structure, creates a working TEI-XML document in which named entities are recognized, and
+                            can then perform identification against external reference databases. The tool has been
+                            designed primarily for fourteenth- to sixteenth-century texts in Latin, Polish, and German,
+                            especially those connected with the Kingdom of Poland.
                         </p>
 
                         <p>
@@ -66,7 +67,7 @@
                             <strong>persName</strong>, <strong>placeName</strong>, <strong>date</strong>,
                             <strong>roleName</strong>, and <strong>orgName</strong>. Not all of them need to be used in
                             every analysis run. The user can decide which tag types should be enabled before
-                            recognition starts by using the application settings window opened with the
+                            recognition starts. This is done in the application parameters window opened with the
                             <strong>Parameters</strong> button at the top of the screen.
                         </p>
                     </section>
@@ -87,6 +88,13 @@
                                 attributes.
                             </li>
                         </ol>
+
+                        <p>
+                            In the web interface, these two stages are now separated. First, the user runs
+                            <strong>Recognize entities</strong>, which creates TEI-XML with tags; only afterwards can
+                            they optionally run <strong>Identify entities</strong>, which attempts to link persons and
+                            places to reference records.
+                        </p>
 
                         <p>
                             Entity recognition currently includes:
@@ -174,14 +182,16 @@
                         <div class="border-l-4 border-amber-400 pl-4 space-y-2">
                             <h3 class="font-bold text-gray-900">2. Entity recognition</h3>
                             <p>
-                                After clicking <strong>Recognize entities</strong>, the application creates a working
-                                TEI-XML document and tags only those entity types that were previously selected in the
-                                parameters window.
+                                After clicking <strong>Recognize entities</strong>, the application creates a new
+                                diagnostic log, automatically removes log files older than 48 hours, and then builds a
+                                working TEI-XML document in which only those entity types previously selected in the
+                                parameters window are tagged.
                             </p>
                             <p>
-                                The result of this stage does not yet contain reference identification. However, it is
-                                already a complete TEI-XML document suitable for further review, correction, and
-                                export.
+                                Tagging is performed in two Gemini passes: a first pass for recognizing entities in the
+                                text, and a second corrective pass that attempts to fill omissions and reduce obvious
+                                mistakes. The result of this stage does not yet contain reference identification, but
+                                it is already a complete TEI-XML document suitable for review, correction, and export.
                             </p>
                         </div>
 
@@ -216,6 +226,11 @@
                                 match.
                             </p>
                             <p>
+                                At the beginning of this stage, a separate diagnostic log is created. The application
+                                also reads the full document text in order to extract dates that may help assess the
+                                chronology of person candidates.
+                            </p>
+                            <p>
                                 If identification succeeds, the tag receives <code>key</code> and <code>ref</code>
                                 attributes. If it does not, the entity remains in the XML without a full reference
                                 link.
@@ -235,7 +250,35 @@
                                 Below the main result, the interface also shows a list of identified entities and a
                                 list of tags that could not be reliably linked to an external reference record.
                             </p>
+                            <p>
+                                From the interface, the user may also download the full diagnostic log for the current
+                                run and display a log excerpt related to a specific entity. This makes it easier to
+                                understand why a particular candidate was selected or rejected.
+                            </p>
                         </div>
+                    </section>
+
+                    <section class="space-y-4">
+                        <h2 class="text-2xl font-bold text-gray-900">Diagnostic log and process diagram</h2>
+                        <p>
+                            Since part of the application's decisions rely on a language model and external data
+                            sources, the diagnostic log is an important part of the tool. It records the successive
+                            steps of recognition and identification, including entity-form analysis, candidate lists,
+                            chronological assessment for persons, and the short justification of the final choice
+                            returned by Gemini.
+                        </p>
+                        <p>
+                            The current process diagram for converting document texts into TEI-XML, including entity
+                            tagging and identification in reference databases, is shown below.
+                        </p>
+
+                        <p>
+                            Below is a simplified diagram of the process of converting document text into TEI-XML format, including entity tagging and identification in reference databases. A detailed diagram is available at the bottom of the page.
+                        </p>
+
+                        <p>
+                        <img src="PROCESS_DIAGRAM_SIMPLE.svg" alt="TEXT2NER simplified diagram" class="w-full rounded-lg border border-gray-200">
+                    </p>
                     </section>
 
                     <section class="space-y-4">
@@ -269,8 +312,7 @@ ref="https://wikihum.lab.dariah.pl/entity/Q152903"&gt;Fridericus&lt;/persName&gt
                             class="w-full rounded-lg border border-gray-200"></p>
 
                     <p>
-                    A diagram of the process for converting document text into TEI-XML format, including entity tagging and identification (linking) to reference databases.
-                    <img src="PROCESS_DIAGRAM.svg" alt="TEXT2NER process diagram" class="w-full rounded-lg border border-gray-200">
+                        <img src="PROCESS_DIAGRAM.svg" alt="TEXT2NER detailed diagram" class="w-full rounded-lg border border-gray-200">
                     </p>
 
                 </div>

@@ -59,7 +59,7 @@
                             akapitową i tworzy roboczy dokument TEI-XML, w którym rozpoznawane są encje nazwane
                             a następnie można dokonać identyfikacji w zewnętrznych bazach referencyjnych.
                             Narzędzie zostało przygotowane przede wszystkim z myślą o tekstach z XIV-XVI wieku w
-                            języku łacińskim, polskim i niemieckim.
+                            języku łacińskim, polskim i niemieckim, zwłaszcza związanych z Królestwem Polskim.
                         </p>
 
                         <p>
@@ -67,8 +67,8 @@
                             <strong>persName</strong>, <strong>placeName</strong>, <strong>date</strong>,
                             <strong>roleName</strong> oraz <strong>orgName</strong>. Nie wszystkie z nich muszą być
                             używane w każdym przebiegu analizy. Użytkownik może zdecydować, które typy mają być
-                            włączone przed uruchomieniem rozpoznawania, służy do tego okno z patametrami aplikacji wyświetlane
-                            poprzez przycisk Parametry u góry ekranu.
+                            włączone przed uruchomieniem rozpoznawania. Służy do tego okno parametrów aplikacji
+                            wyświetlane po kliknięciu przycisku <strong>Parametry</strong> u góry ekranu.
                         </p>
 
                     </section>
@@ -88,6 +88,13 @@
                                 <code>ref</code>.
                             </li>
                         </ol>
+
+                        <p>
+                            W interfejsie WWW oba etapy są obecnie rozdzielone. Najpierw uruchamiane jest
+                            <strong>Rozpoznaj encje</strong>, które tworzy TEI-XML z tagami, a dopiero później
+                            opcjonalnie <strong>Identyfikuj encje</strong>, które próbuje powiązać osoby i miejsca z
+                            rekordami referencyjnymi.
+                        </p>
 
                         <p>
                             Rozpoznawanie encji obejmuje obecnie:
@@ -174,13 +181,17 @@
                         <div class="border-l-4 border-amber-400 pl-4 space-y-2">
                             <h3 class="font-bold text-gray-900">2. Rozpoznanie encji</h3>
                             <p>
-                                Po kliknięciu <strong>Rozpoznaj encje</strong> aplikacja tworzy roboczy TEI-XML i
-                                otagowuje w tekście tylko te typy encji, które zostały wcześniej zaznaczone w oknie
-                                parametrów.
+                                Po kliknięciu <strong>Rozpoznaj encje</strong> aplikacja tworzy nowy log
+                                diagnostyczny, automatycznie usuwa pliki logów starsze niż 48 godzin, a następnie
+                                buduje roboczy TEI-XML i otagowuje w tekście tylko te typy encji, które zostały
+                                wcześniej zaznaczone w oknie parametrów.
                             </p>
                             <p>
-                                Wynik tego etapu nie zawiera jeszcze identyfikacji referencyjnej. Jest to już jednak
-                                pełny TEI-XML nadający się do dalszego przeglądu, korekty i zapisania.
+                                Tagowanie wykonywane jest w dwóch przejściach modelu Gemini: pierwszym,
+                                rozpoznającym encje w tekście, oraz drugim korekcyjnym, który próbuje uzupełnić
+                                pominięcia i ograniczyć oczywiste pomyłki. Wynik tego etapu nie zawiera jeszcze
+                                identyfikacji referencyjnej, ale jest już pełnym TEI-XML nadającym się do dalszego
+                                przeglądu, korekty i zapisania.
                             </p>
                         </div>
 
@@ -215,6 +226,11 @@
                                 dopasowanie.
                             </p>
                             <p>
+                                Na początku tego etapu tworzony jest osobny log diagnostyczny. Aplikacja odczytuje
+                                także cały tekst z dokumentu, aby wydobyć z niego daty pomocne przy ocenie
+                                chronologicznej kandydatów osobowych.
+                            </p>
+                            <p>
                                 Jeśli identyfikacja się powiedzie, tag otrzymuje atrybuty <code>key</code> oraz
                                 <code>ref</code>. Jeśli nie, encja pozostaje w XML bez pełnego powiązania
                                 referencyjnego.
@@ -234,7 +250,33 @@
                                 Poniżej pokazywana jest także lista encji zidentyfikowanych oraz lista tagów, których
                                 nie udało się wiarygodnie powiązać z rekordem zewnętrznym.
                             </p>
+                            <p>
+                                Z poziomu interfejsu można również pobrać pełny log diagnostyczny bieżącego przebiegu
+                                oraz wyświetlić fragment logu odnoszący się do konkretnej encji. Ułatwia to ocenę,
+                                dlaczego dany kandydat został wybrany lub odrzucony.
+                            </p>
                         </div>
+                    </section>
+
+                    <section class="space-y-4">
+                        <h2 class="text-2xl font-bold text-gray-900">Log diagnostyczny i diagram procesu</h2>
+                        <p>
+                            Ponieważ część decyzji aplikacji opiera się na modelu językowym i danych zewnętrznych,
+                            ważnym elementem narzędzia jest log diagnostyczny. Rejestrowane są w nim kolejne kroki
+                            rozpoznawania i identyfikacji, w tym analiza formy encji, lista kandydatów, ocena
+                            chronologiczna dla osób oraz krótkie uzasadnienie wyboru zwrócone przez model Gemini.
+                        </p>
+                        <p>
+                            Poniżej zamieszczony jest uproszczony diagram procesu przetwarzania tekstów dokumentów do
+                            formatu TEI-XML z tagowaniem encji i identyfikacją w bazach referencyjnych. Szczegółowy
+                            diagram dostępny jest na dole strony.
+                        </p>
+
+                        <p>
+                        <img src="PROCESS_DIAGRAM_SIMPLE.svg" alt="TEXT2NER diagram uproszczony" class="w-full rounded-lg border border-gray-200">
+                    </p>
+
+
                     </section>
 
                     <section class="space-y-4">
@@ -268,8 +310,7 @@ ref="https://wikihum.lab.dariah.pl/entity/Q152903"&gt;Fridericus&lt;/persName&gt
                     <p><img src="text2ner_2.png" alt="Zrzut ekranu aplikacji TEXT2NER" class="w-full rounded-lg border border-gray-200"></p>
 
                     <p>
-                    Diagram procesu przetwarzania tekstów dokumentów na format TEI-XML z tagowaniem encji i identyfikacją (linkowaniem) w bazach referencyjnych.
-                    <img src="PROCESS_DIAGRAM.svg" alt="TEXT2NER process diagram" class="w-full rounded-lg border border-gray-200">
+                        <img src="PROCESS_DIAGRAM.svg" alt="TEXT2NER diagram szczegółowy" class="w-full rounded-lg border border-gray-200">
                     </p>
 
                 </div>
