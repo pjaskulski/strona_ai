@@ -290,18 +290,148 @@
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Diagnostic log and process diagram</h2>
+                        <h2 class="text-2xl font-bold text-gray-900">Diagnostic log</h2>
                         <p>
-                            Since part of the application's decisions rely on a language model and external data
-                            sources, the diagnostic log is an important part of the tool. It records the successive
-                            steps of recognition and identification, including entity-form analysis, candidate lists,
-                            chronological assessment for persons, and the short justification of the final choice
-                            returned by Gemini.
+                            As some of the application’s decisions are based on a linguistic model and external data, the diagnostic log is a key component of the tool. It records the successive steps of recognition and identification, including entity form analysis, a list of candidates, chronological evaluation for persons, and a brief justification for the selection returned by the Gemini model.
+
+                            What does the diagnostic log contain, for example for a person (persName)? Below are excerpts from the log for the text “Nicolaum Lanczkoroński” from the edition of Acta Alexandrii, document no. 10 (pp. 9–10, “Sultan Bajazet II concludes a truce with Jan Olbracht…”). The first excerpt contains a preliminary analysis of the entity:
+                        </p><br>
+
+                         <pre>
+        [TEXT2NER-DIAG] Analiza encji 'Nicolaum Lanczkoroński' (persName):
+        normalized_best='Nicolaus Lanczkoroński',
+        confidence=high,
+        lemma_candidates=['Nicolaus Lanczkoroński', 'Mikołaj Lanckoroński'],
+        surface_variants=['Nicolaum Lanczkoroński', 'Nicolaus Lanczkoroński'],
+        office_terms=[],
+        place_terms=[],
+        context_clues=['uczestniczył w uzyskaniu rozejmu (treugae pacis)',
+                        'prowadził negocjacje z imperatorem Turków'],
+        context_years=[1501]
+            </pre>
+
+                        system:
+                        <ul class="list-disc ml-6 space-y-1">
+                            <li>sends a prompt to Gemini requesting a simple analysis of the entity’s form,</li>
+                            <li>parses the JSON returned by the model,</li>
+                            <li>normalises and completes the result on the Python side.</li>
+                        </ul>
+
+                        The prompt for the Gemini model expects the following fields in the response:
+
+                        <ul class="list-disc ml-6 space-y-1">
+                        <li><strong>normalized_best</strong> = the normalised base form of the search term</li>
+                        <li><strong>confidence</strong> = e.g. high – how confident the model is in its analysis of the name form</li>
+                        <li><strong>lemma_candidates</strong> = other base variants of the name used later to construct queries; some may come from the model, whilst others may be supplemented by code from dictionaries</li>
+                        <li><strong>surface_variants</strong> = spelling or inflectional forms of the name that the application additionally considers useful for searching</li>
+                        <li><strong>office_terms</strong> = offices and functions directly associated with the person</li>
+                        <li><strong>place_terms</strong> = location clues such as ‘from Kraków’, ‘Bishop of Kraków’, ‘lived in Prussia’</li>
+                        <li><strong>context_clues</strong> = additional contextual facts about the person, derived from the analysed document</li>
+                        </ul>
+                        <br>
+
+                        The results in these fields are processed by a script (removing duplicates, sorting lists; for the fields <code>lemma_candidates</code>
+                        and <code>surface_variants</code> known Polish equivalents from dictionaries may be added; for the tags <em>placeName</em> there is an additional validation step
+                        to verify that we are indeed dealing with a place/locality; the field <code>context_years</code> is populated by the script
+                        based on any dates appearing in the document) <br>
                         </p>
+
                         <p>
-                            The current process diagram for converting document texts into TEI-XML, including entity
-                            tagging and identification in reference databases, is shown below.
+                        The next step in the logged process is to search the so-called specialist Wikibase instances, which are historical
+                        reference databases: <strong>WikiHum</strong> and <strong>va.wiki.kul.pl</strong>.
+
+                        <pre>
+        [TEXT2NER-DIAG] Plan zapytań dla 'Nicolaum Lanczkoroński' (persName):
+                        ['Nicolaum Lanczkoroński', 'Nicolaus Lanczkoroński', 'Mikołaj Lanckoroński']
+        [TEXT2NER-DIAG] Special:Search 'Nicolaum Lanczkoroński' -> WikiHum: []
+        [TEXT2NER-DIAG] Filtrowanie WikiHum dla persName: []
+        [TEXT2NER-DIAG] Special:Search 'Nicolaus Lanczkoroński' -> WikiHum: []
+        [TEXT2NER-DIAG] Filtrowanie WikiHum dla persName: []
+        [TEXT2NER-DIAG] Special:Search 'Mikołaj Lanckoroński' -> WikiHum:
+                        ['Q159734', 'Q159736', 'Q159735']
+        [TEXT2NER-DIAG] Filtrowanie WikiHum dla persName:
+                        ['WikiHum:Q159734', 'WikiHum:Q159736', 'WikiHum:Q159735']
+        [TEXT2NER-DIAG] Special:Search 'Nicolaum Lanczkoroński' -> va.wiki.kul.pl: []
+        [TEXT2NER-DIAG] Filtrowanie va.wiki.kul.pl dla persName: []
+        [TEXT2NER-DIAG] Special:Search 'Nicolaus Lanczkoroński' -> va.wiki.kul.pl: []
+        [TEXT2NER-DIAG] Filtrowanie va.wiki.kul.pl dla persName: []
+        [TEXT2NER-DIAG] Special:Search 'Mikołaj Lanckoroński' -> va.wiki.kul.pl: []
+        [TEXT2NER-DIAG] Filtrowanie va.wiki.kul.pl dla persName: []
+        [TEXT2NER-DIAG] Kandydaci ze źródeł specjalistycznych dla 'Nicolaum Lanczkoroński' (persName):
+                        ['WikiHum:Q159736', 'WikiHum:Q159735', 'WikiHum:Q159734']
+                        </pre><br>
+
+                        <strong>The query plan</strong> contains name variants from the fields <code>normalized_best</code>, <code>lemma_candidates</code>, and <code>surface_variants</code>. The search first covers
+                        the <strong>WikiHum</strong> database, then <strong>va.wiki.kul.pl</strong>, both using fuzzy search. The application saves the retrieved candidates in the form of QID identifiers for further analysis. In this case, the <strong>va.wiki.kul.pl</strong> database returned no candidates, whilst the WikiHum database returned 3 candidates.
                         </p>
+
+                        <p>
+                        Further analysis for individuals (tag <em>persName</em>) involves <strong>chronological analysis</strong> of the candidates found in the previous step. The current document has a single date (1501 – previously retrieved by the script), which serves as a reference for this analysis. A log excerpt looks as follows:
+
+                        <pre>
+        [TEXT2NER-DIAG] Chronologia kandydatów dla 'Nicolaum Lanczkoroński'
+                        (persName, źródła specjalistyczne), context_years=[1501]:
+                1. Mikołaj Lanckoroński [WikiHum:Q159736]
+                life: zm. 1597
+                temporal: compatible
+                reason: lata kontekstu mieszczą się w możliwym okresie życia;
+                oszacowano narodziny <= 1497 z daty śmierci i limitu 100 lat
+                queries: ['Mikołaj Lanckoroński']
+                2. Mikołaj Lanckoroński [WikiHum:Q159735]
+                life: zm. 1520
+                temporal: compatible
+                reason: lata kontekstu mieszczą się w możliwym okresie życia;
+                oszacowano narodziny <= 1420 z daty śmierci i limitu 100 lat
+                queries: ['Mikołaj Lanckoroński']
+                3. Mikołaj Lanckoroński [WikiHum:Q159734]
+                life: zm. 1462
+                temporal: conflict
+                reason: kontekst po śmierci kandydata (1462)
+                queries: ['Mikołaj Lanckoroński']
+                        </pre><br>
+
+                        For each candidate, the application retrieves additional data from a reference database (in this case, WikiHum), such as date of birth, date of death, description, etc.
+                        The date of birth and/or date of death, if available, allow for simple selection based on chronology.
+                        For each candidate, the application fills in the following fields:
+
+                        <ul class="list-disc ml-6 space-y-1">
+                        <li><strong>life</strong>: information about the years of the person’s life</li>
+                        <li><strong>temporal</strong>: whether the chronological framework of the person’s life matches the chronology of the document (compatible or conflict)</li>
+                        <li><strong>reason</strong>: an explanation regarding the content of the temporal field, why a given candidate matches the document or not</li>
+                        <li><strong>queries</strong>: from which query the candidate originates</li>
+                        </ul><br>
+
+                        Candidates who have passed the chronological selection are analysed in a further stage by the <strong>Gemini model, which makes
+                        a decision</strong> as to whether any of them match the document sufficiently to be identified as a well-identified historical figure.
+                        Excerpt from the log showing the model’s results:
+
+                        <pre>
+        [TEXT2NER-DIAG] Wybrany kandydat dla 'Nicolaum Lanczkoroński' (persName):
+                        Mikołaj Lanckoroński [WikiHum:Q159735]
+                        life=zm. 1520
+                        temporal=compatible
+                        reason=lata kontekstu mieszczą się w możliwym okresie życia;
+                            oszacowano narodziny <= 1420 z daty śmierci i limitu 100 lat
+                        queries=['Mikołaj Lanckoroński']
+        [TEXT2NER-DIAG] Uzasadnienie Gemini dla 'Nicolaum Lanczkoroński' (persName):
+                        reason=Mikołaj Lanckoroński (zm. 1520) jest kandydatem najbardziej dopasowanym
+                        chronologicznie do daty 1501. Kandydat Q159734 zmarł przed wydarzeniem,
+                        a Q159736 (zm. 1597) byłby w 1501 roku zbyt młody, by pełnić funkcje
+                        dyplomatyczne przy imperatorze Turków.;
+                        matched_signals=['zgodność chronologiczna z rokiem 1501',
+                                        'aktywność życiowa w XVI wieku',
+                                        'wykluczenie kandydatów zmarłych przed 1501']
+                        </pre><br>
+
+                         The log first contains <strong>the model selection result</strong> along with the fields that characterised the candidate in question,
+                        and in the next entry, a detailed justification for this choice. The <code>matched_signals</code> field
+                        contains a short list of ‘decision signals’ returned by the model.
+                        This can be regarded as the “most important arguments” that Gemini considered decisive.
+
+                        </p>
+
+
+                        <h2 class="text-2xl font-bold text-gray-900">Diagram of the process</h2>
 
                         <p>
                             Below is a simplified diagram of the process of converting document text into TEI-XML format, including entity tagging and identification in reference databases. A detailed diagram is available at the bottom of the page.

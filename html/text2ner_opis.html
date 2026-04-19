@@ -289,13 +289,160 @@
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Log diagnostyczny i diagram procesu</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="log">Log diagnostyczny</h2>
                         <p>
                             Ponieważ część decyzji aplikacji opiera się na modelu językowym i danych zewnętrznych,
                             ważnym elementem narzędzia jest log diagnostyczny. Rejestrowane są w nim kolejne kroki
                             rozpoznawania i identyfikacji, w tym analiza formy encji, lista kandydatów, ocena
                             chronologiczna dla osób oraz krótkie uzasadnienie wyboru zwrócone przez model Gemini.
                         </p>
+                        <p>
+                        Co zawiera log diagnostyczny, np. dla osoby (<em>persName</em>)? Poniżej znajdują się fragmenty logu
+                        dla tekstu "Nicolaum Lanczkoroński" z edycji Acta Alexandrii, dokument nr 10 (str. 9-10, "Sultan Bajazet II zawiera rozejm
+                        z Janem Olbrachtem..."). Pierwszy fragment zawiera wstępną analizę encji:</br>
+
+            <pre>
+        [TEXT2NER-DIAG] Analiza encji 'Nicolaum Lanczkoroński' (persName):
+        normalized_best='Nicolaus Lanczkoroński',
+        confidence=high,
+        lemma_candidates=['Nicolaus Lanczkoroński', 'Mikołaj Lanckoroński'],
+        surface_variants=['Nicolaum Lanczkoroński', 'Nicolaus Lanczkoroński'],
+        office_terms=[],
+        place_terms=[],
+        context_clues=['uczestniczył w uzyskaniu rozejmu (treugae pacis)',
+                        'prowadził negocjacje z imperatorem Turków'],
+        context_years=[1501]
+            </pre>
+
+
+
+                         system:
+                        <ul class="list-disc ml-6 space-y-1">
+                            <li>wysyła do Gemini prompt z prośbą o prostą analizę formy encji,</li>
+                            <li>parsuje JSON zwrócony przez model,</li>
+                            <li>normalizuje i uzupełnia wynik po stronie Pythona.</li>
+                        </ul>
+
+                        </p>
+
+                        <p>
+                        Prompt do modelu Gemini oczekuje w wyniku pól:
+
+                        <ul class="list-disc ml-6 space-y-1">
+                        <li><strong>normalized_best</strong> = znormalizowana forma podstawowa nazwy do wyszukiwania</li>
+                        <li><strong>confidence</strong> = np. high - jak bardzo model jest pewny analizy formy nazwy</li>
+                        <li><strong>lemma_candidates</strong> = inne warianty bazowe nazwy używane później do budowania zapytań, część z nich może pochodzić z modelu, a część może zostać uzupełniona przez kod ze słowników</li>
+                        <li><strong>surface_variants</strong> = formy pisowni nazey lub fleksji, które aplikacja dodatkowo uznaje za przydatne przy wyszukiwaniu</li>
+                        <li><strong>office_terms</strong> = urzędy i funkcje bezpośrednio związane z osobą</li>
+                        <li><strong>place_terms</strong> = wskazówki lokalizacyjne typu „z Krakowa”, „biskup krakowski”, „żył w Prusach”</li>
+                        <li><strong>context_clues</strong> = dodatkowe fakty kontekstowe, dotyczące osoby, pochodzące z analizowanego dokumentu</li>
+                        </ul>
+                        <br>
+
+                        Wyniki w tych polach są przetwarzane przez skrypt (usuwanie duplikatów, porządkowanie list, do pól <code>lemma_candidates</code>
+                        i <code>surface_variants</code> mogą zostać dodane znane polskie odpowiedniki ze słowników, dla tagów <em>placeName</em> działa jeszcze dodatkowa walidacja
+                        weryfikująca czy na pewno mamy do czynienia z miejscem/miejscowością, pole <code>context_years</code> jest uzupełniane przez skrypt
+                        na podstawie ewentualnych dat występujących w dokumencie) <br>
+                        </p>
+
+                        <p>
+                        Kolejnym krokiem procesu zapisanym logu jest przeszukiwanie tzw. specjalistycznych instancji wikibase, będących historycznymi bazami
+                        referencyjnymi: <strong>WikiHum</strong> i <strong>va.wiki.kul.pl</strong>.
+
+                        <pre>
+        [TEXT2NER-DIAG] Plan zapytań dla 'Nicolaum Lanczkoroński' (persName):
+                        ['Nicolaum Lanczkoroński', 'Nicolaus Lanczkoroński', 'Mikołaj Lanckoroński']
+        [TEXT2NER-DIAG] Special:Search 'Nicolaum Lanczkoroński' -> WikiHum: []
+        [TEXT2NER-DIAG] Filtrowanie WikiHum dla persName: []
+        [TEXT2NER-DIAG] Special:Search 'Nicolaus Lanczkoroński' -> WikiHum: []
+        [TEXT2NER-DIAG] Filtrowanie WikiHum dla persName: []
+        [TEXT2NER-DIAG] Special:Search 'Mikołaj Lanckoroński' -> WikiHum:
+                        ['Q159734', 'Q159736', 'Q159735']
+        [TEXT2NER-DIAG] Filtrowanie WikiHum dla persName:
+                        ['WikiHum:Q159734', 'WikiHum:Q159736', 'WikiHum:Q159735']
+        [TEXT2NER-DIAG] Special:Search 'Nicolaum Lanczkoroński' -> va.wiki.kul.pl: []
+        [TEXT2NER-DIAG] Filtrowanie va.wiki.kul.pl dla persName: []
+        [TEXT2NER-DIAG] Special:Search 'Nicolaus Lanczkoroński' -> va.wiki.kul.pl: []
+        [TEXT2NER-DIAG] Filtrowanie va.wiki.kul.pl dla persName: []
+        [TEXT2NER-DIAG] Special:Search 'Mikołaj Lanckoroński' -> va.wiki.kul.pl: []
+        [TEXT2NER-DIAG] Filtrowanie va.wiki.kul.pl dla persName: []
+        [TEXT2NER-DIAG] Kandydaci ze źródeł specjalistycznych dla 'Nicolaum Lanczkoroński' (persName):
+                        ['WikiHum:Q159736', 'WikiHum:Q159735', 'WikiHum:Q159734']
+                        </pre><br>
+
+                        <strong>Plan zapytań</strong> zawiera warianty nazwy z pól <code>normalized_best</code>, <code>lemma_candidates</code>, <code>surface_variants</code>. Przeszukiwana jest najpierw
+                        baza <strong>WikiHum</strong>, następnie <strong>va.wiki.kul.pl</strong>, obie z użyciem wyszukiwania rozmytego (fuzzy). Wyszukanych kandaydatów w postaci identyufikatorów QID aplikacja zapisuje do dalszej analizy. W tym przypadku baza <strong>va.wiki.kul.pl</strong> nie zwróciła żadnych kandydatów, zaś baza WikiHum zwróciła 3 kandydatury.
+                        </p>
+
+                        <p>
+                        Dalsza analiza w przypadku osób (tag <em>persName</em>) obejmuje <strong>analizę chronologiczną</strong> wyszukanych w poprzednim kroku kandydatów. Bieżący dokument ma jedną datę (1501 - pozyskaną wcześniej przez skrypt), która jest odnośnikiem dla tej analzy. Fragment logu wygląda następująco:
+
+                        <pre>
+        [TEXT2NER-DIAG] Chronologia kandydatów dla 'Nicolaum Lanczkoroński'
+                        (persName, źródła specjalistyczne), context_years=[1501]:
+                1. Mikołaj Lanckoroński [WikiHum:Q159736]
+                life: zm. 1597
+                temporal: compatible
+                reason: lata kontekstu mieszczą się w możliwym okresie życia;
+                oszacowano narodziny <= 1497 z daty śmierci i limitu 100 lat
+                queries: ['Mikołaj Lanckoroński']
+                2. Mikołaj Lanckoroński [WikiHum:Q159735]
+                life: zm. 1520
+                temporal: compatible
+                reason: lata kontekstu mieszczą się w możliwym okresie życia;
+                oszacowano narodziny <= 1420 z daty śmierci i limitu 100 lat
+                queries: ['Mikołaj Lanckoroński']
+                3. Mikołaj Lanckoroński [WikiHum:Q159734]
+                life: zm. 1462
+                temporal: conflict
+                reason: kontekst po śmierci kandydata (1462)
+                queries: ['Mikołaj Lanckoroński']
+                        </pre><br>
+
+                        Dla każdego z kandydatów aplikacja pobiera z bazy referencyjnej (tu WikiHum) dodatkowe dane np. datę urodzin, śmierci, opis itp.
+                        Data urodzin i/lubn śmierci, jeżeli dostępne są daty pozycjonujące dokument w czasie, pozwalają na prostą selekcję na podstawie chronologii.
+                        Dla każdego z kandydatów aplikacja wypełnia pola:
+
+                        <ul class="list-disc ml-6 space-y-1">
+                        <li><strong>life</strong>: informacje op latach życia</li>
+                        <li><strong>temporal</strong>: czy ramy chronologiczne lat życia osoby pasują do chronologii dokumentu (compatible lub conflict)</li>
+                        <li><strong>reason</strong>: wyjaśnienie na temat zawartości pola temporal, dlaczego dany kandydat pasuje do dokumentu lub nie</li>
+                        <li><strong>queries</strong>: z jakiego zapytania pochodzi kandydat</li>
+                        </ul><br>
+
+                        Kandydaci, którzy przeszli selekcję chronologiczną, są analizowani w dalszym etapie, przez <strong>model Gemini, który podejmuje
+                        decyzję</strong> czy któryś z nich wystarczająco pasuje do dokumentu i może zostać wskazany jako dobrze zidentyfikowana postać historyczna.
+                        Fragment logu z wynikami działania modelu:
+
+                        <pre>
+        [TEXT2NER-DIAG] Wybrany kandydat dla 'Nicolaum Lanczkoroński' (persName):
+                        Mikołaj Lanckoroński [WikiHum:Q159735]
+                        life=zm. 1520
+                        temporal=compatible
+                        reason=lata kontekstu mieszczą się w możliwym okresie życia;
+                            oszacowano narodziny <= 1420 z daty śmierci i limitu 100 lat
+                        queries=['Mikołaj Lanckoroński']
+        [TEXT2NER-DIAG] Uzasadnienie Gemini dla 'Nicolaum Lanczkoroński' (persName):
+                        reason=Mikołaj Lanckoroński (zm. 1520) jest kandydatem najbardziej dopasowanym
+                        chronologicznie do daty 1501. Kandydat Q159734 zmarł przed wydarzeniem,
+                        a Q159736 (zm. 1597) byłby w 1501 roku zbyt młody, by pełnić funkcje
+                        dyplomatyczne przy imperatorze Turków.;
+                        matched_signals=['zgodność chronologiczna z rokiem 1501',
+                                        'aktywność życiowa w XVI wieku',
+                                        'wykluczenie kandydatów zmarłych przed 1501']
+                        </pre><br>
+
+                        Log zawiera najpierw <strong>wynik wyboru modelu</strong> wraz z polami które charakteryzowały danego kandydata,
+                        a w następnym wpisie szczegółowe uzasadnienie tego wyboru. Pole <code>matched_signals</code>
+                        zawiera krótką listę "sygnałów decyzyjnych" zwróconych przez model.
+                        Można to traktować jako „najważniejsze argumenty”, które Gemini uznało za rozstrzygające.
+
+                        </p>
+
+
+
+                        <h2 class="text-2xl font-bold text-gray-900">Diagram procesu</h2>
+
                         <p>
                             Poniżej zamieszczony jest uproszczony diagram procesu przetwarzania tekstów dokumentów do
                             formatu TEI-XML z tagowaniem encji i identyfikacją w bazach referencyjnych. Szczegółowy
