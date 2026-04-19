@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Od edycji papierowej do cyfrowej - AI.IHPAN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <style type="text/tailwindcss">
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        @layer base {
+            a {
+                @apply text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col">
+
+    <nav class="w-full bg-white border-b border-gray-200 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html"
+                class="flex items-center text-gray-500 hover:text-amber-600 transition font-medium text-sm">
+                &larr; Powrót na stronę główną
+            </a>
+            <div class="text-sm font-bold text-gray-900 tracking-tight">
+                <span class="text-amber-600">AI</span>.IHPAN.EDU.PL
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow py-10 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+
+            <article class="p-8 sm:p-12">
+
+                <header class="mb-8 border-b border-gray-100 pb-8">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">Od entuzjazmu do rozczarowania i z powrotem, czyli o wykorzystaniu generatywnej AI w badaniach historycznych</h1>
+                </header>
+
+                <div class="space-y-6 text-gray-700 leading-relaxed">
+
+                    <p>
+                    Współczesne badania historyczne, podobnie jak inne dziedziny nauk humanistycznych znajdują się, prawdopodobnie, w punkcie zwrotnym swojego rozwoju. Prawdopodobnie, gdyż ocenią to historycy nauki za lat kilkadziesiąt. I nie chodzi tu o przełom na miarę kopernikańską, ale zwrot podobny do upowszechnienia się komputerów osobistych, czy internetu. Pojawienie się dużych modeli językowych i pierwsze próby wykorzystania ich w humanistyce, wywołało wśród osób badających historię rozmaite reakcje: poza ostrożną obojętnością, najczęściej chyba zdecydowaną krytykę: jako źródło niewiarygodnych danych czy narzędzie szkodliwe w procesie edukacji. Pojawiały się jednak także postawy bliskie technoutopijnej ekstazy, obietnice automatyzacji rzemiosła badawczego, czy wręcz tezy o bliskim zastąpieniu historyków przez ich sztucznie inteligentne emanacje (<a href="#bib_01">1</a>, <a href="#bib_27">27</a>). Obawy przed tą ostatnią możliwością są zresztą dość popularnym tematem publicystyki i blogosfery okołohistorycznej (<a href="#bib_02">2</a>, <a href="#bib_03">3</a>), wydaje się jednak, że nie należy w nią przesadnie wierzyć (<a href="#bib_23">23</a>). Dziś, w dobie coraz częstszych odkryć naukowych uzyskanych z pomocą AI, czy rozwiązanych problemów matematycznych dzięki współpracy modeli i matematyków (<a href="#bib_24">24</a>), także w badaniach historycznych widać konieczność wypracowania dojrzałego podejścia do użycia sztucznej inteligencji.
+                    </p>
+
+                    <p>Historia samej sztucznej inteligencji nie jest liniowym postępem, lecz procesem cyklicznym, charakteryzującym się gwałtownymi wzrostami oczekiwań i następującymi po nich "zimami AI", gdy dochodziło do znaczącego osłabienia prac badawczych poświęconych tej tematyce. Okresy przyspieszenia rozwoju AI cechowały się zwykle dużym optymizmem w zakresie tego co dzięki niej będzie możliwe do osiągnięcia. Już w 1960 roku jeden z pionierów AI, Herbert Simon, przewidywał, że w ciągu 20 lat maszyny będą mogły wykonywać wszelkie prace ludzi (<a href="#bib_04">4</a>). Nawet dziś nie da się tego stwierdzenia uznać za 100% prawdziwe, choć jest bliższe prawdy niż 66 lat temu. Obecnie, w epoce dużych modeli językowych, popularne są podobnie optymistyczne trendy, dotyczące nie tylko możliwości wyręczania ludzkich specjalistów, ale wręcz wizji gwałtownego przyspieszenia badań i odkryć naukowych dzięki AI.
+
+                    <p>Wizja ta, także w dziedzinie humanistyki nie jest pozbawiona podstaw. Duże modele językowe, w odróżnieniu wcześniejszych systemów uznawanych za AI, mają niezwykłe umiejętności komunikacyjne (co ważne dla humanistów) oraz są powszechnie dostępne. Ich działanie oparte na miliardach parametrów sieci neuronowych pozwala na generowanie zbliżonej do ludzkiej narracji, wręcz symulowanie ludzkiego rozumowania. Z perpektywy np. cyfrowego historyka oznacza to przejście od ery baz danych, analiz statystycznych do możliwości interpretacyjnego dialogu z maszyną.
+
+                    <p>Początkowy entuzjazm w środowisku naukowym wzbudziło nie tylko generowanie tekstów, ale też możliwość szybkiego przeanalizowania i streszczania wielu publikacji, to co wymagało dni, stało się możliwe w ciągu minut czy godzin. Tłumaczenia tekstów z mniej popularnych języków, możliwość przekrojowych analiz materiałów masowych dostępnych w wielu językach (<a href="#bib_05">5</a>), poprawianie błędów i stylu, szczególnie w przypadku tekstów angielskich dla badaczy dla których nie był to język ojczysty, weryfikacja i autokorekta wyników procesów OCR - wszystko to brzmiało jak nowy wspaniały świat, otwierający szerokie możliwości, w dodatku w łatwy i dostępny sposób. Pojawiły się nawet pomysły wykorzystania generatywnej AI do historycznych badań behawioralnych, poprzez trenowanie na historycznych korpusach tekstów HLLM-ów - historycznych dużych modeli językowych (<a href="#bib_06">6</a>).
+
+                    <p>Ale łatwość i dostępność nie wszystkim przesłoniła ciemniejsze strony "rewolucji AI". Dość szybko zaczęto wskazywać, że naiwne korzystanie z chatów i możliwości modeli językowych może łatwo prowadzić na manowce. W najprostszym przypadku bezkrytyczne wklejanie generowanych przez AI tekstów do publikacji naukowych skutkowało kompromitującymi fragmentami "Jako model językowy...". Poważniejszym problemem są halucynacje modeli, chociaż dziś (w 2026 roku) mniejszym niż trzy lata temu. Wydaje się, że jest to immanentna cecha LLM-ów, której nigdy się całkowicie nie pozbędą, przynajmniej modele o obecnej architekturze. Modele uczone są materiałem tekstowym stworzonym przez ludzi, technologia uczenia wymaga naprawdę ogromnych ilości tekstu, wykorzystywane są więc wszelkie dostępne źródła. Także te z nieprawdziwymi informacjami czy nieakceptowalnymi powszechnie poglądami, stąd przedmiotem badań naukowych stały się same modele: jak bias wpływa na przygotowywane przez nie dane (<a href="#bib_07">7</a>), streszczenia, raporty. Przekonano się też szybko, że model, sam w sobie, nie jest wszystkowiedzącą encyklopedią, nawet wspomagany wyszukiwaniem online nie zawsze przedstawia prawdziwe fakty, naiwne polecenie przygotowania literatury dotyczącej jakiegoś tematu może skończyć się skandalem jak w przypadku pewnej popularnonaukowej książki (<a href="#bib_08">8</a>) czy nawet publikacji o bardziej naukowym charakterze (<a href="#bib_09">9</a>). Istotnym problemem z punktu widzenia historyków stała się niedeterministyczność modeli językowych, to samo pytanie zadane temu samemu modelowi potrafi dać odmienne wyniki (<a href="#bib_22">22</a>).
+
+                    <p>Analizie poddano realne możliwości LLM-ów w roli narzędzi badawczych dla historyków (<a href="#bib_12">12</a>). Jednym z podstawowych wniosków był postulat, by badacze wykorzystujący sztuczną inteligencję posiadali podstawową wiedzę na jej temat (<a href="#bib_13">13</a>). Znajomość narzędzia niewątpliwie ułatwia jego lepsze wykorzystanie, ale by ocenić czego w ogóle można oczekiwać od dużych modeli językowych, należało zrozumieć co właściwie duże modele wiedzą o historii. Testy oceniające poziom wiedzy np. Massive Multitask Language Understanding (MMLU) zawierają również pytania z dziedziny historii (około 600 z 51 tys. pytań) (<a href="#bib_14">14</a>), najlepsze LLM-y (np. GPT-4o) w drugiej połowie 2024 roku, w zakresie pytań historycznych, osiągały w nich poziom ekspercki (>90% poprawności), trzeba jednak zaznaczyć że przez historię rozumiano głównie dzieje Stanów Zjednoczonych, historię Europy i ogólną historię świata, można przypuszczać, że historia np. Europy Wschodniej czy wschodniego wybrzeża Afryki nie była tam przesadnie reprezentowana. Dla kontrastu inne badania oparte na historycznej bazie danych (Seshat Global History Databank) pokazały (<a href="#bib_15">15</a>), że wiedza modeli jest wyraźnie gorsza od wiedzy ekspertów w tej dziedzine (46% poprawności), ukazując jednocześnie duże różnice regionalne - modele wypadały gorzej dla pytań dotyczących Oceanii i Afryki subsaharyjskiej. To z kolei wskazuje na nierówności: pewne obszary wiedzy historycznej zostały lepiej zmapowane, inne gorzej, różnice dotyczą kultur, geografii i języków. Generatywna AI czerpie wiedzę z dostępnych dla jej twórców źródeł, te niezdigitalizowane lub pochodzące z krajów o niskim poziomie ucyfrowienia stają się "niewidoczne".
+
+                    <p>Problemy związane z wykorzystaniem AI wywołały oczywiście reakcję środowiska naukowego, zaczęły powstawać standardy jej użycia: nie tylko czasopisma historyczne określają możliwości i zasady korzystania ze sztucznej inteligencji podczas tworzenia publikacji i ich recenzowania (<a href="#bib_17">17</a>), ale np. Amerykańskie Towarzystwo Historyczne opublikowało wytyczne na temat użycia AI podczas nauczania historii (<a href="#bib_18">18</a>). Uznając, że AI na pewno wpłynie na proces nauczania podkreślano, że nie jest wolna od błędów i halucynacji, nie może zastąpić metodologii historycznej, wprowadza fałszywe poczucie pewności tam, gdzie istnieje niepewność, mimo to może jednak być cennym partnerem w nauczaniu jeżeli określi się zasady jej wykorzystania.
+
+                    <p>Źródłem krytyki wykorzystania modeli językowych w badaniach historycznych bywa naiwne traktowanie modelu (chatu) jako experta w dziedzinie, który może zrealizować codzienne zadania badacza np. narysować mapę Chin z jesieni 1378 roku, albo przygotować opracowanie na temat historii przynależności administracyjnej wioski Pruty Niżne w XVIII i XIX wieku. Komercyjne modele językowe, mimo możliwości sięgania do wiedzy dostępnej w internecie, nie są najczęściej dobrze przygotowane do tego typu zadań. Pojawia się więc rozczarowanie i krytyka, czasem również poczucie "wygrania" z AI. A ta nie powinna być traktowana jak wyrocznia, model jest świetnym narzędziem do manipulacji tekstem, w połączeniu z technikami RAG (<a href="#bib_35">35</a>) i ich następcami (<a href="#bib_36">36</a>), przetwarzając masowe źródła danych może szybko dostarczać informacji, które umożliwią badaczowi ich interpretację, tworzenie opracowań, stawianie hipotez. Dojrzałe podejście do wykorzystania AI w pracy historyka nie powinno polegać na zastępowaniu lecz wspomaganiu. AI może wykonywać zadania cząstkowe (np. transkrypcję, wstępną klasyfikację, wykrywanie encji, identyfikację encji), ale ocena wiarygodności i synteza danych powinna należeć do człowieka. Jeżeli powtarzalne i czasochłonne zadania zostaną dzięki AI zautomatyzowane, historycy zyskają możliwość zbadania obszarów, które wcześniej były pracochłonne i wymagały długotrwałego przygotowania danych (<a href="#bib_19">19</a>). I jest to proces który można utożsamić ze sformułowaniem "z powrotem" z tytułu niniejszego tekstu, proces który aktualnie się dzieje.
+
+                    <p>Generatywna sztuczna inteligencja, utożsamiana jest często z chatami umożliwiającymi dialog z AI, w rzeczywistości w tle działa model językowy (LLM). Znanych i popularnych modeli jest zapewne kilkanaście, lecz liczbę wytrenowanych wariantów różnych modeli można dziś oceniać na setki tysięcy. Modele te różnią się znacznie między sobą np. wielkością czyli liczbą parametrów, ale ważna jest nie tylko wielkość modelu. Duży może więcej, ale nie zawsze największy model jest potrzebny do danego zadania, warto także zweryfikować stronniczość i uprzedzenia modelu, jego ograniczenia w danych treningowych: typowy komercyjny model może mieć gorsze wyniki w analizowaniu tekstów w języku rzadkim od wyspecjaliowanego modelu open-source. Zadania zbyt ogólne np. "napisz esej na temat sytuacji gospodarczej Europy w 1946 roku", mogą, nawet w trybie Deep Research (gdy modele przeszukują sieć i dłużej analizują problem) przynieść rozczarowujące rezultaty (choć to może się szybko zmienić, biorąc pod uwagę tempo rozwoju AI...). Z kolei zadanie streszczenia dostarczonych modelowi jako kontekst pamiętników z czasów wojny secesyjnej, pod kątem motywu głodu i zdobywania jedzenia może przynieść dobry i pożyteczny efekt. Ale bez względu na to jednak jak dobrze będzie wyglądał wynik działania AI, to po stronie badacza stoi obowiązek weryfikacji rezultatów jej pracy.
+
+                    <p>Ciekawym przykładem dojrzałego podejścia do wykorzystania sztucznej inteligencji w humanistyce jest projekt DeepPast (<a href="#bib_20">20</a>) prowadzony przez Big Data Studies Lab na Uniwersytecie w Hongkongu, badający korpus średniowiecznych tekstów z Korei, w celu rekonstrukcji sieci konfucjańskich (relacje patron–klient, mistrz–uczeń). Baza tekstów o wielkości 3.6 GB byłaby trudna do przetworzenia bez sztucznej inteligencji, ale to nie AI "pisze historię", lecz jest narzędziem przygotowującym dane pozwalające badaczom z większą łatwością łączyć osoby, instytucje, ruchy intelektualne i interpretować przeszłość. Projekt kładzie nacisk na aktywną rolę historyka w kierowaniu dialogiem między człowiekiem a maszyną. Dodatkowo bierze też pod uwagę etyczny aspekt użycia AI w kwesti zużycia zasobów środowiska: do prac wykorzystywane są mniejsze lokalne modele uruchamianie na lokalnej infrastrukturze (<a href="#bib_26">26</a>).
+                    <br>
+                    Innym przypadkiem użycia dużych modeli są badania historii urbanistycznej Wenecji w okresie od 1740 do 1808 roku, gdzie LLM-y zastosowane zostały do pomocy w wyszukiwaniu i analizowaniu historycznych danych katastralnych, m.in poprzez agentów generujących zapytania SQL z języka naturalnego, ale także agentów kodujących przygotowujących programy w języku Python, który wykonuje analizy pomagające w odtwarzaniu informacji o dawnej populacji, cechach nieruchomości oraz porównaniach czasowo-przestrzennych w Wenecji (<a href="#bib_28">28</a>).
+
+                    <p>Jednym z tradycyjnych zadań AI w badaniach historycznych związanych z przetwarzaniem języka naturalnego jest rozpoznawanie jednostek nazwanych (NER). Także w takich zadaniach zauważono, że duże modele językowe cechują się dużą wszechstronnością (wielojęzyczność, rozumienie kontekstu), dodatkowo nie wymagają kosztownej anotacji i trenowania modeli, całkiem skuteczne są podejścia zero-shot (bez żadnego doszkalania lub przykładów) lub few-shot (gdy przedstawiamy modelowi jedynie kilka przykładów poprawnego działania). Wyniki testów przeprowadzonych na zbiorze HIPE-2022 (Identifying Historical People, Places and other Entities, <a href="https://hipe-eval.github.io/HIPE-2022/" target="_blank">https://hipe-eval.github.io/HIPE-2022/</a>) pokazały, że LLM-y mogą być ciekawą alternatywą dla tradycyjnego nazdzorowanego uczenia maszynowego (<a href="#bib_30">30</a>).
+
+                    <p>Zastosowanie w badaniach historycznych znalazły również multimodalne duże modele, np. w badaniach historycznych dokumentów patentowych wykorzystano możliwości wizyjne modelu GPT-4o do pozyskiwania danych z zeskanowanch kart formularzy do uzupełniania szwedzkiej bazy danych historycznych patentów: <a href="https://svenskahistoriskapatent.se" target="_blank">https://svenskahistoriskapatent.se</a> (<a href="#bib_29">29</a>). Zdolności wizyjne najnowszych modeli jak Gemini Pro 3 zostały także zauważone i przetestowane w zakresie historycznego odczytywania pisma ręcznego (HTR), optymistyczne opinie sugerowały wręcz rozwiązanie problemu odczytywania angielskiego pisma np. z XVIII wieku (<a href="#bib_31">31</a>).
+                    <br>
+                    Przydatność dużych modeli doceniono także w inych przykładach, gdzie przedmiotem badań są historyczne materiały masowe, choćby księgi inwentaryzacji roślin Departamentu Rolnictwa Stanów Zjednoczonych, gdzie LLM-y wydobywają ustrukturyzowane dane ze zeskanowanych tekstów (<a href="#bib_32">32</a>), czy przykład wydawanego od połowy XIX wieku „English Catalogue of Books”, gdzie duże modele okazały się skuteczniejsze w pozyskiwaniu informacji z wpisów w katalogu od tradycyjnie wykorzystywanych w takim celu wyrażeń regularnych (<a href="#bib_33">33</a>).
+                    <br>
+                    Trzeba też wspomnieć w tym miejscu o prowadzonych w Instytucie Historii PAN pracach związanych z automatycznym przetwarzaniem haseł Słownika Geograficznego Królestwa Polskiego (SGKP) wykorzystujących duże modele do przygotowania ustrukturyzowanych danych, którymi można uzupełniać bazy danych (<a href="#bib_34">34</a>). Wszystkie te przykłady potwierdzają przydatność właściwie zastosowanej AI w zakresie zwiększenia dostępności i użyteczności materiałów historycznych i archiwalnych dla naukowców.
+
+                    <p>Tak jak w przeszłości nie chodziło o zastąpienie warsztatu historyka przez bazy danych i narzędzia statystyczne, także dziś technologia jest jedynie środkiem do celu (<a href="#bib_19">19</a>), a duże modele są przecież technologią. Na tyle zaawansowaną, że w znaczący sposób mogą przyspieszyć pewne prace wykonywane dotąd przez zespoły historyków i informatyków np. przy tworzeniu edycji cyfrowych dokumentów źródłowych (<a href="#bib_21">21</a>), ale dopiero gotowa edycja zaczyna służyć badaczom do zaawansowanych analiz źródeł historycznych. I właśnie przyspieszenie jest chyba najlepszym określeniem wpływu sztucznej inteligencji na badania historyczne.
+
+                    <p>Inną kwestią jest rosnąca rola AI w dziedzinie programowania, historycy cyfrowi często wchodzli w rolę programistów tworząc specyficzne narzędzia i skrypty do swoich projektów, dziś ta możliwość staje się dostępna także dla programistycznych laików. Systemy takie jak Claude Code czy Codex (od OpenAI), ale też wyspecjalizowane narzędzia jak <a href="https://replit.com/" target="_blank">Replit</a> czy <a href="https://lovable.dev/">Lovable</a>, pozwalają na przygotowywanie całkiem złożonych aplikacji na podstawie wyrażonych słownie wymagań użytkownika. Umiejętności tego typu (owszem, bowiem użycie takich systemów również wymaga nabycia pewnych umiejętności w wyrażaniu precyzyjnych specyfikacji i iteracyjnego rozwoju aplikacji), zaczynają dziś być nauczane na studiach z cyfrowej humanistyki (<a href="#bib_25">25</a>). Te ostatnie zmiany są też przyczyną innego rodzaju refleksji: kim w zasadzie jest dziś cyfrowy historyk, czy ogólniej cyfrowy humanista, gdy technologia znacząco obniża próg trudności? Czy już niedługo nie będzie to pojęcie o znaczeniu historycznym w dosłownym sensie?
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Podsumowanie<h3>
+
+                    <p>Współczesny historyk coraz częściej wykracza poza ramy tradycyjnych metod badawczych: badania multidyscyplinarne, wykorzystanie osiągnięć dziedzin niekiedy znacznie odległych od humanistyki przynoszą nowe dane, nowe odpowiedzi i nowe pytania. Choćby badania profili pyłkowych i analiza sieci społecznościowych, które rzuciły ciekawe światło na kwestię upadku państwa pierwszych Piastów (<a href="#bib_10">10</a>).
+                    <br>
+                    Działa to także w drugą stronę, dane historyczne stają się np. cennym uzupełnieniem badań ekologicznych, studiów nad zmiennością różnorodności biologicznej (<a href="#bib_11">11</a>). Sięgnięcie po sztuczną inteligencję, wykorzystywaną już w wielu innych dziedzinach wydaje się więc krokiem naturalnym. W czasach gdy wykorzystanie zaawansowanych metod uczenia maszynowego pozwala nareszcie na odczytywanie zwojów z Herculaneum, ta "zwykła" AI, dostępna na wyciągnięcie ręki, również może przyczyniać się do istotnych osiągnięć w badaniach historycznych, szczególnie jeżeli technologia przestanie być traktowana jako zagrożenie i zamiennik historyka, a stanie się jego asystentem do trudnych zadań. Istnieje co prawda ryzyko, że asystent stanie się inteligentniejszy od badacza 😉 (<a href="#bib_16">16</a>)
+                    </p>
+
+                    <p class="text-right mt-8 italic font-medium text-gray-700">Piotr Jaskulski</p>
+
+                    <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Bibliografia:</h3>
+
+                    <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+
+                        <li>
+                        <span id="bib_01">(1)</span> Tomlinson, Kiran, Sonia Jaffe, Will Wang, Scott Counts, and Siddharth Suri. “Working with AI: Measuring the Applicability of Generative AI to Occupations.” arXiv:2507.07935. Preprint, arXiv, December 22, 2025. <a href="https://doi.org/10.48550/arXiv.2507.07935" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://doi.org/10.48550/arXiv.2507.07935</a>.
+                        </li>
+
+                        <li>
+                        <span id="bib_02">(2)</span> Mark Humphries, Is this the Last Generation of Historians?, <a href="https://generativehistory.substack.com/p/is-this-the-last-generation-of-historians" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://generativehistory.substack.com/p/is-this-the-last-generation-of-historians</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_03">(3)</span> Eman M. Elshaikh, Will AI replace historians?, <a href="https://www.oerproject.com/blog/historians-and-ai" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://www.oerproject.com/blog/historians-and-ai</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_04">(4)</span> Herbert A. Simon, The New Science of Management Decision, New York and Evantson 1960, str. 38
+                        </li>
+
+                        <li>
+                        <span id="bib_01">(5) Decoding Fairground Newspapers: Analysing History with Large Language Models, <a href="https://www.uni.lu/c2dh-en/articles/decoding-fairground-newspapers-analysing-history-with-large-language-models/" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://www.uni.lu/c2dh-en/articles/decoding-fairground-newspapers-analysing-history-with-large-language-models/</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_06">(6)</span> Large Language Models based on historical text could offer informative tools for behavioral science, <a href="https://www.pnas.org/doi/10.1073/pnas.2407639121" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://www.pnas.org/doi/10.1073/pnas.2407639121</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_07">(7)</span> Johanna Mauermann and Sarah Oberbichler, LLM Biases: Expected and Unexpected Model Design Effects in Historical Newspaper Article Extraction on the Messina Earthquake, <a href="https://dhlab.hypotheses.org/6060" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://dhlab.hypotheses.org/6060</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_08">(8)</span> Marta Glanc, Sylwia Szołucha, Marcin Kostecki, Nieistniejące źródła w książce dziennikarki TVP. Jest ich więcej niż trzy, <a href="https://demagog.org.pl/analizy_i_raporty/nieistniejace-zrodla-w-ksiazce-dziennikarki-tvp-jest-ich-wiecej-niz-trzy/" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://demagog.org.pl/analizy_i_raporty/nieistniejace-zrodla-w-ksiazce-dziennikarki-tvp-jest-ich-wiecej-niz-trzy/</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_09">(9)</span> Chris John, 20 Fake Citations Slip Past Peer Review: AI 'Hallucinations' Expose Crisis in Academic Publishing, <a href="https://www.universityherald.com/articles/79947/20251110/20-fake-citations-slip-past-peer-review-ai-hallucinations-expose-crisis-academic-publishing.htm" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://www.universityherald.com/articles/79947/20251110/20-fake-citations-slip-past-peer-review-ai-hallucinations-expose-crisis-academic-publishing.htm</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_10">(10)</span> Izdebski, Adam, Sambor Czerwiński, Marek Jankowiak, et al. “Unbalanced Social–Ecological Acceleration Led to State Formation Failure in Early Medieval Poland.” Proceedings of the National Academy of Sciences 122, no. 18 (2025): e2409056122. <a href="https://doi.org/10.1073/pnas.2409056122" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://doi.org/10.1073/pnas.2409056122</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_11">(11)</span> Navarro, L.M., Armstrong, C.G., Changeux, T. et al. Integrating historical sources for long-term ecological knowledge and biodiversity conservation. Nat. Rev. Biodivers. 1, 657–670 (2025). <a href="https://doi.org/10.1038/s44358-025-00084-3" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://doi.org/10.1038/s44358-025-00084-3</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_12">(12)</span> Hutchinson, D., “Mapping the Latent Past: Assessing Large Language Models as Digital Tools through Source Criticism,” Journal of Digital History, 3(1), 2024. <a href="https://doi.org/10.1515/JDH-2023-0018?locatt=label:JDHFULL" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://doi.org/10.1515/JDH-2023-0018?locatt=label:JDHFULL</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_13">(13)</span> Oberbichler, S., Petz, C. (2025). Working Paper: Implementing Generative AI in the Historical Studies. Zenodo. <a href="https://doi.org/10.5281/zenodo.14924737" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://doi.org/10.5281/zenodo.14924737</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_14">(14)</span> Hendrycks, D., Burns, C., Basart, S., Zou, A., Mazeika, M., Song, D., Steinhardt, J. (2021). Measuring Massive Multitask Language Understanding (arXiv:2009.03300). arXiv. <a href="http://arxiv.org/abs/2009.03300" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">http://arxiv.org/abs/2009.03300</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_15">(15)</span> Jakob Hauser, Daniel Kondor, Jenny Reddish, Majid Benam, Enrico Cioni, Federica Villa, James S. Bennett, Daniel Hoyer, Pieter Francois, Peter Turchin, and R. Maria del Rio-Chanona. 2024. Large language models' expert-level global history knowledge benchmark (HiST-LLM). In Proceedings of the 38th International Conference on Neural Information Processing Systems (NIPS '24), Vol. 37. Curran Associates Inc., Red Hook, NY, USA, Article 1016, 32336–32369. <a href="https://dl.acm.org/doi/10.5555/3737916.3738932" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://dl.acm.org/doi/10.5555/3737916.3738932</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_16">(16)</span> Dr inż. Anna Sztyber-Betley: Nie wiem, czy za 10 lat zawód naukowca będzie jeszcze potrzebny, <a href="https://forumakademickie.pl/dr-inz-anna-sztyber-betley-czy-za-10-lat-zawod-naukowca-bedzie-jeszcze-potrzebny/" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://forumakademickie.pl/dr-inz-anna-sztyber-betley-czy-za-10-lat-zawod-naukowca-bedzie-jeszcze-potrzebny/</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_17">(17)</span> <a href="https://ejournals.eu/czasopismo/kwartalnik-historii-nauki-i-techniki/strona/zasady-stosowania-generatorow-sztucznej-inteligencji" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://ejournals.eu/czasopismo/kwartalnik-historii-nauki-i-techniki/strona/zasady-stosowania-generatorow-sztucznej-inteligencji</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_18">(18)</span> <a href="https://www.historians.org/resource/guiding-principles-for-artificial-intelligence-in-history-education/" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://www.historians.org/resource/guiding-principles-for-artificial-intelligence-in-history-education/</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_19">(19)</span> Cha, Javier. “Automating the Past: Artificial Intelligence and the Next Frontiers of Digital History.” International Journal of Humanities and Arts Computing 20, no. 1 (2026): 1–17. <a href="https://doi.org/10.3366/ijhac.2026.0361" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://doi.org/10.3366/ijhac.2026.0361</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_20">(20)</span> <a href="https://bigdatastudies.net/deeppast/" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://bigdatastudies.net/deeppast/</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_21">(21)</span> <a href="https://ai.ihpan.edu.pl/blog_2026_03.html" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://ai.ihpan.edu.pl/blog_2026_03.html</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_22">(22)</span> Integrating AI into historical research: a conversation with Benoît Majerus about his ERC project on the history of offshore shell companies, <a href="https://www.uni.lu/c2dh-en/articles/integrating-ai-into-historical-research/" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://www.uni.lu/c2dh-en/articles/integrating-ai-into-historical-research/</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_23">(23)</span> Czy naprawdę mamy wierzyć influencerom “AI”, że Chat GPT zastąpi profesorów historii?, <a href="https://blog.humanistyka.dev/2025/10/czy-naprawde-mamy-wierzyc-influencerom-ai-ze-chat-gpt-zastapi-profesorow-historii" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://blog.humanistyka.dev/2025/10/czy-naprawde-mamy-wierzyc-influencerom-ai-ze-chat-gpt-zastapi-profesorow-historii</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_24">(24)</span> <a href="https://terrytao.wordpress.com/2025/11/05/mathematical-exploration-and-discovery-at-scale/" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://terrytao.wordpress.com/2025/11/05/mathematical-exploration-and-discovery-at-scale/</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_25">(25)</span> <a href="https://generativehistory.substack.com/p/the-agents-are-waking-up" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://generativehistory.substack.com/p/the-agents-are-waking-up</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_26">(26)</span> Trzeba oczywiście zaznaczyć, że wpływ na to mogły chyba mieć restrykcje w dostępie do komercyjnych usług AI dla chińskich uczelni.
+                        </li>
+
+                        <li>
+                        <span id="bib_27">(27)</span> W przypadku zastępowania zawodu historyka przez AI, krytyczną analizę wspomnianej (1) pracy przedstawiono w <a href="https://www.cambridge.org/core/journals/transactions-of-the-royal-historical-society/article/historian-in-the-age-of-ai/37E3B742A2983DF4DAA2E38D48252F89" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://www.cambridge.org/core/journals/transactions-of-the-royal-historical-society/article/historian-in-the-age-of-ai/37E3B742A2983DF4DAA2E38D48252F89</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_28">(28)</span> Karch, Tristan, Jakhongir Saydaliev, Isabella Di Lenardo, and Frederic Kaplan. “LLM Agents for Interactive Exploration of Historical Cadastre Data: Framework and Application to Venice.” Computational Humanities Research 1 (2025): e11. <a href="https://doi.org/10.1017/chr.2025.10014" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://doi.org/10.1017/chr.2025.10014</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_29">(29)</span> Xie, Yunting, Matti La Mela, and Fredrik Tell. “Multimodal LLM-Assisted Information Extraction from Historical Documents: The Case of Swedish Patent Cards (1945-1975) and ChatGPT.” Digital Humanities in the Nordic and Baltic Countries Publications 7, no. 2 (2025). <a href="https://doi.org/10.5617/dhnbpub.12294" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://doi.org/10.5617/dhnbpub.12294</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_30">(30)</span> Zhang, Shibingfeng, and Giovanni Colavizza. “Named Entity Recognition of Historical Text via Large Language Model.” arXiv:2508.18090. Preprint, arXiv, August 25, 2025. <a href="https://doi.org/10.48550/arXiv.2508.18090" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://doi.org/10.48550/arXiv.2508.18090</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_31">(31)</span> <a href="https://generativehistory.substack.com/p/gemini-3-solves-handwriting-recognition" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://generativehistory.substack.com/p/gemini-3-solves-handwriting-recognition</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_32">(32)</span> Stewart, Spencer Dean, and Sanskriti Sinha. “Retrieving Information from Unstructured Historical Sources Using Large Language Models.” Computational Humanities Research 1 (2025): e17. <a href="https://doi.org/10.1017/chr.2025.10019" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://doi.org/10.1017/chr.2025.10019</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_33">(33)</span> Preus, Anna, Siddharth Bhogra, and John Carlyle. “Extracting Publishing Data from the English Catalogue of Books.” Journal of Open Humanities Data 12 (March 2026): 55. <a href="https://doi.org/10.5334/johd.499" target="_blank" class="text-amber-600 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">https://doi.org/10.5334/johd.499</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_34">(34)</span> RADH2025, Book of abstracts: <a href="https://radh.unibuc.ro/wp-content/uploads/2025/11/RADH2025BoA.pdf" target="_blank">https://radh.unibuc.ro/wp-content/uploads/2025/11/RADH2025BoA.pdf</a>, "AI-Assisted Data Extraction from Late 19th-Century Polish Historical Sources Based on Results from the Vademecum Project"
+                        </li>
+
+                        <li>
+                        <span id="bib_35">(35)</span> Retrieval-augmented generation, <a href="https://pl.wikipedia.org/wiki/Retrieval-augmented_generation" target="_blank">https://pl.wikipedia.org/wiki/Retrieval-augmented_generation</a>
+                        </li>
+
+                        <li>
+                        <span id="bib_36">(36)</span> PageIndex, Human-like Document AI <a href="https://pageindex.ai/" target="_blank">https://pageindex.ai/</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-4xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
+            <p>
+                Powrót na <a href="https://ai.ihpan.edu.pl"
+                    class="text-amber-600 hover:text-amber-800 font-medium">główną stronę</a> serwera.
+            </p>
+            <p class="mt-2 text-xs text-gray-400">&copy; 2026 Pracownia Historii Cyfrowej IH PAN</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
