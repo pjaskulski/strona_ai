@@ -111,6 +111,10 @@
                         </ul>
 
                         <p>
+                            <img src="text2ner_rozpoznanie.png" alt="Rozpoznanie encji" class=" rounded-lg border border-gray-200">
+                        </p>
+
+                        <p>
                             Identyfikacja referencyjna jest wykonywana wyłącznie dla <code>persName</code> i
                             <code>placeName</code>. Tagi <code>date</code>, <code>roleName</code> i
                             <code>orgName</code> są rozpoznawane i zapisywane w XML, ale nie są wiązane z
@@ -135,9 +139,41 @@
                         </p>
 
                         <p>
+                            <img src="text2ner_identyfikacja.png" alt="Wynik identyfikacji" class=" rounded-lg border border-gray-200">
+                        </p>
+
+                        <p>
+                            W sytuacjach nierozstrzygniętych aplikacja może wyświetlić listę najbardziej
+                            prawdopodobnych kandydatów do ręcznego wyboru przez użytkownika. Lista ta jest
+                            wstępnie filtrowana: dla osób pomijani są kandydaci z jednoznacznym konfliktem
+                            chronologicznym względem dat dokumentu, a liczba propozycji jest ograniczana, aby nie
+                            przerzucać na użytkownika całego szumu wyszukiwania. Encje z manualną identyfikacją posiadają
+                            etykietę która o tym informuje, możliwe jest także wycofanie się z ręcznego wyboru.
+                        </p>
+
+                        <p>
+                            <img src="text2ner_manual_1.png" alt="Manualna identyfikacja" class=" rounded-lg border border-gray-200">
+                        </p>
+
+                        <p>
+                            <img src="text2ner_manual_3.png" alt="Manualna identyfikacja - wycofanie wyboru" class=" rounded-lg border border-gray-200">
+                        </p>
+
+                        <p>
+                            <img src="text2ner_manual_2.png" alt="Manualna identyfikacja - okno wyboru" class=" rounded-lg border border-gray-200">
+                        </p>
+
+                        <p>
                             Jeżeli dopasowanie do rekordu referencyjnego nie
-                            jest wystarczająco wiarygodne, encja pozostaje bez atrybutu <code>ref</code>, ale może
-                            zachować ostrożnie ustaloną znormalizowaną formę w <code>key</code>.
+                            jest wystarczająco wiarygodne, ani użytkownik nie wybierze kandydata manualnie, encja pozostaje bez atrybutu <code>ref</code>, ale może
+                            zachowuje znormalizowaną formę w atrybucie <code>key</code>.
+                        </p>
+
+                        <p>
+                            Zapytania do Wikidaty są wykonywane ostrożnie: aplikacja ogranicza tempo requestów do
+                            <code>wikidata.org</code> i respektuje odpowiedzi <code>HTTP 429</code>, odczytując
+                            nagłówek <code>Retry-After</code> oraz ponawiając zapytanie po odczekaniu wskazanego
+                            czasu. Ma to zmniejszyć ryzyko blokowania przez zewnętrzne usługi referencyjne.
                         </p>
                     </section>
 
@@ -223,6 +259,7 @@
                                 identyfikacji referencyjnej, ale jest już pełnym TEI-XML nadającym się do dalszego
                                 przeglądu, korekty i zapisania.
                             </p>
+
                         </div>
 
                         <div class="border-l-4 border-amber-400 pl-4 space-y-2">
@@ -265,6 +302,14 @@
                                 <code>ref</code>. Jeśli nie, encja pozostaje w XML bez pełnego powiązania
                                 referencyjnego.
                             </p>
+                            <p>
+                                Dla encji nierozstrzygniętych aplikacja może przygotować krótką listę kandydatów do
+                                ręcznego wyboru. W oknie wyboru zawsze dostępna jest także opcja
+                                <strong>Brak identyfikacji</strong>. Jeśli użytkownik wybierze kandydata ręcznie,
+                                aplikacja oznacza taki wybór w interfejsie jako <strong>wybór manualny</strong> oraz
+                                zapisuje w XML atrybuty <code>cert="medium"</code> i <code>resp="#manual"</code>.
+                                Ręczny wybór można cofnąć, przywracając encję do listy niezidentyfikowanych.
+                            </p>
                         </div>
 
                         <div class="border-l-4 border-amber-400 pl-4 space-y-2">
@@ -285,6 +330,14 @@
                                 oraz wyświetlić fragment logu odnoszący się do konkretnej encji. Ułatwia to ocenę,
                                 dlaczego dany kandydat został wybrany lub odrzucony.
                             </p>
+                            <p>
+                                Przy zidentyfikowanych encjach dostępny jest także przycisk
+                                <strong>Fakty</strong>. Otwiera on okno z dwoma panelami: po lewej stronie widoczne
+                                są dane wydobyte z dokumentu dla danej encji, takie jak tekst otagowany,
+                                <code>context_clues</code> i <code>context_years</code>, a po prawej dane wybranej
+                                encji referencyjnej, w tym etykieta, opis i najważniejsze fakty z właściwości
+                                (<code>key_facts</code>).
+                            </p>
                         </div>
                     </section>
 
@@ -295,6 +348,20 @@
                             ważnym elementem narzędzia jest log diagnostyczny. Rejestrowane są w nim kolejne kroki
                             rozpoznawania i identyfikacji, w tym analiza formy encji, lista kandydatów, ocena
                             chronologiczna dla osób oraz krótkie uzasadnienie wyboru zwrócone przez model Gemini.
+                        </p>
+                        <p>
+                            Log jest tworzony automatycznie dla każdego przebiegu rozpoznawania i identyfikacji.
+                            Aplikacja usuwa pliki logów starsze niż 48 godzin, aby nie zaśmiecać dysku serwera.
+                            Pełny log można pobrać przyciskiem <strong>Pobierz log</strong>, natomiast w boxach encji
+                            dostępny jest przycisk <strong>Pokaż log encji</strong>, który wyświetla tylko fragment
+                            dotyczący wybranego tagu. Fragment logu można skopiować do schowka bezpośrednio z okna
+                            modalnego.
+                        </p>
+                        <p>
+                            Oprócz surowego logu aplikacja prezentuje wybrane informacje z procesu identyfikacji w
+                            bardziej skróconej formie w oknie <strong>Fakty</strong>. Jest to szybszy sposób
+                            sprawdzenia, jakie wskazówki zostały wyciągnięte z dokumentu i jakie dane z rekordu
+                            referencyjnego przemawiały za danym dopasowaniem.
                         </p>
                         <p>
                         Co zawiera log diagnostyczny, np. dla osoby (<em>persName</em>)? Poniżej znajdują się fragmenty logu
@@ -439,6 +506,14 @@
 
                         </p>
 
+                        <p>
+                            W logu mogą pojawiać się także wpisy dotyczące ograniczania liczby zapytań do Wikidaty.
+                            Jeżeli Wikidata zwróci odpowiedź <code>HTTP 429</code>, aplikacja zapisuje informację o
+                            pauzie i ponowieniu zapytania. Ma to znaczenie zwłaszcza przy dłuższych dokumentach, w
+                            których jedna analiza może wygenerować wiele wariantów zapytań dla kolejnych osób i
+                            miejsc.
+                        </p>
+
 
 
                         <h2 class="text-2xl font-bold text-gray-900">Diagram procesu</h2>
@@ -463,6 +538,7 @@
                             <li>Identyfikacja referencyjna dotyczy wyłącznie <code>persName</code> i <code>placeName</code>.</li>
                             <li>Wyniki rozpoznawania i identyfikacji mają charakter pomocniczy i powinny być traktowane jako etap roboczy opracowania naukowego.</li>
                             <li>Analiza może trwać od kilkunastu sekund do kilku minut, zależnie od długości tekstu, liczby encji, wybranego modelu i czasu odpowiedzi źródeł zewnętrznych.</li>
+                            <li>Wikidata ogranicza intensywność ruchu automatycznego. Aplikacja spowalnia zapytania i ponawia je po odpowiedzi <code>HTTP 429</code>, ale w okresach większego obciążenia etap identyfikacji może przez to trwać dłużej.</li>
                             <li>W przypadku bardzo trudnych, wieloznacznych lub rzadkich form historycznych część encji może wymagać korekty ręcznej.</li>
                         </ul>
                     </section>
@@ -476,6 +552,17 @@
 
                         <pre class="bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto text-sm"><code>&lt;persName key="Fryderyk Jagiellończyk"
 ref="https://wikihum.lab.dariah.pl/entity/Q152903"&gt;Fridericus&lt;/persName&gt;</code></pre>
+
+                        <p>
+                            Jeżeli identyfikator został przypisany ręcznie przez użytkownika na podstawie listy
+                            kandydatów, aplikacja dodaje ślad tej decyzji w atrybutach <code>cert</code> i
+                            <code>resp</code>:
+                        </p>
+
+                        <pre class="bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto text-sm"><code>&lt;persName key="Iohannes von Kittlitz"
+ref="https://va.wiki.kul.pl/entity/Q2138"
+cert="medium"
+resp="#manual"&gt;Iohannis&lt;/persName&gt;</code></pre>
 
                         <p>
                             Dla daty możliwy jest zapis z atrybutem <code>when</code>, na przykład:
