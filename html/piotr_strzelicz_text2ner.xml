@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Dokument z automatyczną identyfikacją encji</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>PHC IHPAN</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Dokument źródłowy</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+
+      <div type="document">
+        <p>
+          <persName key="Piotr Strzelicz" ref="https://wikihum.lab.dariah.pl/entity/Q173363">Strzelicz
+          Piotr</persName> (zm. <date when="1410">1410</date> ), <roleName>kanonik krakowski</roleName>
+          , <roleName>gnieźnieński</roleName> , <roleName>kapelan papieski</roleName> . O rodzinie
+          S-a zachowały się wiadomości w „Kalendarzu katedry krakowskiej”, gdzie pod <date>25 V</date>
+          wpisano (tzw. ręka K) notę obituarną zawierającą informacje o śmierci: jego ojca <persName
+            key="Świętosław ze Strzelec">Świętosława</persName> , syna <persName
+            key="Budek ze Strzelec">Budka ze Strzelec</persName> (z datą <date when="1383">1383</date>
+          ), i matki <persName key="Wojciecha">Wojciechy</persName> oraz brata <persName
+            key="Stanisław">Stanisława</persName> (z datą <date when="1398">1398</date> ).
+          Pierwotnie zapiskę tę umieszczono pod <date>26 V</date> , a pod <date>25 V</date>
+          przeniesiono ją zaraz potem, zaznaczając, że śmierć <persName key="Świętosław">Świętosława</persName>
+          i <persName key="Stanisław">Stanisława</persName> nastąpiła w dzień św. <persName
+            key="Urbanus" ref="https://www.wikidata.org/entity/Q125631">Urbana</persName> , <roleName>
+          papieża</roleName> i męczennika. Na podstawie tej zapiski należy zatem odrzucić pogląd, że
+          ojcem S-a mógł być <persName key="Bretto">Bretto</persName> , wywodzący się z jednej ze
+          śląskich miejscowości o nazwie <placeName key="Strzelce">Strzelce</placeName> ( <persName
+            key="G. Schindler">G. Schindler</persName> ) lub <persName key="Strzała z Zawady">Strzała
+          z Zawady</persName> koło <placeName key="Racławice"
+            ref="https://wikihum.lab.dariah.pl/entity/Q70423">Racławic</placeName> ( <persName
+            key="Antoni Gąsiorowski" ref="https://wikihum.lab.dariah.pl/entity/Q236">A. Gąsiorowski</persName>
+          , w: „Metryka Uniw. Krak.”). S-a należy również odróżnić od <roleName>kanonika
+          gnieźnieńskiego</roleName>
+  <persName key="Piotr Strzelicz z Borku">Piotra Strzelicza z
+          Borku</persName> , który przyjął w katedrze w <placeName key="Gniezno"
+            ref="https://va.wiki.kul.pl/entity/Q1322">Gnieźnie</placeName> święcenia subdiakonatu w
+          r. <date when="1404">1404</date> . Nazwisko Strzelicz zostało urobione od jednej z kilku
+          położonych w <placeName key="Małopolska" ref="https://www.wikidata.org/entity/Q11390">
+          Małopolsce</placeName> miejscowości o nazwie <placeName key="Strzelce">Strzelce</placeName>
+          , ale nie wiadomo z której S. mógł pochodzić. S. studiował prawdopodobnie w <placeName
+            key="Italia" ref="https://www.wikidata.org/entity/Q38">Italii</placeName> , bowiem w
+          dokumentach papieskich od r. <date when="1386">1386</date> wymieniany jest ze stopniem
+          magistra. </p>
+        <p>
+          <roleName>Kanonikiem katedralnym krakowskim</roleName> został przed <date
+            when="1384-09-29">29 IX 1384</date> , kiedy to wymieniono go w dokumencie <roleName>bp.
+          krakowskiego</roleName>
+  <persName key="Jan Radlica"
+            ref="https://wikihum.lab.dariah.pl/entity/Q155739">Jana Radlicy</persName> wśród
+          członków kapituły. S. związał się z dworem królowej <persName key="Jadwiga Andegaweńska"
+            ref="https://wikihum.lab.dariah.pl/entity/Q155537">Jadwigi Andegaweńskiej</persName> ,
+          która wysłała go pod koniec r. <date when="1385">1385</date> z poselstwem do papieża <persName
+            key="Urbanus VI" ref="https://va.wiki.kul.pl/entity/Q1827">Urbana VI</persName> . W <placeName
+            key="Rzymie" ref="https://va.wiki.kul.pl/entity/Q420">Rzymie</placeName> przebywał przez
+          kilka miesięcy w r. <date when="1386">1386</date> , załatwiając nieznane bliżej sprawy
+          królowej oraz swoje własne. Dzięki suplice <persName key="Jadwiga Andegaweńska"
+            ref="https://wikihum.lab.dariah.pl/entity/Q155537">Jadwigi</persName> uzyskał <date
+            when="1386-02-20">20 II</date> t.r. prowizje na kustodię i kanonię w kapit. katedralnej
+          w <placeName key="Wrocław" ref="https://va.wiki.kul.pl/entity/Q167">Wrocławiu</placeName>
+          , wakujące po śmierci <persName key="Dytko Pradlin">Dytki Pradlina</persName> , oraz
+          został mianowany przez <persName key="Urbanus VI"
+            ref="https://va.wiki.kul.pl/entity/Q1827">Urbana VI</persName>
+  <roleName>kapelanem
+          papieskim</roleName> . Do <placeName key="Polski" ref="https://va.wiki.kul.pl/entity/Q795">
+          Polski</placeName> wrócił przed końcem września t.r., gdyż uczestniczył wówczas w
+          posiedzeniu generalnym kapit. katedralnej w <placeName key="Kraków"
+            ref="https://va.wiki.kul.pl/entity/Q156">Krakowie</placeName> . Niedługo potem objął
+          probostwo w <placeName key="Wawrzeńczyce"
+            ref="https://wikihum.lab.dariah.pl/entity/Q85689">Wawrzeńczycach</placeName> pod <placeName
+            key="Kraków" ref="https://va.wiki.kul.pl/entity/Q156">Krakowem</placeName> , które
+          otrzymał przed <date when="1389-11-09">9 XI 1389</date> i dzierżył do końca życia.
+          Ponownie wyruszył do <placeName key="Stolicy Apostolskiej"
+            ref="https://wikihum.lab.dariah.pl/entity/Q606">Stolicy Apostolskiej</placeName> t.r.
+          jako prokurator <roleName>bp. Radlicy</roleName> i kapit. krakowskiej, którzy wystawili <date
+            when="1389-06-23">23 VI</date> stosowne pełnomocnictwa dla S-a oraz <roleName>doktora
+          dekretów</roleName>
+  <persName key="Jakub z Kurdwanowa"
+            ref="https://www.wikidata.org/entity/Q16561092">Jakuba z Kurdwanowa</persName> , <roleName>audytora
+          Roty Rzymskiej</roleName> , zlecając im załatwienie w <placeName key="Rzymie"
+            ref="https://va.wiki.kul.pl/entity/Q420">Rzymie</placeName> spraw związanych z próbami
+          pobierania nieuzasadnionych świadczeń annatowych w <placeName key="diec. krakowskiej"
+            ref="https://va.wiki.kul.pl/entity/Q264">diec. krakowskiej</placeName> przez <roleName>kolektora
+          Kamery Apostolskiej</roleName>
+  <persName key="Dobrogost z Nowego Dworu"
+            ref="https://va.wiki.kul.pl/entity/Q151">Dobrogosta z Nowego Dworu</persName> . </p>
+        <p> Ponadto S. niewątpliwie reprezentował interesy innych duchownych krakowskich; jako
+          prokurator <persName key="Nawoja z Tęczyna">Nawoja z Tęczyna</persName>
+  <date
+            when="1390-10-04">4 X 1390</date> przeprowadził w jego imieniu zamianę beneficjów z <roleName>kardynałem
+          tytułu św. Marcelego</roleName>
+  <persName key="Stephanus Palasius">Stefana Palasiusa</persName>
+          : prepozytury skalbmierskiej na dziekanię katedralną krakowską. Dbał również o własne
+          sprawy; ponieważ kancelaria <persName key="Urbanus VI"
+            ref="https://va.wiki.kul.pl/entity/Q1827">Urbana VI</persName> nie wydała dokumentu dla
+          S-a w związku z jego nominacją na <roleName>kapelana papieskiego</roleName> , zabiegał on
+          o taki dokument u papieża <persName key="Bonifacius IX"
+            ref="https://va.wiki.kul.pl/entity/Q249">Bonifacego IX</persName> , który <date
+            when="1389-11-09">9 XI 1389</date> potwierdził decyzję swego poprzednika. Tego dnia S.
+          otrzymał także ponowną prowizję na kanonię w kapit. wrocławskiej, której nie udało mu się
+          objąć od r. <date when="1386">1386</date> ; pomimo zabiegów o nią w <placeName
+            key="Stolicy Apostolskiej" ref="https://wikihum.lab.dariah.pl/entity/Q606">Stolicy
+          Apostolskiej</placeName> , jeszcze w r. <date when="1391">1391</date> kanonii tej nie
+          osiągnął. Zrezygnował również w r. <date when="1389">1389</date> ze starań o kustodię
+          wrocławską. Na mocy decyzji papieskiej z <date when="1389-12-06">6 XII</date> t.r.
+          otrzymał prawa do prepozytury krakowskiej po zmarłym <roleName>kardynale tytułu św.
+          Eustachego</roleName>
+  <persName key="Franciscus Rienzo"
+            ref="https://va.wiki.kul.pl/entity/Q2080">Franciszku Rienzo</persName> . Konkurentem S-a
+          do tej bardzo bogatej prebendy (120 grzywien srebra rocznego dochodu) okazał się <roleName>licencjat
+          prawa kanonicznego</roleName>
+  <persName key="Abraham z Nowego Dworu"
+            ref="https://va.wiki.kul.pl/entity/Q443">Abraham z Nowego Dworu</persName> .
+          Rozstrzygnięcie sporu polecił papież <roleName>audytorowi Roty Rzymskiej</roleName>
+  <persName
+            key="Henricus Goderban">Henrykowi Goderbanowi</persName> , a po jego śmierci <roleName>
+          audytorowi</roleName>
+  <persName key="Antonius de Ponte"
+            ref="https://va.wiki.kul.pl/entity/Q5145">Antoniemu z Ponte</persName> , który po <date
+            when="1391-04-08">8 IV 1391</date> podjął sprawę, ale nie wydał wyroku. Z kolei spór
+          został przekazany w ręce <roleName>audytora</roleName>
+  <persName
+            key="Branda da Castiglione" ref="https://www.wikidata.org/entity/Q770016">Brandy
+          Castiglione</persName> , który przyznał prepozyturę krakowską <persName
+            key="Abraham z Nowego Dworu" ref="https://va.wiki.kul.pl/entity/Q443">Abrahamowi</persName>
+          , a S-owi nakazał wieczyste milczenie. S. nie dał jednak za wygraną i odwołał się do <persName
+            key="Bonifacius IX" ref="https://va.wiki.kul.pl/entity/Q249">Bonifacego IX</persName> ,
+          który rozpatrzenie apelacji powierzył <roleName>audytorowi</roleName>
+  <persName
+            key="Johannes de Dulmen">Janowi de Dulmen</persName> . Proces komplikował się i toczył
+          po kolei przed kilkoma <roleName>audytorami Roty Rzymskiej</roleName> . Jeden z nich po
+          kolejnej apelacji S-a wydał wyrok dla niego korzystny, co spowodowało apelację ze strony <persName
+            key="Abraham z Nowego Dworu" ref="https://va.wiki.kul.pl/entity/Q443">Abrahama z Nowego
+          Dworu</persName> . Dn. <date when="1393-07-15">15 VII 1393</date> papież polecił ponowne
+          rozpatrzenie sporu <roleName>bp. Gubbio</roleName>
+  <persName key="Bertrandus">Bertrandowi</persName>
+          , przebywającemu wówczas w <placeName key="Kurii Rzymskiej"
+            ref="https://www.wikidata.org/entity/Q108169">Kurii Rzymskiej</placeName> . Dalszy
+          przebieg procesu nie jest znany, wyrok ostateczny musiał jednak być korzystny dla <persName
+            key="Abraham z Nowego Dworu" ref="https://va.wiki.kul.pl/entity/Q443">Abrahama z Nowego
+          Dworu</persName> , który przed <date when="1395-03-20">20 III 1395</date> objął
+          prepozyturę krakowską. S. przebywał w <placeName key="Roma"
+            ref="https://va.wiki.kul.pl/entity/Q420">Rzymie</placeName> przez cały okres tego sporu
+          i w tym czasie wystarał się również o prowizje na kanonie w kapit. katedralnych w <placeName
+            key="Gniezno" ref="https://va.wiki.kul.pl/entity/Q1322">Gnieźnie</placeName> ( <date
+            when="1389">1389</date> ) i <placeName key="Ołomuniec"
+            ref="https://va.wiki.kul.pl/entity/Q1613">Ołomuńcu</placeName> ( <date when="1391">1391</date>
+          ); pierwszą z nich trzymał do końca r. <date when="1402">1402</date> , do swej rezygnacji
+          na rzecz <persName key="Petrus Stanislai">Piotra, syna Stanisława</persName> , drugiej nie
+          zrealizował. </p>
+      </div>
+
+    </body>
+  </text>
+</TEI>

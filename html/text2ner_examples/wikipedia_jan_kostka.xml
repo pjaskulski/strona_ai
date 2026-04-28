@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt> <title>Dokument z automatyczną identyfikacją encji</title> </titleStmt>
+      <publicationStmt> <p>PHC IHPAN</p> </publicationStmt>
+      <sourceDesc> <p>Dokument źródłowy</p> </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+  <body>
+
+<div type="document">
+ <p>
+  <persName key="Jan Kostka" ref="https://wikihum.lab.dariah.pl/entity/Q158342">Jan Kostka</persName>
+  herbu Dąbrowa (łac.
+  <persName key="Ioannes Kostka de Stemberk" ref="https://wikihum.lab.dariah.pl/entity/Q158342">Ioanne Kostka de Stemberk</persName>
+  ; ur.
+  <date when="1529">1529</date>
+  w
+  <placeName key="Sztembark" ref="https://wikihum.lab.dariah.pl/entity/Q79123">Sztembarku</placeName>
+  , zm.
+  <date when="1581-05-31">31 maja 1581</date>
+  w
+  <placeName key="Jarosław" ref="https://wikihum.lab.dariah.pl/entity/Q38243">Jarosławiu</placeName>
+  ) –
+  <roleName>sekretarz królewski</roleName>
+  od
+  <date when="1554">1554</date>
+  ,
+  <roleName>podskarbi ziem pruskich</roleName>
+  i
+  <roleName>ekonom malborski</roleName>
+  (
+  <date when="1554">1554</date>
+  ),
+  <roleName>kasztelan gdański</roleName>
+  (
+  <date when="1556">1556</date>
+  ),
+  <roleName>wojewoda sandomierski</roleName>
+  (
+  <date when="1574">1574</date>
+  ),
+  <roleName>starosta malborski</roleName>
+  ,
+  <roleName>płocki</roleName>
+  ,
+  <roleName>golubski</roleName>
+  i
+  <roleName>lipieński</roleName>
+  .
+ </p>
+ <p>
+  Był synem
+  <persName key="Stanisław Kostka" ref="https://www.wikidata.org/entity/Q7599171">Stanisława Kostki</persName>
+  i
+  <persName key="Elżbieta Eulenburg" ref="https://www.wikidata.org/entity/Q67139520">Elżbiety Eulenburg</persName>
+  . Studiował w
+  <placeName key="Niemcy" ref="https://wikihum.lab.dariah.pl/entity/Q140759">Niemczech</placeName>
+  ,
+  <placeName key="Flandria" ref="https://wikihum.lab.dariah.pl/entity/Q140304">Flandrii</placeName>
+  i
+  <placeName key="Hiszpania" ref="https://wikihum.lab.dariah.pl/entity/Q140746">Hiszpanii</placeName>
+  .
+ </p>
+ <p>
+  W
+  <date when="1568">1568</date>
+  roku
+  <persName key="Zygmunt II August" ref="https://www.wikidata.org/entity/Q54058">Zygmunt II August</persName>
+  postawił
+  <persName key="Jan Kostka" ref="https://wikihum.lab.dariah.pl/entity/Q158342">Jana Kostkę</persName>
+  na czele świeżo powołanej Komisji Morskiej. Uczestniczył w organizacji polskiej floty wojennej. Był zwolennikiem unii Prus Królewskich z Koroną. Był sygnatariuszem aktu unii lubelskiej
+  <date when="1569">1569</date>
+  roku. Podpisał konfederację warszawską
+  <date when="1573">1573</date>
+  roku. Dwukrotnie (
+  <date when="1573">1573</date>
+  ,
+  <date when="1575">1575</date>
+  ) kandydat na
+  <roleName>króla Polski</roleName>
+  (za pierwszym razem ostatecznie poparł
+  <persName key="Henryk Walezy" ref="https://wikihum.lab.dariah.pl/entity/Q154850">Henryka Walezego</persName>
+  , którego elekcję potwierdził, za drugim
+  <persName key="Anna Jagiellonka" ref="https://www.wikidata.org/entity/Q233989">Annę Jagiellonkę</persName>
+  ). Na zjeździe w
+  <placeName key="Jędrzejowie" ref="https://va.wiki.kul.pl/entity/Q332">Jędrzejowie</placeName>
+  w
+  <date when="1576">1576</date>
+  roku potwierdził wybór
+  <persName key="Stefan Batory" ref="https://wikihum.lab.dariah.pl/entity/Q172757">Stefana Batorego</persName>
+  na
+  <roleName>króla Polski</roleName>
+  .
+ </p>
+</div>
+
+    </body>
+  </text>
+</TEI>

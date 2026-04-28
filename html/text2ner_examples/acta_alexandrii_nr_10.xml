@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt> <title>Dokument z automatyczną identyfikacją encji</title> </titleStmt>
+      <publicationStmt> <p>PHC IHPAN</p> </publicationStmt>
+      <sourceDesc> <p>Dokument źródłowy</p> </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+  <body>
+
+<div type="document">
+ <p>
+  <placeName key="Konstantynopol" ref="https://va.wiki.kul.pl/entity/Q4299">Konstantynopol</placeName>
+  <date when="1501-07-19">19 lipca 1501</date>
+  .
+ </p>
+ <p>
+  Treugae pacis ab
+  <roleName>imperatore Turcorum</roleName>
+  per
+  <persName key="Nicolaus Lanczkoroński" ref="https://wikihum.lab.dariah.pl/entity/Q159735">Nicolaum Lanczkoroński</persName>
+  obtentae.
+ </p>
+ <p>
+  <roleName>Sultan</roleName>
+  <persName key="Bayazeth" ref="https://www.wikidata.org/entity/Q165983">Bayazeth han</persName>
+  , Dei gratia
+  <roleName>imperator</roleName>
+  <placeName key="Graecia" ref="https://wikihum.lab.dariah.pl/entity/Q140745">Graeciae</placeName>
+  ,
+  <placeName key="Asia">Asiae</placeName>
+  atque
+  <placeName key="Europa" ref="https://www.wikidata.org/entity/Q46">Europae</placeName>
+  et marium. Notum omnibus facimus, quia veniens coram nobis generosus
+  <persName key="Nicolaus Lanczkoronski" ref="https://wikihum.lab.dariah.pl/entity/Q159735">Nicolaus Lanczkoronski</persName>
+  ,
+  <roleName>orator</roleName>
+  sermi principis dni
+  <persName key="Johannes Albertus" ref="https://wikihum.lab.dariah.pl/entity/Q155672">Johannis Alberti</persName>
+  ,
+  <roleName>regis</roleName>
+  <placeName key="Poloniae" ref="https://va.wiki.kul.pl/entity/Q795">Poloniae</placeName>
+  , Dei gratia
+  <roleName>ducis</roleName>
+  <placeName key="Lithuaniae" ref="https://va.wiki.kul.pl/entity/Q547">Lithuaniae</placeName>
+  ,
+  <placeName key="Russiae" ref="https://va.wiki.kul.pl/entity/Q2969">Russiae</placeName>
+  ,
+  <placeName key="Prussiae" ref="https://va.wiki.kul.pl/entity/Q83">Prussiae</placeName>
+  , amici et vicini nostri charissimi, et ex parte praefatae Mtis, amici nostri, nobis aliqua verba retulit et acquisivit illam pacem et amicitiam, quam nos cum sua Mte per nostrum oratorem composuimus, qualem sua Mtas benivole accepit, etiam mediante iuramento facto in praesentia oratoris nostri et litteris a sua Mte missis nobis corroborando et confirmando. Similiter mediante iuramento nostro et litteris nostris confirmamus, corrobamus in tali modo, ut illa amicitia et pax, quam cum praedicto sermo rege, amico nostro et dominiis quibuslibet acceptamus et accepimus, illam fortificamus, confirmamus a
+  <date when="1501-05-13">tredecima magii anno Jesu 1501</date>
+  usque quando nobis et praefato regi, amico nostro et cum omnibus subditis et dominiis ex ambabus partibus conservare et firmiter tenere voluerimus et permittimus, in tali modo et ordine: Primitus, quod exnunc usque ad tempus supra expressum cum praefata Mte servabimus pacem et amicitiam custodiemus, et nullum damnum per nos neque per subditos nostros [contra] praefatum regem sive subditos suos facere vel in aliquo modo ordinare, atque facere iustitiam et mutuam caritatem inter nos et subditos nostros simul conservabimus. Et oratores nostri ex utraque parte, totiens quotiens necesse erit, ire et redire sine aliqua violentia neque periculo secure et pacifice possint. Item captivi ex utraque parte possint requiri in dominiis utriusque partium, maxime illi qui capti fuerunt ante hanc praesentem treugam pacis, cum reperientur per Christianos, exemere possint cum voluntate patronum eorum sive dominorum. Item illi qui erunt capti post hanc pacem, liberi sine aliquo pretio exire debent. Item donec haec pax inter nos et praefatam Mtem instabit, mercatores ex utraque parte exercere mercaturam pro commodis eorum libere possint, ire ex uno dominio ad aliud sine ulla oppressione neque praeiudicio, sine iniuria exercere mercaturam in terris et dominiis nostris possint. Verum tamen secundum consuetudinem antiquam in illis locis, ubi solent navigia et vectigalia solvere, iusto modo solvent. Item si aliqui mercatores ex dominiis praefati regis morientur in terris et dominiis nostris, omnem facultatem et mercaturam illius non recipietur a nobis, sed conservetur eadem substantia, donec veniet aliquis parens sanguine coniunctus cum litteris praefatae Mtis testificatoriis, tunc illae facultates per mandatum nostrum restituentur. Item praefatus rex in simili casu taliter facere debet. Item si tempore treugae pacis in utraque [parte], seu praefatus rex vel sua subductione sive industria in occulto sive palam committeretur aliquod damnum sive incursionem, vel nos vel nostri subditi vel mali factores, ipsi mali factores debent esse puniti sine aliqua excusatione, et damna facta per illos malos factores debent esse reformata et restituta in locis eorum, et maxime omnes qui erunt captivati per aliquam malitiam debent restitui et liberari propter hoc, ut conservetur iustitia et pax [ex] utraque partium. Item si esset aliquis in dominio nostro, qui teneretur aliquod debitum aliquibus ex subditis praefatae R. Mtis, tunc actor ille ut conservetur iustitia, debet ire coram iudicium, et ministrabitur sibi iustitia per nostros iudices iuxta legem Dei, ut non patiatur iustus pro impio. Similiter debet facere praefatus rex in suis dominiis subditis nostris. Res omnes praedictae atque expressae firmiter et inviolabiliter atque integraliter servo, et servare promittimus iuxta iuramentum, promittimus et iuramus in his verbis, ut omnes res suprascriptae de amicitia coniuncta inter nos et praefatum regem etiam de dominiis nostris conservare, in bona fide tenere, servare, sine fraudulentia et cavillatione aliqua excogitata servabimus, tenebimus, et nostris subditis servare deducemus atque faciemus et curabimus, ut removerentur omnes insidiae. Et sic Deus iuvet nos et iuramus per Deum Omnipotentem et legem nostram, quod nulla contrarietas in his pactis exiet ex nobis, sed ille qui pertransiet et erit causa et ipse esset periurus, Deus ipse puniet eum, faciet ipsum indignum et inprosperum. Et istum praesentem (s) iuramentum nostrum dedimus ad manus strenui et generosi
+  <persName key="Nicolaus Lanczkoronski" ref="https://wikihum.lab.dariah.pl/entity/Q159735">Nicolai Lanczkoroński</persName>
+  <roleName>oratoris</roleName>
+  praefati regis, et per praesentes litteras praedicta amicitia et pax inter nos confirmamus, quas propria manu ad manus eidem dedimus, prout fuisset praefata Mtas propria [persona] praesens. Datum in aula nostra
+  <date when="1501-07-18">XVIII iulii 1501</date>
+  . Ex
+  <placeName key="Constantinopolis" ref="https://va.wiki.kul.pl/entity/Q4299">Constantinopoli</placeName>
+ </p>
+</div>
+
+    </body>
+  </text>
+</TEI>

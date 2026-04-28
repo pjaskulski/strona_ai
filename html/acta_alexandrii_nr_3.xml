@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt> <title>Dokument z automatyczną identyfikacją encji</title> </titleStmt>
+            <publicationStmt> <p>PHC IHPAN</p> </publicationStmt>
+            <sourceDesc> <p>Dokument źródłowy</p> </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+
+        <div type="document">
+            <p>
+                Unnsere gantzwillige unnd undertenige dinste sein ewren gnaden allezceit zcuvoran bereit. Hochwirdigister irluchter hochgeborner furste, gnediger unnd gnedigister herre.
+            </p>
+            <p>
+                Wir geben E. F. G. zcu erkennen, dasz der durchlüchste groszmechtigiste furste unnd herre her
+                <persName key="Johannes Albertus" ref="https://wikihum.lab.dariah.pl/entity/Q155672">Johannes Albertus</persName>
+                , weylant konigk in
+                <placeName key="Polen" ref="https://va.wiki.kul.pl/entity/Q795">Polen</placeName>
+                etc., nach dem willen desz almechtigen Gots seinen abeschiet von dieser werlt am dornstage desz achten tags unsers heyligen warenn leychnams, zcwischen IX und X horen, alhir zcu
+                <placeName key="Thorn" ref="https://va.wiki.kul.pl/entity/Q190">Thorn</placeName>
+                genomen, desz sele der almechtige Got gnedig und barmherzcigk sey; unnd alsz wir vornemen, so sal seine leyche kegin
+                <placeName key="Krokow" ref="https://va.wiki.kul.pl/entity/Q156">Krokow</placeName>
+                in kortz gefürt werden etc.
+            </p>
+            <p>
+                Wir haben tegelich unser abfertünge oüch nach des koniges tode gewartet unnd vertrostunge gehabt die zcu erlangen, alsz ist hewte ein brieff von unserm g. und gsten hern dem cardinal an unsere herren unnd frunde und gnedige hern die bischove unnd andere rethe itzunt zcu
+                <placeName key="Thorn" ref="https://va.wiki.kul.pl/entity/Q190">Thorn</placeName>
+                versamelt komenn, der under andern meldet, dasz unser g. und gter her der cardinal sich uff morgen montagk zcu
+                <placeName key="Gnysen" ref="https://va.wiki.kul.pl/entity/Q1322">Gnysen</placeName>
+                zcu erheben willens sey unnd uffs forderlichste alher kein
+                <placeName key="Thorn" ref="https://va.wiki.kul.pl/entity/Q190">Thorn</placeName>
+                zcu komen, unnd versehenn unsz, dasz seine gnade uff mithwoche nhest alhir sein wirt. Dyweil dan derselbe seiner gnadenn brieff mit claren wortten anzceiget, dasz sie unsz bysz uff seiner gnaden zcukunfft sollen alhir erhalden, so werden wir mit unser anthwort daruff verzcogen, und hoffen, dasz unsz dieselbe uff nhest kunfftigen dornstagk gegeben werde. Unnd so balde wir abgefertiget, wollen wir E. G. zcuerkennen geben, uff waszc zceit wir hoffen zcu E. G. zcu komen. Wir versehen unsz ouch einesz merglichen rathes, nachdeme gereit vier bischove mit trefflichen rethen alhir zcu
+                <placeName key="Thorn" ref="https://va.wiki.kul.pl/entity/Q190">Thorn</placeName>
+                sein, deszgleichen wirt unser g. und gster herre der cardinal ouch etzliche bischove unnd mergliche leute mit sich brengen. Ewrn gnaden alsz unserm g. und gsten hern gantzwillige unnd undertenige dinste zcu erzceigen sein wir unsers vermogens stets vleysz willigk unnd gevlyssenn. Geben zcu
+                <placeName key="Thorun" ref="https://va.wiki.kul.pl/entity/Q190">Thorun</placeName>
+                , sontags nach octavas Corporis Christi anno etc. im XVc unnd irsten jarenn.
+            </p>
+            <p>
+                <persName key="Johannes">Johannes</persName>
+                von Gots gnaden Bischoff zcu
+                <placeName key="Meyssenn" ref="https://va.wiki.kul.pl/entity/Q1768">Meyssenn</placeName>
+                .
+            </p>
+            <p>
+                <persName key="Heinrich der junger grave und herre zcu Stolbergk">Heinrich der junger grave und herre zcu Stolbergk</persName>
+                .
+            </p>
+            <p>
+                <persName key="Ulricus von Wolfferstorff" ref="https://www.wikidata.org/entity/Q139021450">Ulricus von Wolfferstorff</persName>
+                doctor, Techant zcu
+                <placeName key="Meißen" ref="https://va.wiki.kul.pl/entity/Q1767">Meyssen</placeName>
+                .
+            </p>
+            <p>
+                Dem hochwirdigisten unnd irluchtem hochgebornen fursten unnd herren hern
+                <persName key="Friderich">Friderich</persName>
+                , dewtzsch ordens yn
+                <placeName key="Preußen" ref="https://va.wiki.kul.pl/entity/Q83">Prewssen</placeName>
+                hohmeyster, herzcogk zcu
+                <placeName key="Sachsen">Sachsen</placeName>
+                , lantgraven in
+                <placeName key="Doringen" ref="https://wikihum.lab.dariah.pl/entity/Q140465">Doringen</placeName>
+                , marggrave zcu
+                <placeName key="Meißen" ref="https://va.wiki.kul.pl/entity/Q1767">Meyssen</placeName>
+                , unserm gnedigen unnd gnedegistenn hernn.
+            </p>
+        </div>
+
+    </body>
+</text>
+</TEI>

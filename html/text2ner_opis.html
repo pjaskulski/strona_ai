@@ -17,6 +17,14 @@
             font-family: 'Inter', sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        [id] {
+            scroll-margin-top: 5rem;
+        }
+
         code {
             white-space: nowrap;
         }
@@ -50,6 +58,68 @@
                     </p>
                 </header>
 
+                <nav class="mb-10 rounded-lg border border-amber-200 bg-gradient-to-br from-amber-50 to-white p-6 shadow-sm" aria-labelledby="page-sections">
+                    <h2 id="page-sections" class="text-2xl font-bold text-gray-900 mb-2">
+                        Na tej stronie:
+                    </h2>
+                    <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-sm">
+                        <li>
+                            <a href="#co-robi-aplikacja" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">1</span>
+                                <span class="font-medium">Co robi aplikacja</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#model-dzialania" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">2</span>
+                                <span class="font-medium">Model działania</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#parametry-analizy" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">3</span>
+                                <span class="font-medium">Parametry analizy</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#slowniki-pomocnicze" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">4</span>
+                                <span class="font-medium">Słowniki pomocnicze</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#przebieg-przetwarzania" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">5</span>
+                                <span class="font-medium">Przebieg przetwarzania</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#log" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">6</span>
+                                <span class="font-medium">Log diagnostyczny</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#diagram-procesu" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">7</span>
+                                <span class="font-medium">Diagram procesu</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#uwagi-ograniczenia" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">8</span>
+                                <span class="font-medium">Uwagi i ograniczenia</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#przyklady" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">9</span>
+                                <span class="font-medium">Przykłady</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
                 <div class="space-y-8 text-gray-700 leading-relaxed">
 
                     <section class="space-y-5">
@@ -77,7 +147,7 @@
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Co robi aplikacja</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="co-robi-aplikacja">Co robi aplikacja</h2>
                         <p>
                             Aplikacja realizuje dwa powiązane, ale odrębne zadania.
                         </p>
@@ -123,7 +193,7 @@
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Model działania</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="model-dzialania">Model działania</h2>
                         <p>
                             TEXT2NER wykorzystuje duże modele językowe (LLM). Model Gemini odpowiada za rozpoznanie
                             encji w tekście, pomocniczą analizę form nazw oraz końcowe rozstrzyganie wyboru
@@ -184,7 +254,7 @@
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Parametry analizy</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="parametry-analizy">Parametry analizy</h2>
                         <p>
                             W prawym górnym rogu interfejsu dostępny jest przycisk <strong>Parametry</strong>. Otwiera
                             on okno, w którym można ustawić:
@@ -214,7 +284,7 @@
 
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Słowniki pomocnicze</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="slowniki-pomocnicze">Słowniki pomocnicze</h2>
                         <p>
                             Obok przycisku <strong>Parametry</strong> dostępny jest także przycisk
                             <strong>Słowniki</strong>. Otwiera on osobne okno z czterema zakładkami, odpowiadającymi
@@ -240,7 +310,7 @@
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Przebieg przetwarzania</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="przebieg-przetwarzania">Przebieg przetwarzania</h2>
 
                         <div class="border-l-4 border-amber-400 pl-4 space-y-2">
                             <h3 class="font-bold text-gray-900">1. Wprowadzenie tekstu</h3>
@@ -522,7 +592,7 @@
 
 
 
-                        <h2 class="text-2xl font-bold text-gray-900">Diagram procesu</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="diagram-procesu">Diagram procesu</h2>
 
                         <p>
                             Poniżej zamieszczony jest uproszczony diagram procesu przetwarzania tekstów dokumentów do
@@ -538,7 +608,7 @@
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Uwagi i ograniczenia</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="uwagi-ograniczenia">Uwagi i ograniczenia</h2>
                         <ul class="list-disc ml-6 space-y-2">
                             <li>Tekst wejściowy jest obecnie ograniczony do 5000 znaków.</li>
                             <li>Identyfikacja referencyjna dotyczy wyłącznie <code>persName</code> i <code>placeName</code>.</li>
@@ -550,7 +620,7 @@
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Przykładowy zapis</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="przyklady">Przykłady</h2>
                         <p>
                             Po poprawnym rozpoznaniu i identyfikacji encja może zostać zapisana na przykład w takiej
                             postaci:
@@ -575,6 +645,53 @@ resp="#manual"&gt;Iohannis&lt;/persName&gt;</code></pre>
                         </p>
 
                         <pre class="bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto text-sm"><code>&lt;date when="1446-07-04"&gt;4 iulii 1446&lt;/date&gt;</code></pre>
+
+                        <div class="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5">
+                            <h3 class="font-bold text-gray-900 mb-3">
+                                Przykładowe wyniki działania aplikacji (pliki TEI-XML i PDF)</h3>
+                            <ul class="divide-y divide-gray-200">
+                                <li class="py-3 first:pt-0">
+                                    <div class="font-medium text-gray-900">
+                                        Acta Alexandri Regis Poloniae, Magni Ducis Lithuaniae 
+                                        etc. (1501-1506), red. Fryderyk Papée, Kraków 1927. 
+                                        Dokument nr 3, str. 2 (Frühneuhochdeutsch).</div>
+                                    <div class="mt-2 flex flex-wrap gap-2 text-sm">
+                                        <a href="text2ner_examples/acta_alexandrii_nr_3.xml" class="inline-flex items-center rounded-md border border-sky-100 bg-sky-50 px-3 py-1.5 text-sky-800 hover:border-sky-300 hover:bg-sky-100 transition">
+                                            XML
+                                        </a>
+                                        <a href="text2ner_examples/acta_alexandrii_nr_3.pdf" class="inline-flex items-center rounded-md border border-amber-100 bg-amber-50 px-3 py-1.5 text-amber-800 hover:border-amber-300 hover:bg-amber-100 transition">
+                                            PDF
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="py-3">
+                                    <div class="font-medium text-gray-900">
+                                        Acta Alexandri Regis Poloniae, Magni Ducis Lithuaniae 
+                                        etc. (1501-1506), red. Fryderyk Papée, Kraków 1927. 
+                                        Dokument nr 10, str. 9 (łacina).</div>
+                                    <div class="mt-2 flex flex-wrap gap-2 text-sm">
+                                        <a href="text2ner_examples/acta_alexandrii_nr_10.xml" class="inline-flex items-center rounded-md border border-sky-100 bg-sky-50 px-3 py-1.5 text-sky-800 hover:border-sky-300 hover:bg-sky-100 transition">
+                                            XML
+                                        </a>
+                                        <a href="text2ner_examples/acta_alexandrii_nr_10.pdf" class="inline-flex items-center rounded-md border border-amber-100 bg-amber-50 px-3 py-1.5 text-amber-800 hover:border-amber-300 hover:bg-amber-100 transition">
+                                            PDF
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="py-3 last:pb-0">
+                                    <div class="font-medium text-gray-900">
+                                        Wikipedia, fragment hasła: Jan Kostka (język polski)</div>
+                                    <div class="mt-2 flex flex-wrap gap-2 text-sm">
+                                        <a href="text2ner_examples/wikipedia_jan_kostka.xml" class="inline-flex items-center rounded-md border border-sky-100 bg-sky-50 px-3 py-1.5 text-sky-800 hover:border-sky-300 hover:bg-sky-100 transition">
+                                            XML
+                                        </a>
+                                        <a href="text2ner_examples/wikipedia_jan_kostka.pdf" class="inline-flex items-center rounded-md border border-amber-100 bg-amber-50 px-3 py-1.5 text-amber-800 hover:border-amber-300 hover:bg-amber-100 transition">
+                                            PDF
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </section>
 
                     <p><img src="text2ner_2.png" alt="Zrzut ekranu aplikacji TEXT2NER" class="w-full rounded-lg border border-gray-200"></p>
