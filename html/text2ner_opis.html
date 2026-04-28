@@ -127,8 +127,8 @@
                         <p>
                             TEXT2NER jest aplikacją wspomagającą wstępne opracowanie historycznych transkrypcji
                             źródłowych. Przyjmuje tekst w postaci zwykłego ciągu znaków, dzieli go na strukturę
-                            akapitową i tworzy roboczy dokument TEI-XML, w którym rozpoznawane są encje nazwane
-                            a następnie można dokonać identyfikacji w zewnętrznych bazach referencyjnych.
+                            akapitową i tworzy roboczy dokument TEI-XML, w którym rozpoznawane są jednostki nazwane
+                            a następnie można dokonać identyfikacji w zewnętrznych bazach referencyjnych (bazach wiedzy).
                             Narzędzie zostało przygotowane przede wszystkim z myślą o tekstach z XIV-XVI wieku w
                             języku łacińskim, polskim i niemieckim, zwłaszcza związanych z Królestwem Polskim, stąd 
                             odpowiednia zawartość słowników pomocniczych. Ale aplikacja jest mimo to na tyle uniwersalna
@@ -146,6 +146,22 @@
                             Dodatkowo w osobnym oknie <strong>Słowniki</strong> można edytować wybrane słowniki
                             pomocnicze używane przy wyszukiwaniu i interpretacji encji, bez modyfikowania kodu
                             programu.
+                        </p>
+
+                        <p>
+                            Aplikacja wykorzystuje duże modele językowe (LLM) z rodziny Gemini. Zadaniem modelu jest 
+                            wyszukanie jednostek nazwanych (NER), następnie analiza ich formy (model przygotowuje formę podstawową, 
+                            mianownik nazwy), analiza kontekstu wystąpienia nazwy np. w przypadku osób poszukiwane są dodatkowe informacje
+                            które mogą ułatwić identyfikację osoby - zawód, urząd. W przypadku miejsc - dodatkowe dane identyfikacyjne (np. 
+                            informacje, że miejscowość położona jest koło innej większej miejscowości itp.). Na podstawie formy podstawowej
+                            nazwy, form dodatkowych (przygotowywanych przez aplikację z pomocą definiowalnych słowników np. polskie wersje 
+                            łacińskich imion i nazw urzędów: Iohannis episcopus Missenensis będzie wyszukiwany także jako Jan biskup Miśni) oraz
+                            analizy kontekstu model przygotowuje plan zapytań do baz referencyjnych, które to zapytania
+                            są już wykonywane przez skrypt. Wyniki - lista kandydatów do identyfikacji jednostki nazwanej (encji)
+                            jest najpierw filtrowana (z pomocą modelu) np. osoby pod względem chronolgii - postać żyjąca w XVIII wieku 
+                            nie może być osobą wymienioną w dokumencie z XVI wieku. Odfiltrowana lista kandydatów jest oceniania przez 
+                            model, który ma do dyspozycji nie tylko nazwy, ale też dane z kontekstu dokumentu i dane z bazy wiedzy dotyczące
+                            kandydata do identyfikacji.  
                         </p>
 
                     </section>
