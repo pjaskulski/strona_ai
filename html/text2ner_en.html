@@ -17,6 +17,14 @@
             font-family: 'Inter', sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        [id] {
+            scroll-margin-top: 5rem;
+        }
+
         code {
             white-space: nowrap;
         }
@@ -45,10 +53,73 @@
                 <header class="mb-8 border-b border-gray-100 pb-8">
                     <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">TEXT2NER</h1>
                     <p class="text-lg text-gray-500">
-                        Description and user guide for a tool for named entity recognition in historical texts and
-                        conversion to TEI-XML.
+                        Functional description and user manual for an application for processing historical 
+                        studies and documents: Named Entity Recognition (NER) and Named Entity Linking (NEL) 
+                        with reference databases (knowledge bases).
                     </p>
                 </header>
+
+                <nav class="mb-10 rounded-lg border border-amber-200 bg-gradient-to-br from-amber-50 to-white p-6 shadow-sm" aria-labelledby="page-sections">
+                    <h2 id="page-sections" class="text-2xl font-bold text-gray-900 mb-2">
+                        On this page:
+                    </h2>
+                    <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-sm">
+                        <li>
+                            <a href="#what-the-application-does" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">1</span>
+                                <span class="font-medium">What the application does</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#operating-model" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">2</span>
+                                <span class="font-medium">Operating model</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#analysis-parameters" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">3</span>
+                                <span class="font-medium">Analysis parameters</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#auxiliary-dictionaries" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">4</span>
+                                <span class="font-medium">Auxiliary dictionaries</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#processing-workflow" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">5</span>
+                                <span class="font-medium">Processing workflow</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#diagnostic-log" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">6</span>
+                                <span class="font-medium">Diagnostic log</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#process-diagram" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">7</span>
+                                <span class="font-medium">Process diagram</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#notes-and-limitations" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">8</span>
+                                <span class="font-medium">Notes and limitations</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#examples" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">9</span>
+                                <span class="font-medium">Examples</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
 
                 <div class="space-y-8 text-gray-700 leading-relaxed">
 
@@ -59,7 +130,10 @@
                             structure, creates a working TEI-XML document in which named entities are recognized, and
                             can then perform identification against external reference databases. The tool has been
                             designed primarily for fourteenth- to sixteenth-century texts in Latin, Polish, and German,
-                            especially those connected with the Kingdom of Poland.
+                            especially those connected with the Kingdom of Poland, which is reflected in the contents
+                            of the auxiliary dictionaries. Nevertheless, the application is general enough to process
+                            other texts as well; the examples later in this description include, for instance, a
+                            fragment of an entry from the Polish Wikipedia.
                         </p>
 
                         <p>
@@ -75,7 +149,7 @@
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">What the application does</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="what-the-application-does">What the application does</h2>
                         <p>
                             The application performs two related but separate tasks.
                         </p>
@@ -110,6 +184,10 @@
                         </ul>
 
                         <p>
+                            <img src="text2ner_rozpoznanie.png" alt="Entity recognition" class=" rounded-lg border border-gray-200">
+                        </p>
+
+                        <p>
                             Reference identification is performed only for <code>persName</code> and
                             <code>placeName</code>. The <code>date</code>, <code>roleName</code>, and
                             <code>orgName</code> tags are recognized and written into the XML, but they are not linked
@@ -118,11 +196,16 @@
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Operating model</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="operating-model">Operating model</h2>
                         <p>
                             TEXT2NER uses large language models. Gemini is responsible for recognizing entities in the
                             text, performing an auxiliary analysis of name forms, and making the final choice of the
                             best candidate during identification.
+                        </p>
+
+                        <p>
+                            Identification workflow:</br>
+                            <img src="text2ner_proces_identyfikacji.png" alt="Entity identification workflow" class=" rounded-lg border border-gray-200">
                         </p>
 
                         <p>
@@ -134,14 +217,46 @@
                         </p>
 
                         <p>
+                            <img src="text2ner_identyfikacja.png" alt="Identification result" class=" rounded-lg border border-gray-200">
+                        </p>
+
+                        <p>
+                            In unresolved cases, the application may display a list of the most probable candidates for
+                            manual selection by the user. This list is pre-filtered: for persons, candidates with a
+                            clear chronological conflict against the document dates are omitted, and the number of
+                            suggestions is limited so that the user is not handed the entire noise of the search
+                            results. Entities with manual identification are marked with an explanatory label, and the
+                            manual choice can also be withdrawn.
+                        </p>
+
+                        <p>
+                            <img src="text2ner_manual_1.png" alt="Manual identification" class=" rounded-lg border border-gray-200">
+                        </p>
+
+                        <p>
+                            <img src="text2ner_manual_3.png" alt="Manual identification - withdrawing a choice" class=" rounded-lg border border-gray-200">
+                        </p>
+
+                        <p>
+                            <img src="text2ner_manual_2.png" alt="Manual identification - candidate selection window" class=" rounded-lg border border-gray-200">
+                        </p>
+
+                        <p>
                             If a match to a reference record is not sufficiently reliable, the entity remains without a
                             <code>ref</code> attribute, but it may still keep a cautiously established normalized form
                             in <code>key</code>.
                         </p>
+
+                        <p>
+                            Wikidata requests are handled cautiously: the application rate-limits requests to
+                            <code>wikidata.org</code> and respects <code>HTTP 429</code> responses by reading the
+                            <code>Retry-After</code> header and retrying after the indicated delay. This reduces the
+                            risk of being blocked by external reference services.
+                        </p>
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Analysis parameters</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="analysis-parameters">Analysis parameters</h2>
                         <p>
                             The <strong>Parameters</strong> button is available in the upper-right part of the
                             interface. It opens a window where the user can define:
@@ -172,7 +287,7 @@
 
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Auxiliary dictionaries</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="auxiliary-dictionaries">Auxiliary dictionaries</h2>
                         <p>
                             Next to the <strong>Parameters</strong> button, the interface also provides a
                             <strong>Dictionaries</strong> button. It opens a separate window with four tabs,
@@ -200,7 +315,7 @@
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Processing workflow</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="processing-workflow">Processing workflow</h2>
 
                         <div class="border-l-4 border-amber-400 pl-4 space-y-2">
                             <h3 class="font-bold text-gray-900">1. Entering the text</h3>
@@ -266,6 +381,15 @@
                                 attributes. If it does not, the entity remains in the XML without a full reference
                                 link.
                             </p>
+                            <p>
+                                For unresolved entities, the application may prepare a short list of candidates for
+                                manual selection. The selection window always also includes a
+                                <strong>No identification</strong> option. If the user selects a candidate manually,
+                                the application marks that choice in the interface as a <strong>manual choice</strong>
+                                and writes the <code>cert="medium"</code> and <code>resp="#manual"</code> attributes
+                                into the XML. The manual choice can be undone, returning the entity to the list of
+                                unidentified items.
+                            </p>
                         </div>
 
                         <div class="border-l-4 border-amber-400 pl-4 space-y-2">
@@ -286,13 +410,45 @@
                                 run and display a log excerpt related to a specific entity. This makes it easier to
                                 understand why a particular candidate was selected or rejected.
                             </p>
+                            <p>
+                                Identified entities also include a <strong>Facts</strong> button. It opens a window
+                                with two panels: on the left, data extracted from the document for the selected entity,
+                                such as tagged text, <code>context_clues</code>, and <code>context_years</code>; on
+                                the right, data for the selected reference entity, including its label, description,
+                                and the most important facts from its properties (<code>key_facts</code>).
+                            </p>
+                        </div>
+
+                        <div class="border-l-4 border-amber-400 pl-4 space-y-2">
+                            <h3 class="font-bold text-gray-900">6. Saving Results</h3>
+                            <p>
+                                The application's output can be saved in TEI-XML format by copying it to the clipboard
+                                (Copy XML button) or downloading the file (Download *.xml file). You can also download a readably formatted
+                                PDF file (PDF button).
+                            </p>
                         </div>
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Diagnostic log</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="diagnostic-log">Diagnostic log</h2>
                         <p>
                             As some of the application’s decisions are based on a linguistic model and external data, the diagnostic log is a key component of the tool. It records the successive steps of recognition and identification, including entity form analysis, a list of candidates, chronological evaluation for persons, and a brief justification for the selection returned by the Gemini model.
+                        </p>
+                        <p>
+                            The log is created automatically for each recognition and identification run. The
+                            application removes log files older than 48 hours so that the server disk is not cluttered.
+                            The full log can be downloaded with the <strong>Download log</strong> button, while entity
+                            boxes include a <strong>Show entity log</strong> button that displays only the fragment
+                            related to the selected tag. The log fragment can be copied to the clipboard directly from
+                            the modal window.
+                        </p>
+                        <p>
+                            In addition to the raw log, the application presents selected information from the
+                            identification process in a more compact form in the <strong>Facts</strong> window. This is
+                            a faster way to check which clues were extracted from the document and which reference
+                            record data supported the match.
+                        </p>
+                        <p>
 
                             What does the diagnostic log contain, for example for a person (persName)? Below are excerpts from the log for the text “Nicolaum Lanczkoroński” from the edition of Acta Alexandrii, document no. 10 (pp. 9–10, “Sultan Bajazet II concludes a truce with Jan Olbracht…”). The first excerpt contains a preliminary analysis of the entity:
                         </p><br>
@@ -430,8 +586,14 @@
 
                         </p>
 
+                        <p>
+                            The log may also include entries related to Wikidata request throttling. If Wikidata
+                            returns an <code>HTTP 429</code> response, the application records information about the
+                            pause and retry. This matters especially for longer documents, where a single analysis may
+                            generate many query variants for successive persons and places.
+                        </p>
 
-                        <h2 class="text-2xl font-bold text-gray-900">Diagram of the process</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="process-diagram">Diagram of the process</h2>
 
                         <p>
                             Below is a simplified diagram of the process of converting document text into TEI-XML format, including entity tagging and identification in reference databases. A detailed diagram is available at the bottom of the page.
@@ -443,18 +605,19 @@
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Notes and limitations</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="notes-and-limitations">Notes and limitations</h2>
                         <ul class="list-disc ml-6 space-y-2">
                             <li>The input text is currently limited to 5000 characters.</li>
                             <li>Reference identification is performed only for <code>persName</code> and <code>placeName</code>.</li>
                             <li>Recognition and identification results are intended as research support and should be treated as a working stage of scholarly editorial processing.</li>
                             <li>Analysis may take from several seconds to several minutes, depending on text length, number of entities, selected model, and response times of external resources.</li>
+                            <li>Wikidata limits the intensity of automated traffic. The application slows requests down and retries them after an <code>HTTP 429</code> response, but during periods of heavier load this may make the identification stage take longer.</li>
                             <li>In very difficult, ambiguous, or rare historical cases, some entities may still require manual correction.</li>
                         </ul>
                     </section>
 
                     <section class="space-y-4">
-                        <h2 class="text-2xl font-bold text-gray-900">Example output</h2>
+                        <h2 class="text-2xl font-bold text-gray-900" id="examples">Examples</h2>
                         <p>
                             After successful recognition and identification, an entity may be written for example as:
                         </p>
@@ -463,10 +626,68 @@
 ref="https://wikihum.lab.dariah.pl/entity/Q152903"&gt;Fridericus&lt;/persName&gt;</code></pre>
 
                         <p>
+                            If the identifier has been assigned manually by the user from the candidate list, the
+                            application records this decision in the <code>cert</code> and <code>resp</code>
+                            attributes:
+                        </p>
+
+                        <pre class="bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto text-sm"><code>&lt;persName key="Iohannes von Kittlitz"
+ref="https://va.wiki.kul.pl/entity/Q2138"
+cert="medium"
+resp="#manual"&gt;Iohannis&lt;/persName&gt;</code></pre>
+
+                        <p>
                             For dates, the application may write the <code>when</code> attribute, for example:
                         </p>
 
                         <pre class="bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto text-sm"><code>&lt;date when="1446-07-04"&gt;4 iulii 1446&lt;/date&gt;</code></pre>
+
+                        <div class="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-5">
+                            <h3 class="font-bold text-gray-900 mb-3">
+                                Sample application outputs (TEI-XML and PDF files)</h3>
+                            <ul class="divide-y divide-gray-200">
+                                <li class="py-3 first:pt-0">
+                                    <div class="font-medium text-gray-900">
+                                        Acta Alexandri Regis Poloniae, Magni Ducis Lithuaniae
+                                        etc. (1501-1506), ed. Fryderyk Papee, Krakow 1927.
+                                        Document no. 3, p. 2 (Early New High German).</div>
+                                    <div class="mt-2 flex flex-wrap gap-2 text-sm">
+                                        <a href="text2ner_examples/acta_alexandrii_nr_3.xml" class="inline-flex items-center rounded-md border border-sky-100 bg-sky-50 px-3 py-1.5 text-sky-800 hover:border-sky-300 hover:bg-sky-100 transition" target="_blank">
+                                            XML
+                                        </a>
+                                        <a href="text2ner_examples/acta_alexandrii_nr_3.pdf" class="inline-flex items-center rounded-md border border-amber-100 bg-amber-50 px-3 py-1.5 text-amber-800 hover:border-amber-300 hover:bg-amber-100 transition" target="_blank">
+                                            PDF
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="py-3">
+                                    <div class="font-medium text-gray-900">
+                                        Acta Alexandri Regis Poloniae, Magni Ducis Lithuaniae
+                                        etc. (1501-1506), ed. Fryderyk Papee, Krakow 1927.
+                                        Document no. 10, p. 9 (Latin).</div>
+                                    <div class="mt-2 flex flex-wrap gap-2 text-sm">
+                                        <a href="text2ner_examples/acta_alexandrii_nr_10.xml" class="inline-flex items-center rounded-md border border-sky-100 bg-sky-50 px-3 py-1.5 text-sky-800 hover:border-sky-300 hover:bg-sky-100 transition" target="_blank">
+                                            XML
+                                        </a>
+                                        <a href="text2ner_examples/acta_alexandrii_nr_10.pdf" class="inline-flex items-center rounded-md border border-amber-100 bg-amber-50 px-3 py-1.5 text-amber-800 hover:border-amber-300 hover:bg-amber-100 transition" target="_blank">
+                                            PDF
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="py-3 last:pb-0">
+                                    <div class="font-medium text-gray-900">
+                                        Wikipedia, excerpt from the entry: Jan Kostka (Polish)</div>
+                                    <div class="mt-2 flex flex-wrap gap-2 text-sm">
+                                        <a href="text2ner_examples/wikipedia_jan_kostka.xml" class="inline-flex items-center rounded-md border border-sky-100 bg-sky-50 px-3 py-1.5 text-sky-800 hover:border-sky-300 hover:bg-sky-100 transition" target="_blank">
+                                            XML
+                                        </a>
+                                        <a href="text2ner_examples/wikipedia_jan_kostka.pdf" class="inline-flex items-center rounded-md border border-amber-100 bg-amber-50 px-3 py-1.5 text-amber-800 hover:border-amber-300 hover:bg-amber-100 transition" target="_blank">
+                                            PDF
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </section>
 
                     <p><img src="text2ner_2.png" alt="TEXT2NER application screenshot"

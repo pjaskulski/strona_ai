@@ -53,8 +53,9 @@
                 <header class="mb-8 border-b border-gray-100 pb-8">
                     <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">TEXT2NER</h1>
                     <p class="text-lg text-gray-500">
-                        Opis działania i instrukcja obsługi narzędzia do rozpoznawania encji w tekstach
-                        historycznych oraz konwersji do formatu TEI-XML.
+                        Opis działania i instrukcja obsługi aplikacji do przetwarzania opracowań i dokumentów historycznych:
+                        rozpoznawania jednostek nazwanych (NER), 
+                        oraz linkowania (łączenia) jednostek nazwanych z bazami referencyjnymi.
                     </p>
                 </header>
 
@@ -129,7 +130,10 @@
                             akapitową i tworzy roboczy dokument TEI-XML, w którym rozpoznawane są encje nazwane
                             a następnie można dokonać identyfikacji w zewnętrznych bazach referencyjnych.
                             Narzędzie zostało przygotowane przede wszystkim z myślą o tekstach z XIV-XVI wieku w
-                            języku łacińskim, polskim i niemieckim, zwłaszcza związanych z Królestwem Polskim.
+                            języku łacińskim, polskim i niemieckim, zwłaszcza związanych z Królestwem Polskim, stąd 
+                            odpowiednia zawartość słowników pomocniczych. Ale aplikacja jest mimo to na tyle uniwersalna
+                            że można przetwarzać w niej też inne teksty, w przykładach zamieszczonych w dalszej części
+                            opisu jest np. fragment hasła z polskiej wikipedii.
                         </p>
 
                         <p>
@@ -413,6 +417,15 @@
                                 <code>context_clues</code> i <code>context_years</code>, a po prawej dane wybranej
                                 encji referencyjnej, w tym etykieta, opis i najważniejsze fakty z właściwości
                                 (<code>key_facts</code>).
+                            </p>
+                        </div>
+
+                        <div class="border-l-4 border-amber-400 pl-4 space-y-2">
+                            <h3 class="font-bold text-gray-900">6. Zapis wyników</h3>
+                            <p>
+                                Wynik działania aplikacji można zachować w formacie TEI-XML, poprzez skopiowanie do schowka
+                                (przycisk Kopiuj XML), pobranie pliku (Pobierz plik *.xml). Można też pobrać czytelnie sformatowany 
+                                plik pdf (przycisk PDF).
                             </p>
                         </div>
                     </section>
