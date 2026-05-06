@@ -118,6 +118,12 @@
                                 <span class="font-medium">Przykłady</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="#dalsze-prace" class="flex min-h-14 items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-800 shadow-sm hover:border-amber-300 hover:text-amber-700 transition">
+                                <span class="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-800">10</span>
+                                <span class="font-medium">Dalsze prace</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
 
@@ -649,6 +655,17 @@
                     </section>
 
                     <section class="space-y-4">
+                        <h2 class="text-2xl font-bold text-gray-900" id="dalsze-prace">Dalsze prace</h2>
+                        <p>
+                            <ul class="list-disc ml-6 space-y-1">
+                            <li>Optymalizacja wyszukiwania w instancjach wikibase - cache dla wyników.</li>
+                            <li>Wykorzystanie dostępnych baz wektorowych (np. Wikidata Vector Database) do dodatkowego wyszukiwania
+                            z użyciem kontekstu wystąpienia nazwy.</li>
+                            </ul>
+                        </p>
+                    </section>
+
+                    <section class="space-y-4">
                         <h2 class="text-2xl font-bold text-gray-900" id="przyklady">Przykłady</h2>
                         <p>
                             Po poprawnym rozpoznaniu i identyfikacji encja może zostać zapisana na przykład w takiej
@@ -723,7 +740,12 @@ resp="#manual"&gt;Iohannis&lt;/persName&gt;</code></pre>
                         </div>
                     </section>
 
-                    <p><img src="text2ner_2.png" alt="Zrzut ekranu aplikacji TEXT2NER" class="w-full rounded-lg border border-gray-200"></p>
+                    <p></p>
+
+                    <p>
+                    Ekran aplikacji z wynikiem przetworzenia dokumentu nr 10 z <em>Acta Alexandri Regis Poloniae, Magni Ducis Lithuaniae etc. (1501-1506)</em>
+                    (Sultan Bajazet II zawiera rozejm z Janem Olbrachtem na ręce posła królewskiego Mik. Lanckoronskiego.):
+                    <img src="text2ner_2.png" alt="Zrzut ekranu aplikacji TEXT2NER" class="w-full rounded-lg border border-gray-200"></p>
 
                     <p>
                         Szczegółowy diagram procesu rozpoznawania i identyfikacji encji dostępny jest
