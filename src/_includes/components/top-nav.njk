@@ -1,0 +1,26 @@
+<nav class="w-full bg-white border-b border-gray-200 shadow-sm{% if navSticky %} sticky top-0 z-50{% endif %}" aria-label="{% if lang == 'en' %}Page navigation{% else %}Nawigacja strony{% endif %}">
+    <div class="{{ navWidth or 'max-w-4xl' }} mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="{% if lang == 'en' %}/en/{% else %}/pl/{% endif %}" class="flex items-center text-gray-500 hover:text-amber-700 transition font-medium text-sm group">
+            <span class="mr-2 group-hover:-translate-x-1 transition-transform" aria-hidden="true">&larr;</span>
+            {{ navLabel }}
+        </a>
+        <div class="flex items-center gap-3">
+{% if alternateUrl %}
+            <div class="text-xs font-semibold" aria-label="{% if lang == 'en' %}Language version{% else %}Wersja językowa{% endif %}">
+{% if lang == "pl" %}
+                <span class="text-amber-700" aria-current="page">PL</span>
+                <span class="mx-1 text-gray-300">|</span>
+                <a href="{{ alternateUrl }}" lang="en" class="text-gray-500 hover:text-amber-700">EN</a>
+{% else %}
+                <a href="{{ alternateUrl }}" lang="pl" class="text-gray-500 hover:text-amber-700">PL</a>
+                <span class="mx-1 text-gray-300">|</span>
+                <span class="text-amber-700" aria-current="page">EN</span>
+{% endif %}
+            </div>
+{% endif %}
+            <div class="hidden sm:block text-sm font-bold text-gray-900 tracking-tight">
+                <span class="text-amber-700">AI</span>.IHPAN.EDU.PL
+            </div>
+        </div>
+    </div>
+</nav>

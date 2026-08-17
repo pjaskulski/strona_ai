@@ -16,3 +16,6 @@ venv.bak/
 .vscode/
 
 .codex
+
+# Node.js
+node_modules/

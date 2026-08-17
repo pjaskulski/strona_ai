@@ -1,0 +1,19 @@
+{
+  "name": "ai-ihpan-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static website for ai.ihpan.edu.pl",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "clean": "node scripts/clean_site_output.js",
+    "build": "npm run clean && eleventy",
+    "dev": "eleventy --serve",
+    "check": "python3 scripts/check_local_links.py && python3 scripts/check_html_quality.py && python3 scripts/check_seo.py"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6"
+  }
+}

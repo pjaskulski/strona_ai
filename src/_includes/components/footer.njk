@@ -1,0 +1,38 @@
+{% if footerVariant == "home" %}
+<footer class="bg-white border-t border-gray-200 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between items-center">
+        <div class="text-center md:text-left mb-4 md:mb-0">
+            <p class="font-bold text-gray-800">
+                {% if lang == "en" %}Digital History Lab IH PAN{% else %}Pracownia Historii Cyfrowej IH PAN{% endif %}
+            </p>
+            <p class="text-sm text-gray-500 mt-1">&copy; 2026 AI.IHPAN.EDU.PL</p>
+        </div>
+        <a href="mailto:lab.dariah@ihpan.edu.pl" class="inline-flex items-center justify-center px-5 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-amber-700 hover:bg-amber-800 transition shadow-sm">
+            {% if lang == "en" %}Contact us{% else %}Skontaktuj się z nami{% endif %}
+        </a>
+    </div>
+</footer>
+{% elif footerVariant == "error" %}
+<footer class="bg-white border-t border-gray-200 flex-none">
+    <div class="max-w-7xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
+        <p class="font-bold text-gray-800 mb-1">Pracownia Historii Cyfrowej IH PAN / Digital History Lab IH PAN</p>
+        <p>
+            <a href="mailto:lab.dariah@ihpan.edu.pl" class="inline-flex items-center justify-center px-5 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-amber-700 hover:bg-amber-800 transition shadow-sm">
+                Skontaktuj się z nami / Contact us
+            </a>
+            jeśli uważasz, że to błąd systemu / if you think this is a system error.
+        </p>
+    </div>
+</footer>
+{% else %}
+<footer class="bg-white border-t border-gray-200 mt-auto">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-gray-500">
+        <a href="{% if lang == 'en' %}/en/{% else %}/pl/{% endif %}" class="hover:text-amber-700 transition">
+            {% if lang == "en" %}Return to the main page of the server.{% else %}Powrót na główną stronę serwera.{% endif %}
+        </a>
+        <br>
+        &copy; 2026
+        {% if lang == "en" %}Digital History Lab, Institute of History, Polish Academy of Sciences{% else %}Pracownia Historii Cyfrowej IH PAN{% endif %}
+    </div>
+</footer>
+{% endif %}

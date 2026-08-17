@@ -1,0 +1,245 @@
+body {
+    font-family: "Inter", sans-serif;
+}
+
+.skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 100;
+    padding: 0.65rem 1rem;
+    border-radius: 0.375rem;
+    background: #111827;
+    color: #fff;
+    font-weight: 700;
+    transform: translateY(-200%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+:where(a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: 3px solid #2563eb !important;
+    outline-offset: 3px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* Home page language switcher */
+body.pl .lang-en,
+body.en .lang-pl {
+    display: none !important;
+}
+
+.lang-btn.active {
+    border-bottom: 2px solid #b45309;
+    color: #b45309;
+    font-weight: 700;
+}
+
+.tool-card {
+    padding: 1.25rem;
+    border: 1px solid #d9dde3;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.06);
+}
+
+/* Long-form articles */
+.article-links article a {
+    color: #b45309;
+    text-decoration-line: underline;
+    text-decoration-color: #fde68a;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+}
+
+.article-links article a:hover {
+    color: #92400e;
+}
+
+.bibliography-tooltip {
+    position: fixed;
+    z-index: 50;
+    max-width: min(32rem, calc(100vw - 2rem));
+    padding: 0.85rem 1rem;
+    border: 1px solid rgb(251 191 36 / 0.45);
+    border-radius: 0.5rem;
+    background: rgb(255 251 235);
+    box-shadow: 0 18px 45px rgb(15 23 42 / 0.18);
+    color: rgb(31 41 55);
+    font-size: 0.875rem;
+    line-height: 1.45;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(0.25rem);
+    transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.bibliography-tooltip.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Manuscript Lab guide */
+.manuscript-guide .prose h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #111827;
+    font-size: 1.55rem;
+    font-weight: 800;
+    line-height: 2rem;
+}
+
+.manuscript-guide .prose h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #111827;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+}
+
+.manuscript-guide .prose h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #111827;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+}
+
+.manuscript-guide .prose p {
+    margin: 1rem 0;
+    color: #374151;
+}
+
+.manuscript-guide .prose ul,
+.manuscript-guide .prose ol {
+    margin: 0.75rem 0 1rem 1.5rem;
+    color: #374151;
+}
+
+.manuscript-guide .prose li {
+    margin: 0.35rem 0;
+}
+
+.manuscript-guide .prose code {
+    padding: 0.12rem 0.35rem;
+    border-radius: 0.375rem;
+    background: #f3f4f6;
+    color: #111827;
+    font-size: 0.92em;
+}
+
+.manuscript-guide .prose pre {
+    overflow-x: auto;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: #111827;
+    color: #f9fafb;
+}
+
+.manuscript-guide .prose pre code {
+    padding: 0;
+    background: transparent;
+    color: inherit;
+}
+
+.manuscript-guide .prose strong {
+    color: #111827;
+    font-weight: 700;
+}
+
+.manuscript-guide .prose hr {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+}
+
+.manuscript-guide .prose blockquote {
+    margin: 1rem 0;
+    padding-left: 1rem;
+    border-left: 4px solid #f59e0b;
+    color: #4b5563;
+}
+
+.manuscript-guide .prose a {
+    color: #b45309;
+    text-decoration: none;
+}
+
+.manuscript-guide .prose a:hover {
+    color: #92400e;
+    text-decoration: underline;
+}
+
+.manuscript-guide .lead {
+    color: #4b5563;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Scans and Transcriptions guides */
+.scans-guide figure {
+    margin: 1.5rem 0;
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    background: #fcfcfc;
+}
+
+.scans-guide figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.scans-guide figcaption {
+    margin-top: 0.45rem;
+    color: #666;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* Text2NER guides */
+.text2ner-guide {
+    scroll-behavior: smooth;
+}
+
+.text2ner-guide [id] {
+    scroll-margin-top: 5rem;
+}
+
+.text2ner-guide code {
+    white-space: nowrap;
+}
+
+/* eScriptorium tutorial generated from Markdown */
+.tutorial-page .markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.tutorial-page .markdown-body img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}

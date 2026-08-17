@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ lang or 'pl' }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, follow">
+    <meta http-equiv="refresh" content="0; url={{ redirectTo }}">
+    <link rel="canonical" href="{{ site.url }}{{ redirectTo }}">
+    <title>{{ title }}</title>
+    <script>window.location.replace("{{ redirectTo }}" + window.location.search + window.location.hash);</script>
+</head>
+<body>
+    <p><a href="{{ redirectTo }}">{% if lang == "en" %}Continue to the new address{% else %}Przejdź pod nowy adres{% endif %}</a></p>
+</body>
+</html>

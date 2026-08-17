@@ -1,0 +1,103 @@
+{
+  "pages": {
+    "/pl/": {
+      "description": "Narzędzia wykorzystujące sztuczną inteligencję, uczenie maszynowe i NLP w badaniach historycznych, rozwijane w Instytucie Historii PAN."
+    },
+    "/en/": {
+      "description": "Artificial intelligence, machine learning and NLP tools for historical research developed at the Institute of History, Polish Academy of Sciences."
+    },
+    "/pl/blog/2026-03/": {
+      "description": "Eksperyment z wykorzystaniem modelu Gemini i aplikacji Text2NER do przygotowania cyfrowej edycji źródeł historycznych Acta Alexandri.",
+      "type": "Article",
+      "image": "/assets/images/cards/text2ner.png"
+    },
+    "/en/blog/2026-03/": {
+      "description": "An experiment using Gemini and Text2NER to prepare a digital edition of the historical sources collected in Acta Alexandri.",
+      "type": "Article",
+      "image": "/assets/images/cards/text2ner.png"
+    },
+    "/pl/blog/2026-04/": {
+      "description": "O możliwościach, ograniczeniach i odpowiedzialnym wykorzystaniu generatywnej AI oraz modeli językowych w badaniach historycznych.",
+      "type": "Article"
+    },
+    "/en/blog/2026-04/": {
+      "description": "An overview of the opportunities, limitations and responsible use of generative AI and language models in historical research.",
+      "type": "Article"
+    },
+    "/pl/blog/2026-05/": {
+      "description": "Analiza problemu trwałości cyfrowych edycji źródeł historycznych, infrastruktury badawczej i oprogramowania humanistyki cyfrowej.",
+      "type": "Article"
+    },
+    "/en/blog/2026-05/": {
+      "description": "An analysis of the longevity of digital scholarly editions, research infrastructure and the software used in digital humanities projects.",
+      "type": "Article"
+    },
+    "/pl/narzedzia/manuscript-lab/": {
+      "description": "Opis i podręcznik Manuscript Lab, aplikacji do pracy ze skanami manuskryptów, wariantami HTR, tłumaczeniami i raportami jakości.",
+      "image": "/assets/images/cards/manuscriptlab.png"
+    },
+    "/pl/narzedzia/ocr-latin-check/": {
+      "description": "Opis narzędzia do kontroli tekstów łacińskich uzyskanych przez OCR i HTR z użyciem słowników, CLTK oraz modeli językowych.",
+      "image": "/assets/images/cards/ocrlatincheck.png"
+    },
+    "/pl/narzedzia/asystent-regulaminow/": {
+      "description": "Asystent AI ułatwiający pracownikom Instytutu Historii PAN wyszukiwanie informacji w regulaminach, zarządzeniach i dokumentach wewnętrznych.",
+      "image": "/assets/images/cards/regulaminy.png"
+    },
+    "/en/tools/regulations-assistant/": {
+      "description": "An AI assistant that helps Institute of History employees find information in internal regulations, orders and administrative documents.",
+      "image": "/assets/images/cards/regulaminy.png"
+    },
+    "/pl/narzedzia/scans-and-transcriptions/": {
+      "description": "Opis aplikacji do przeglądania skanów oraz przygotowywania, weryfikowania i eksportowania transkrypcji dokumentów historycznych.",
+      "image": "/assets/images/cards/scantranscriptions.jpg"
+    },
+    "/en/tools/scans-and-transcriptions/": {
+      "description": "A user guide for viewing historical scans and preparing, verifying and exporting transcriptions with AI-assisted workflows.",
+      "image": "/assets/images/cards/scantranscriptions.jpg"
+    },
+    "/pl/narzedzia/sgkp-search/": {
+      "description": "Hybrydowa wyszukiwarka tekstowa i semantyczna w Słowniku geograficznym Królestwa Polskiego i innych krajów słowiańskich.",
+      "image": "/assets/images/cards/sgkpsearch.jpg"
+    },
+    "/en/tools/sgkp-search/": {
+      "description": "A hybrid full-text and semantic search engine for the Geographical Dictionary of the Kingdom of Poland and Other Slavic Countries.",
+      "image": "/assets/images/cards/sgkpsearch.jpg"
+    },
+    "/pl/narzedzia/text2ner/": {
+      "description": "Opis Text2NER, aplikacji do rozpoznawania i identyfikowania osób, miejsc oraz innych jednostek nazwanych w tekstach historycznych.",
+      "image": "/assets/images/cards/text2ner.png"
+    },
+    "/en/tools/text2ner/": {
+      "description": "Text2NER documentation for recognizing and identifying people, places and other named entities in historical documents and studies.",
+      "image": "/assets/images/cards/text2ner.png"
+    },
+    "/pl/narzedzia/wikihumsearch/": {
+      "description": "Opis WikiHumSearch, semantycznej wyszukiwarki osób, miejsc i pojęć wykorzystującej osadzenia wektorowe danych WikiHum.",
+      "image": "/assets/images/cards/wikihumsearch.jpg"
+    },
+    "/en/tools/wikihumsearch/": {
+      "description": "WikiHumSearch is a semantic search engine for people, places and concepts based on vector embeddings of WikiHum data.",
+      "image": "/assets/images/cards/wikihumsearch.jpg"
+    },
+    "/pl/instrukcje/openwebui/": {
+      "description": "Instrukcja korzystania z OpenWebUI: wybór modeli językowych, praca z dokumentami, kolekcjami, cytowaniami i biblioteką promptów."
+    },
+    "/pl/instrukcje/escriptorium/": {
+      "description": "Praktyczne wprowadzenie do eScriptorium i Kraken: import skanów, segmentacja, transkrypcja HTR, trenowanie modeli i eksport danych.",
+      "image": "/assets/images/guides/escriptorium/glowny_ekran_escriptorium.png"
+    },
+    "/pl/prezentacje/dane-i-jezyk/": {
+      "description": "Prezentacja o przygotowywaniu cyfrowych edycji źródeł historycznych z wykorzystaniem narzędzi przetwarzania języka naturalnego.",
+      "image": "/assets/presentations/data-language/img-01.png"
+    },
+    "/pl/prezentacje/leiden/": {
+      "description": "Presentation on building a knowledge graph from historical biographies with large language models, delivered at ESSHC 2025.",
+      "image": "/assets/presentations/leiden/img-01.png"
+    },
+    "/pl/prezentacje/ai-w-badaniach-historycznych/": {
+      "description": "Prezentacja przedstawiająca możliwości zastosowania sztucznej inteligencji i modeli językowych w warsztacie badacza historii.",
+      "image": "/assets/presentations/general/img000.png"
+    }
+  }
+}

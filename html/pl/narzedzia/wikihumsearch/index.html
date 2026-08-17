@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+
+
+
+
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>WikiHumSearch - wyszukiwarka | AI.IHPAN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Opis WikiHumSearch, semantycznej wyszukiwarki osób, miejsc i pojęć wykorzystującej osadzenia wektorowe danych WikiHum.">
+    <meta name="robots" content="index, follow">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="canonical" href="https://ai.ihpan.edu.pl/pl/narzedzia/wikihumsearch/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AI.IHPAN.EDU.PL">
+    <meta property="og:title" content="WikiHumSearch - wyszukiwarka | AI.IHPAN">
+    <meta property="og:description" content="Opis WikiHumSearch, semantycznej wyszukiwarki osób, miejsc i pojęć wykorzystującej osadzenia wektorowe danych WikiHum.">
+    <meta property="og:url" content="https://ai.ihpan.edu.pl/pl/narzedzia/wikihumsearch/">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:image" content="https://ai.ihpan.edu.pl/assets/images/cards/wikihumsearch.jpg">
+    <meta property="og:image:alt" content="WikiHumSearch - wyszukiwarka | AI.IHPAN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WikiHumSearch - wyszukiwarka | AI.IHPAN">
+    <meta name="twitter:description" content="Opis WikiHumSearch, semantycznej wyszukiwarki osób, miejsc i pojęć wykorzystującej osadzenia wektorowe danych WikiHum.">
+    <meta name="twitter:image" content="https://ai.ihpan.edu.pl/assets/images/cards/wikihumsearch.jpg">
+    <meta name="twitter:image:alt" content="WikiHumSearch - wyszukiwarka | AI.IHPAN">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+    <script src="/assets/js/site.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/wikihumsearch/">
+    <link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/tools/wikihumsearch/">
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://ai.ihpan.edu.pl/#organization",
+                "name": "Pracownia Historii Cyfrowej IH PAN",
+                "url": "https://ihpan.edu.pl/"
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://ai.ihpan.edu.pl/#website",
+                "name": "AI.IHPAN.EDU.PL",
+                "url": "https://ai.ihpan.edu.pl",
+                "publisher": { "@id": "https://ai.ihpan.edu.pl/#organization" }
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://ai.ihpan.edu.pl/pl/narzedzia/wikihumsearch/#webpage",
+                "name": "WikiHumSearch - wyszukiwarka | AI.IHPAN",
+                "description": "Opis WikiHumSearch, semantycznej wyszukiwarki osób, miejsc i pojęć wykorzystującej osadzenia wektorowe danych WikiHum.",
+                "url": "https://ai.ihpan.edu.pl/pl/narzedzia/wikihumsearch/",
+                "inLanguage": "pl",
+                "image": "https://ai.ihpan.edu.pl/assets/images/cards/wikihumsearch.jpg",
+                "isPartOf": { "@id": "https://ai.ihpan.edu.pl/#website" },
+                "publisher": { "@id": "https://ai.ihpan.edu.pl/#organization" }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col">
+<a href="#main-content" class="skip-link">
+    Przejdź do treści głównej
+</a>
+<nav class="w-full bg-white border-b border-gray-200 shadow-sm" aria-label="Nawigacja strony">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="/pl/" class="flex items-center text-gray-500 hover:text-amber-700 transition font-medium text-sm group">
+            <span class="mr-2 group-hover:-translate-x-1 transition-transform" aria-hidden="true">&larr;</span>
+            Powrót na stronę główną
+        </a>
+        <div class="flex items-center gap-3">
+
+            <div class="text-xs font-semibold" aria-label="Wersja językowa">
+
+                <span class="text-amber-700" aria-current="page">PL</span>
+                <span class="mx-1 text-gray-300">|</span>
+                <a href="/en/tools/wikihumsearch/" lang="en" class="text-gray-500 hover:text-amber-700">EN</a>
+
+            </div>
+
+            <div class="hidden sm:block text-sm font-bold text-gray-900 tracking-tight">
+                <span class="text-amber-700">AI</span>.IHPAN.EDU.PL
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<div id="main-content" tabindex="-1">
+<main class="flex-grow py-10 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+
+            <article class="p-8 sm:p-12">
+
+                <header class="mb-8 border-b border-gray-100 pb-8">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">WikiHumSearch</h1>
+                    <p class="text-lg text-gray-500">Opis działania wyszukiwarki semantycznej</p>
+                </header>
+
+                <div class="space-y-6 text-gray-700 leading-relaxed">
+
+                    <p>
+                        Wyszukiwanie semantyczne, wspomagane przez sztuczną inteligencję, czasami nazywane wyszukiwaniem
+                        wektorowym, korzysta z wyspecjalizowanych dużych modeli językowych (LLM) w celu pobierania
+                        wyników
+                        wyszukiwania na podstawie znaczenia i kontekstu zapytania. Dla każdego rekordu (elementu,
+                        fragmentu
+                        tekstu - zależnie od rodzaju danych, z którymi mamy do czynienia: bazą danych, bazą wiedzy,
+                        korpusem
+                        tekstów) obliczana jest reprezentacja wektorowa (zbiór zwykle kilkuset lub więcej liczb) za
+                        pomocą
+                        specjalnej wersji modelu LLM zoptymalizowanej do tego celu (zob. popularne modele open source do
+                        osadzeń
+                        (embeddings) w serwisie <a href="https://ollama.com/search?c=embedding"
+                            target="_blank" rel="noopener noreferrer" class="text-amber-700 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">Ollama</a> oraz opis osadzeń wektorowych w
+                        dokumentacji <a href="https://platform.openai.com/docs/guides/embeddings"
+                            target="_blank" rel="noopener noreferrer" class="text-amber-700 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">OpenAI</a>).
+                    </p>
+
+                    <p>
+                        Taki zbiór liczb charakteryzuje daną treść pod względem znaczenia – fragmenty tekstu
+                        opowiadające o kopalniach na Śląsku
+                        i o miejscach wydobywania rudy metali w Czechach będą miały bardziej zbliżone wartości niż
+                        wobec fragmentu tekstu opowiadającym o sałatce z ziemniaków.
+                        <strong class="font-semibold text-gray-900 bg-amber-50 px-1 rounded">Wyszukiwanie semantyczne
+                            posługuje się znaczeniem tekstów, a nie dokładnym zapisem słów.</strong>
+                    </p>
+
+                    <p>
+                        W testowym mechanizmie wyszukiwania semantycznego wykorzystano silnik wyszukiwania
+                        <a href="https://github.com/meilisearch/meilisearch" target="_blank" rel="noopener noreferrer"
+                            class="text-amber-700 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">Meilisearch</a>,
+                        , który obsługuje tradycyjne wyszukiwanie pełnotekstowe, wyszukiwanie
+                        semantyczne oraz hybrydę obu rozwiązań. Jako model do osadzeń użyto wielojęzycznego modelu
+                        <strong>OpenAI: text-embedding-3-small</strong>.
+                    </p>
+
+                    <h2 class="text-xl font-bold text-gray-900 mt-8 mb-4">Przykład danych z WikiHum</h2>
+                    <p>Sposób przygotowania danych z WikiHum dla silnika wyszukiwania jest zbliżony do tego, co zrobiono
+                        w
+                        projekcie <a href="https://www.wikidata.org/wiki/Wikidata:Embedding_Project"
+                            target="_blank" rel="noopener noreferrer" class="text-amber-700 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">Wikidata:Embedding Project</a>.
+                        Przykładowy tekst wyeksportowany z hasła dotyczącego osoby:</p>
+
+                    <div class="relative group">
+                        <pre
+                            class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm font-mono leading-normal shadow-inner border border-gray-700">
+label: Marian Mieczysław Szulc
+time: 2025-11-07 13:54
+link: https://wikihum.lab.dariah.pl/wiki/Item:Q174825
+alias: Schulz, Marian
+opis: (1913-1979) fotograf, historyk fotografii, współorganizator
+Związku Polskich Artystów Fotografików, kierował pierwszym Referatem
+Fotografii przy Urzędzie Wojewódzkim Poznańskim
+atrybuty:
+  - data urodzenia: 1913-03-21
+  - data urodzenia: 1913
+  - data śmierci: 1979-09-12
+  - data śmierci: 1979
+  - jest to: człowiek</pre>
+                    </div>
+
+                    <p>(pole 'time' zawiera datę pobrania danych z WikiHum, jest przydatne do późniejszych uaktualnień
+                        danych).</p>
+
+                    <p>
+                        Przykładowy tekst wyeksportowany z hasła (elementu) dotyczącego miejscowości:
+                    </p>
+
+                    <div class="relative group">
+                        <pre
+                            class="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm font-mono leading-normal shadow-inner border border-gray-700">
+label: Zielęcin Wielki
+time: 2025-11-07 11:50
+link: https://wikihum.lab.dariah.pl/wiki/Item:Q138072
+alias: Zieloncino
+opis: część wsi: Zielęcin (gmina: Warta, powiat: sieradzki, wojewódzwo: łódzkie)
+atrybuty:
+  - opisany jako: Zielęcin Wielki (końcówka dopełniacza: -na -kiego,
+    status nazwy: nazwa nieoficjalna, data: 2022)
+  - typ miejscowości: część wsi (data: 2022)
+  - współrzędne geograficzne: 51.7360911,18.52880771 (data: 2022)
+  - znajduje się w świeckiej jednostce administracyjnej: gmina Warta (data: 2022)
+  - jest częścią: Zielęcin (data: 2022)
+  - jest to: jednostka osadnicza (data: 2022)</pre>
+                    </div>
+
+                    <p>Szczególnie w przypadku osób, nie są to obecnie dane zbyt obszerne, główne znaczenie ma zwykle
+                        jednozdaniowy opis, w przypadku miejscowości jeszcze parę właściwości dotyczących typu i
+                        własności mogą
+                        mieć wpływ na wyszukiwanie semantyczne. W miarę powiększania się zasobów WikiHum dane
+                        podlegające
+                        wyszukiwaniu semantycznemu będą oczywiście uzupełniane.</p>
+
+                    <p>Wyeksportowane dane, w formie przetworzonej do struktur JSON są importowane do silnika <a
+                            href="https://github.com/meilisearch/meilisearch" target="_blank" rel="noopener noreferrer" class="text-amber-700 hover:text-amber-800 underline decoration-amber-200 decoration-2 underline-offset-2">Meilisearch</a>, gdzie
+                        następuje
+                        też obliczenie reprezentacji wektorowej tekstu. Dane WikiHum w fomacie TXT zajmują ok 130 MB,
+                        zaś po
+                        imporcie ok 3 GB.</p>
+
+                    <p>Aby udostępnić wyszukiwanie semnatyczne użytkownikom przygotowano prostą aplikację (Python +
+                        Flask) z
+                        możliwością zlecenia wyszukiwania i obejrzenia listy wyników. Wyszukiwanie jest w rzeczywistości
+                        hybrydowe (semantyczne i pełnotekstowe jednocześnie), z tym że komponent semantyczny odpowiada
+                        za 90%
+                        wyniku (parametr semanticRatio silnika wyszukiwania jest ustawiony na wartość 0.9).</p>
+
+                    <p>Przykładowe dwuwyrazowe zapytanie: <strong>człowiek militaria</strong>, zwraca listę osób w jakiś
+                        sposób
+                        powiązanych z wojskiem, wojnami, armią itp. O ile słowo <strong>człowiek</strong> pojawia się w
+                        danych
+                        elementów wikibase jako wartość właściwości 'instance of', to słowo <strong>militaria</strong>
+                        tam
+                        zwykle nie występuje, mechanizm odnalazł elementy zawierające słowa zbliżone znaczeniowo i na
+                        tej
+                        podstawie przygotował wyniki. </p>
+
+
+
+                    <h2 class="text-xl font-bold text-gray-900 mt-8 mb-4">Inne przykładowe zapytania:</h2>
+
+
+                    <ul class="list-disc list-inside bg-gray-50 p-6 rounded-lg border border-gray-200 space-y-2">
+                        <li>miejscowości XVI wiek własność monarsza</li>
+                        <li>matematycy</li>
+                        <li>architekci</li>
+                        <li>osady młyńskie</li>
+                        <li>uczestnicy powstania listopadowego</li>
+                    </ul>
+
+                    <p>Na przykładzie ostatniego zapytania (uczestnicy powstania listopadowego) można zauwazyć jak
+                        działa (lub
+                        zawodzi) wyszukiwanie semantyczne. Nie jest to precyzyjne filtrowanie jak w tabeli bazy danych,
+                        mechanizm wyszukuje elementy które wydają się mieć zbliżone znaczenie do słów w zapytaniu. W tym
+                        przypadku mamy słowo związane z powstaniem (które chyba wpływa najmocniej na wynik), słowo
+                        związane z
+                        uczestniczeniem i przymiotnik dotyczący nazwy powstania. W wynikach otrzymujemy osoby
+                        (poprawnie), które
+                        w czymś uczestniczyły (zwykle w powstaniach), pierwsze dwa wyniki dotyczą uczestników powstania
+                        listopdowego, w pierwszych 20 wynikach jest takich osób 8, poza tym mamy uczestnków powstania
+                        styczniowego, kościuszkowskiego. Wyniki wyszukiwania semantycznego będą więc zawsze nieco
+                        'rozmyte'. Dla
+                        pierwszego przykładu (własność monarsza) 17 z 20 wyników pasuje do intencji zapytania, 2 wyniki
+                        dotyczą
+                        miejscowości szlacheckich a 1 samego pojęcia 'własność monarsza'. Pytanie to jest dość
+                        precyzyjnym
+                        filtrem i zapewne lepiej w takiej sytuacji sprawdziło by się zapytanie SPARQL.<br /><br />
+
+                        W przypadku WikiHum na efekty działania wpływa też niewielka ilość tekstu w bazie wiedzy.<br />
+                        <br />
+                        Zwracanych wyników nie należy też rozumieć jako 'pasujących' - system zwraca wszystkie elementy
+                        powyżej
+                        pewnego progu trafności, w kolejności od najbardziej trafnych do najmniej trafnych. Może się
+                        zdarzyć, że
+                        pierwszych 30 wyników ma faktycznie związek z zapytaniem a następne już nie, natomiast są
+                        wyświetlane
+                        wszystkie tak by użytkownik mógł zdecydować o ich przydatności.
+                    </p>
+
+                    <p>Mechanizm wyszukiwania może oznaczać słowa, fragmenty słów, które związane są z zapytaniem,
+                        odpowiada za
+                        to komponent pełnotekstowy wyszukiwarki więc tak zazanaczone są słowa występujące wprost w
+                        treści
+                        zapytania. Po kliknięciu w konkretny wynik (etykieta elementu jest linkiem) wyświetlane jest
+                        okienko ze
+                        szczegółami gdzie można zobaczyć pełniejsze dane elementu, jest tam też link do elementu w
+                        WikiHum.</p>
+
+                    <p>Aplikacja wyświetla domyślnie 20 pierwszych wyników (posortowanych wg rankingu
+                        trafności/podobieństwa), u
+                        dołu ekranu znajduje się przycisk którym można załadować kolejną część wyników (o ile takie
+                        istnieją).
+                    </p>
+
+                </div>
+            </article>
+        </div>
+    </main>
+
+</div>
+
+
+<footer class="bg-white border-t border-gray-200 mt-auto">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-gray-500">
+        <a href="/pl/" class="hover:text-amber-700 transition">
+            Powrót na główną stronę serwera.
+        </a>
+        <br>
+        &copy; 2026
+        Pracownia Historii Cyfrowej IH PAN
+    </div>
+</footer>
+
+
+</body>
+</html>

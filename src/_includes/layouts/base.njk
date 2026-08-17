@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}"{% if htmlClass %} class="{{ htmlClass }}"{% endif %}>
+<head>
+{% set seoData = seo.pages[page.url] %}
+{% set metaDescription = description or seoData.description %}
+{% set canonicalUrl = site.url ~ page.url %}
+{% set socialImagePath = socialImage or seoData.image or site.defaultImage %}
+{% set socialImageUrl = site.url ~ socialImagePath %}
+{% set socialType = seoData.type or "WebPage" %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ metaDescription }}">
+    <meta name="robots" content="{{ robots or 'index, follow' }}">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="canonical" href="{{ canonicalUrl }}">
+
+    <meta property="og:type" content="{% if socialType == 'Article' %}article{% else %}website{% endif %}">
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ metaDescription }}">
+    <meta property="og:url" content="{{ canonicalUrl }}">
+    <meta property="og:locale" content="{% if lang == 'en' %}en_US{% else %}pl_PL{% endif %}">
+{% if alternateUrl %}    <meta property="og:locale:alternate" content="{% if alternateLang == 'en' %}en_US{% else %}pl_PL{% endif %}">{% endif %}
+    <meta property="og:image" content="{{ socialImageUrl }}">
+    <meta property="og:image:alt" content="{{ socialImageAlt or title }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ metaDescription }}">
+    <meta name="twitter:image" content="{{ socialImageUrl }}">
+    <meta name="twitter:image:alt" content="{{ socialImageAlt or title }}">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+    <script src="/assets/js/site.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@{{ fontWeights or '300;400;600;700' }}&display=swap" rel="stylesheet">
+    <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ page.url }}">
+{% if alternateUrl %}    <link rel="alternate" hreflang="{{ alternateLang }}" href="{{ site.url }}{{ alternateUrl }}">{% endif %}
+{% if xDefaultUrl %}    <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ xDefaultUrl }}">{% endif %}
+{% if githubButtons %}    <script async defer src="https://buttons.github.io/buttons.js"></script>{% endif %}
+{% if markdownStyles %}    <link rel="stylesheet" href="/assets/css/github-markdown.css">{% endif %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": {{ (site.url ~ "/#organization") | dump | safe }},
+                "name": {{ site.organization | dump | safe }},
+                "url": {{ site.organizationUrl | dump | safe }}
+            },
+            {
+                "@type": "WebSite",
+                "@id": {{ (site.url ~ "/#website") | dump | safe }},
+                "name": {{ site.name | dump | safe }},
+                "url": {{ site.url | dump | safe }},
+                "publisher": { "@id": {{ (site.url ~ "/#organization") | dump | safe }} }
+            },
+            {
+                "@type": {{ socialType | dump | safe }},
+                "@id": {{ (canonicalUrl ~ "#webpage") | dump | safe }},
+                {% if socialType == "Article" %}"headline"{% else %}"name"{% endif %}: {{ title | dump | safe }},
+                "description": {{ metaDescription | dump | safe }},
+                "url": {{ canonicalUrl | dump | safe }},
+                "inLanguage": {{ lang | dump | safe }},
+                "image": {{ socialImageUrl | dump | safe }},
+                "isPartOf": { "@id": {{ (site.url ~ "/#website") | dump | safe }} },
+                "publisher": { "@id": {{ (site.url ~ "/#organization") | dump | safe }} }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="{{ bodyClass }}">
+<a href="#main-content" class="skip-link">
+    {% if lang == "en" %}Skip to main content{% else %}Przejdź do treści głównej{% endif %}
+</a>
+{% if showNav %}{% include "components/top-nav.njk" %}{% endif %}
+
+<div id="main-content" tabindex="-1">
+{{ content | safe }}
+</div>
+
+{% include "components/footer.njk" %}
+</body>
+</html>
