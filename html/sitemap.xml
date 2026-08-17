@@ -10,49 +10,21 @@
     </url>
 
     <url>
-        <loc>https://ai.ihpan.edu.pl/pl/</loc>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://ai.ihpan.edu.pl/pl/" />
+        <loc>https://ai.ihpan.edu.pl/en/blog/2026-03/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/blog/2026-03/" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/blog/2026-03/" />
     </url>
 
     <url>
-        <loc>https://ai.ihpan.edu.pl/pl/prezentacje/ai-w-badaniach-historycznych/</loc>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/prezentacje/ai-w-badaniach-historycznych/" />
+        <loc>https://ai.ihpan.edu.pl/en/blog/2026-04/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/blog/2026-04/" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/blog/2026-04/" />
     </url>
 
     <url>
-        <loc>https://ai.ihpan.edu.pl/pl/narzedzia/ocr-latin-check/</loc>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/ocr-latin-check/" />
-    </url>
-
-    <url>
-        <loc>https://ai.ihpan.edu.pl/pl/instrukcje/escriptorium/</loc>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/instrukcje/escriptorium/" />
-    </url>
-
-    <url>
-        <loc>https://ai.ihpan.edu.pl/pl/narzedzia/asystent-regulaminow/</loc>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/asystent-regulaminow/" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/tools/regulations-assistant/" />
-    </url>
-
-    <url>
-        <loc>https://ai.ihpan.edu.pl/pl/narzedzia/scans-and-transcriptions/</loc>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/scans-and-transcriptions/" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/tools/scans-and-transcriptions/" />
-    </url>
-
-    <url>
-        <loc>https://ai.ihpan.edu.pl/pl/narzedzia/text2ner/</loc>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/text2ner/" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/tools/text2ner/" />
-    </url>
-
-    <url>
-        <loc>https://ai.ihpan.edu.pl/pl/narzedzia/wikihumsearch/</loc>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/wikihumsearch/" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/tools/wikihumsearch/" />
+        <loc>https://ai.ihpan.edu.pl/en/blog/2026-05/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/blog/2026-05/" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/blog/2026-05/" />
     </url>
 
     <url>
@@ -74,37 +46,22 @@
     </url>
 
     <url>
+        <loc>https://ai.ihpan.edu.pl/en/tools/text2ner/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/tools/text2ner/" />
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/text2ner/" />
+    </url>
+
+    <url>
         <loc>https://ai.ihpan.edu.pl/en/tools/wikihumsearch/</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/tools/wikihumsearch/" />
         <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/wikihumsearch/" />
     </url>
 
     <url>
-        <loc>https://ai.ihpan.edu.pl/pl/instrukcje/openwebui/</loc>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/instrukcje/openwebui/" />
-    </url>
-
-    <url>
-        <loc>https://ai.ihpan.edu.pl/pl/narzedzia/manuscript-lab/</loc>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/manuscript-lab/" />
-    </url>
-
-    <url>
-        <loc>https://ai.ihpan.edu.pl/en/blog/2026-03/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/blog/2026-03/" />
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/blog/2026-03/" />
-    </url>
-
-    <url>
-        <loc>https://ai.ihpan.edu.pl/en/blog/2026-04/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/blog/2026-04/" />
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/blog/2026-04/" />
-    </url>
-
-    <url>
-        <loc>https://ai.ihpan.edu.pl/en/tools/text2ner/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/tools/text2ner/" />
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/text2ner/" />
+        <loc>https://ai.ihpan.edu.pl/pl/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://ai.ihpan.edu.pl/pl/" />
     </url>
 
     <url>
@@ -126,13 +83,35 @@
     </url>
 
     <url>
-        <loc>https://ai.ihpan.edu.pl/pl/prezentacje/dane-i-jezyk/</loc>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/prezentacje/dane-i-jezyk/" />
+        <loc>https://ai.ihpan.edu.pl/pl/instrukcje/escriptorium/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/instrukcje/escriptorium/" />
     </url>
 
     <url>
-        <loc>https://ai.ihpan.edu.pl/pl/prezentacje/leiden/</loc>
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/prezentacje/leiden/" />
+        <loc>https://ai.ihpan.edu.pl/pl/instrukcje/openwebui/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/instrukcje/openwebui/" />
+    </url>
+
+    <url>
+        <loc>https://ai.ihpan.edu.pl/pl/narzedzia/asystent-regulaminow/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/asystent-regulaminow/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/tools/regulations-assistant/" />
+    </url>
+
+    <url>
+        <loc>https://ai.ihpan.edu.pl/pl/narzedzia/manuscript-lab/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/manuscript-lab/" />
+    </url>
+
+    <url>
+        <loc>https://ai.ihpan.edu.pl/pl/narzedzia/ocr-latin-check/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/ocr-latin-check/" />
+    </url>
+
+    <url>
+        <loc>https://ai.ihpan.edu.pl/pl/narzedzia/scans-and-transcriptions/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/scans-and-transcriptions/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/tools/scans-and-transcriptions/" />
     </url>
 
     <url>
@@ -142,9 +121,30 @@
     </url>
 
     <url>
-        <loc>https://ai.ihpan.edu.pl/en/blog/2026-05/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/blog/2026-05/" />
-        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/blog/2026-05/" />
+        <loc>https://ai.ihpan.edu.pl/pl/narzedzia/text2ner/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/text2ner/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/tools/text2ner/" />
+    </url>
+
+    <url>
+        <loc>https://ai.ihpan.edu.pl/pl/narzedzia/wikihumsearch/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/narzedzia/wikihumsearch/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://ai.ihpan.edu.pl/en/tools/wikihumsearch/" />
+    </url>
+
+    <url>
+        <loc>https://ai.ihpan.edu.pl/pl/prezentacje/ai-w-badaniach-historycznych/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/prezentacje/ai-w-badaniach-historycznych/" />
+    </url>
+
+    <url>
+        <loc>https://ai.ihpan.edu.pl/pl/prezentacje/dane-i-jezyk/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/prezentacje/dane-i-jezyk/" />
+    </url>
+
+    <url>
+        <loc>https://ai.ihpan.edu.pl/pl/prezentacje/leiden/</loc>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://ai.ihpan.edu.pl/pl/prezentacje/leiden/" />
     </url>
 
 </urlset>
